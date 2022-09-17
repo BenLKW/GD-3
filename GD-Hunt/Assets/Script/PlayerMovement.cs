@@ -4,15 +4,33 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed;
+    [Header("Animation")]
+    Animator animator;
+    float velocity=0;
+    public float acceleration = 0.1f;
+    int VelocityHash;
 
+    [Header("Movement")]
+    private float moveSpeed;
+    public float walkSpeed;
+    public float runSpreed;
+    public float air;
     public float groundDrag;
 
+    [Header("Ground Check")]
     public float playerHeight;
     public LayerMask whatIsGround;
     bool grounded;
 
+    [Header("Slope check")]
+    public float maxSlopeAngle;
+    RaycastHit slopeHit;
+
     public Transform orientation;
+
+    [Header("Key")]
+    public KeyCode RunKey = KeyCode.LeftShift;
+    
 
     float horizontalinput;
     float verticalInput;
@@ -20,9 +38,18 @@ public class PlayerMovement : MonoBehaviour
     Vector3 moveDirection;
     Rigidbody rb;
 
+    public MovementState state;
+    public enum MovementState
+    {
+        walking,
+        running,
+        air
+    }
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
+        VelocityHash = Animator.StringToHash("Velocity");
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
     }
@@ -34,6 +61,9 @@ public class PlayerMovement : MonoBehaviour
 
         Playerinput();
         SpeedControl();
+        stateHandler();
+        
+
         if (grounded)
         {
             rb.drag = groundDrag;
@@ -58,7 +88,21 @@ public class PlayerMovement : MonoBehaviour
     void MovePlayer()
     {
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalinput;
-        rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+
+        if (Onslope())
+        {
+            rb.AddForce(GetSlopMoveDirection() * moveSpeed * 5f, ForceMode.Force);
+        }
+        else if (grounded)
+        {
+            rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+        }
+        else if (!grounded)
+        {
+            rb.AddForce(moveDirection.normalized * moveSpeed * 1f * air, ForceMode.Force);
+        }
+
+        rb.useGravity = !Onslope();
     }
 
     void SpeedControl()
@@ -70,5 +114,50 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
         }
         
+    }
+
+    private void stateHandler()
+    {
+        if (grounded && Input.GetKey(RunKey))
+        {
+            state = MovementState.running;
+            moveSpeed = runSpreed;
+        }
+        else if (grounded)
+        {
+            state = MovementState.walking;
+            moveSpeed = walkSpeed;
+        }
+        else
+        {
+            state = MovementState.air;
+        }
+    }
+
+    private bool Onslope()
+    {
+        if (Physics.Raycast(transform.position, Vector3.down,out slopeHit, playerHeight * 0.5f + 0.3f))
+        {
+            float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
+            return angle < maxSlopeAngle && angle != 0;
+        }
+
+        return false;
+    }
+
+    private Vector3 GetSlopMoveDirection()
+    {
+        return Vector3.ProjectOnPlane(moveDirection, slopeHit.normal).normalized;
+    }
+
+    void animation()
+    {
+        if(Input.GetKey(RunKey) && Input.GetKey("Horizontal"))
+        {
+            if (velocity > 0.6f && velocity < 1f)
+            {
+                velocity += Time.deltaTime * acceleration;
+            }
+        }
     }
 }
