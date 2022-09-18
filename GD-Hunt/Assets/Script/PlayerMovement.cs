@@ -5,10 +5,12 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Animation")]
-    Animator animator;
+    
+    public Animator animator;
     float velocity=0;
-    public float acceleration = 0.1f;
+    public float acceleration = 0.2f;
     int VelocityHash;
+    
 
     [Header("Movement")]
     private float moveSpeed;
@@ -48,7 +50,8 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
+
+        animator = GameObject.Find("ybot").GetComponent<Animator>();
         VelocityHash = Animator.StringToHash("Velocity");
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
@@ -62,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
         Playerinput();
         SpeedControl();
         stateHandler();
+        
         
 
         if (grounded)
@@ -77,6 +81,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
+        AnimationState();
     }
     void Playerinput()
     {
@@ -122,6 +127,7 @@ public class PlayerMovement : MonoBehaviour
         {
             state = MovementState.running;
             moveSpeed = runSpreed;
+            
         }
         else if (grounded)
         {
@@ -150,14 +156,36 @@ public class PlayerMovement : MonoBehaviour
         return Vector3.ProjectOnPlane(moveDirection, slopeHit.normal).normalized;
     }
 
-    void animation()
+    public void AnimationState()
     {
-        if(Input.GetKey(RunKey) && Input.GetKey("Horizontal"))
+        if (state == MovementState.running)
         {
-            if (velocity > 0.6f && velocity < 1f)
+            if (velocity < 1f)
             {
-                velocity += Time.deltaTime * acceleration;
+                velocity += Time.deltaTime * acceleration*5;
             }
         }
+        else if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
+        {
+            if (velocity > 0.3f)
+            {
+                velocity -= Time.deltaTime * acceleration*4;
+            }
+            if (velocity < 0.3f)
+            {
+                velocity += Time.deltaTime * acceleration*7;
+            }
+        }
+        else if (velocity > 0.0f)
+        {
+            velocity -= Time.deltaTime * acceleration*5;
+        }
+
+        if (velocity < 0.0f)
+        {
+            velocity = 0;
+        }
+
+        animator.SetFloat(VelocityHash, velocity);
     }
 }
