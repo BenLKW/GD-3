@@ -158,9 +158,13 @@ public class PlayerMovement : MonoBehaviour
 
     public void AnimationState()
     {
-        if (state == MovementState.running)
+        if (state == MovementState.running && Input.GetButton("Horizontal") || Input.GetButton("Vertical") && state == MovementState.running)
         {
-            if (velocity < 1f)
+            if (velocity < 0.3f)
+            {
+                velocity += Time.deltaTime * acceleration * 20;
+            }
+            else if (velocity < 1f)
             {
                 velocity += Time.deltaTime * acceleration*5;
             }
@@ -169,16 +173,16 @@ public class PlayerMovement : MonoBehaviour
         {
             if (velocity > 0.3f)
             {
-                velocity -= Time.deltaTime * acceleration*4;
+                velocity -= Time.deltaTime * acceleration*5;
             }
             if (velocity < 0.3f)
             {
-                velocity += Time.deltaTime * acceleration*7;
+                velocity += Time.deltaTime * acceleration*10;
             }
         }
         else if (velocity > 0.0f)
         {
-            velocity -= Time.deltaTime * acceleration*5;
+            velocity -= Time.deltaTime * acceleration*10;
         }
 
         if (velocity < 0.0f)
