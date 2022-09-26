@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 698912686583936676}
   - component: {fileID: 698912686583936677}
   - component: {fileID: 698912686583936678}
-  - component: {fileID: 698912686583936673}
   - component: {fileID: 698912686583936674}
   - component: {fileID: 698912686583936672}
+  - component: {fileID: 5433195410177767356}
   m_Layer: 0
-  m_Name: Em
+  m_Name: Animal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,21 +100,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &698912686583936673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 698912686583936679}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 585ebced7c9a73d40b88cf03522d867e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 698912686583936674}
-  player: {fileID: 0}
-  lookRadius: 10
 --- !u!195 &698912686583936674
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -150,3 +135,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5433195410177767356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698912686583936679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de09097216edd634b99a3e0076108de1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  player: {fileID: 0}
+  lookRadius: 10
