@@ -16,8 +16,17 @@ public class PlayerMovement : MonoBehaviour
     private float moveSpeed;
     public float walkSpeed;
     public float runSpreed;
+    public float dashSpeed;
     public float air;
     public float groundDrag;
+    public float jumpForce;
+    public float jumpcooldown;
+    bool readyToJump = true;
+    bool dashing;
+    public float dashForce;
+    public float dashDuraction;
+    public float dashCd;
+    private float dashCdTimer;
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -32,6 +41,8 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Key")]
     public KeyCode RunKey = KeyCode.LeftShift;
+    public KeyCode JumpKey = KeyCode.Space;
+    public KeyCode DashKey = KeyCode.E;
     
 
     float horizontalinput;
@@ -45,13 +56,14 @@ public class PlayerMovement : MonoBehaviour
     {
         walking,
         running,
+        dashing,
         air
     }
     // Start is called before the first frame update
     void Start()
     {
 
-        animator = GameObject.Find("ybot").GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         VelocityHash = Animator.StringToHash("Velocity");
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
@@ -76,6 +88,11 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.drag = 0;
         }
+
+        if (dashCdTimer > 0)
+        {
+            dashCdTimer -= Time.deltaTime;
+        }
     }
 
     private void FixedUpdate()
@@ -87,6 +104,20 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontalinput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
+
+        if (Input.GetKeyDown(JumpKey) && readyToJump && grounded)
+        {
+            
+            readyToJump = false;
+            
+            Jump();
+            Invoke(nameof(ResetJump), jumpcooldown);
+        }
+
+        if (Input.GetKeyDown(DashKey) && grounded)
+        {
+            Dash();
+        }
     }
 
 
@@ -110,6 +141,19 @@ public class PlayerMovement : MonoBehaviour
         rb.useGravity = !Onslope();
     }
 
+    void Jump()
+    {
+        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+    }
+
+    void ResetJump()
+    {
+        
+        readyToJump = true;
+    }
+
+
     void SpeedControl()
     {
         Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
@@ -123,7 +167,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void stateHandler()
     {
-        if (grounded && Input.GetKey(RunKey))
+        if(dashing && grounded)
+        {
+            state = MovementState.dashing;
+            moveSpeed = dashSpeed;
+        }
+        else if (grounded && Input.GetKey(RunKey))
         {
             state = MovementState.running;
             moveSpeed = runSpreed;
@@ -190,6 +239,39 @@ public class PlayerMovement : MonoBehaviour
             velocity = 0;
         }
 
+        if(state == MovementState.air)
+        {
+            animator.SetBool("OnAir", true);
+        }
+        else
+        {
+            animator.SetBool("OnAir", false);
+        }
+
         animator.SetFloat(VelocityHash, velocity);
+    }
+
+    void Dash()
+    {
+        if (dashCdTimer > 0) return;
+        else dashCdTimer = dashCd;
+
+        dashing = true;
+        animator.SetBool("IsDashing", true);
+        Vector3 forceApply = orientation.forward * dashForce;
+        delayedForceToApply = forceApply;
+        Invoke(nameof(DelayedDashForce), 0.025f);
+
+        Invoke(nameof(ResetDash), dashDuraction);
+    }
+    private Vector3 delayedForceToApply;
+    void DelayedDashForce()
+    {
+        rb.AddForce(delayedForceToApply, ForceMode.Impulse);
+    }
+    void ResetDash()
+    {
+        dashing = false;
+        animator.SetBool("IsDashing", false);
     }
 }
