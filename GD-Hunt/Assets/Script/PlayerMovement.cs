@@ -258,7 +258,7 @@ public class PlayerMovement : MonoBehaviour
 
         dashing = true;
         animator.SetBool("IsDashing", true);
-        Vector3 forceApply = moveDirection.normalized * dashForce;
+        Vector3 forceApply = orientation.forward * dashForce;
         delayedForceToApply = forceApply;
         Invoke(nameof(DelayedDashForce), 0.025f);
 
