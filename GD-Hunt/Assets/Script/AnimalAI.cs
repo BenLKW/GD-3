@@ -23,7 +23,7 @@ public class AnimalAI : MonoBehaviour
         float distance = Vector3.Distance(player.position, transform.position);
 
         Debug.Log("Animal Distance:" + distance);
-        if (distance <  lookRadius)
+        if (distance < lookRadius)
         {
             Vector3 dirToPlayer = transform.position - player.transform.position;
 

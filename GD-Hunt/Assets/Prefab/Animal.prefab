@@ -136,8 +136,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 3383836054845019583}
   waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 3349639092065907950, guid: fba56fb5759417348b69a4cf813f8b33, type: 3}
+  - {fileID: 3579787039927867985, guid: df7eb6de1846792419155eab4a5bcfa4, type: 3}
+  - {fileID: 3644328184815655983, guid: e8841471c58f562458aea90e06c1bf50, type: 3}
+  - {fileID: 7929929300578325213, guid: ee8f92f32adcf3b459e16b572f16bd52, type: 3}
 --- !u!114 &1142043609936639217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,5 +152,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de09097216edd634b99a3e0076108de1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 6499334102165056615, guid: 169e73f12e0277843aff3f8ba27debb1, type: 3}
   lookRadius: 10
