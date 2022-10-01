@@ -22,7 +22,7 @@ public class AnimalAI : MonoBehaviour
 
         float distance = Vector3.Distance(player.position, transform.position);
 
-        Debug.Log("Distance:" + distance);
+        Debug.Log("Animal Distance:" + distance);
         if (distance <  lookRadius)
         {
             Vector3 dirToPlayer = transform.position - player.transform.position;
@@ -37,7 +37,7 @@ public class AnimalAI : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, lookRadius);
     }
     
