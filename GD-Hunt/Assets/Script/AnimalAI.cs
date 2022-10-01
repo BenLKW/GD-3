@@ -5,10 +5,10 @@ using UnityEngine.AI;
 
 public class AnimalAI : MonoBehaviour
 {
-    public NavMeshAgent animal;
+    private NavMeshAgent animal;
     public Transform player;
     public float lookRadius = 10f;
-
+    
 
     void Start()
     {
@@ -20,11 +20,16 @@ public class AnimalAI : MonoBehaviour
     {
 
 
-        float distance = Vector3.Distance(-player.position, -transform.position);
-        if (distance <= lookRadius)
-        {
-            animal.SetDestination(-player.position);
+        float distance = Vector3.Distance(player.position, transform.position);
 
+        Debug.Log("Distance:" + distance);
+        if (distance <  lookRadius)
+        {
+            Vector3 dirToPlayer = transform.position - player.transform.position;
+
+            Vector3 newPos = transform.position + dirToPlayer;
+
+            animal.SetDestination(newPos);
         }
 
 
@@ -35,5 +40,5 @@ public class AnimalAI : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, lookRadius);
     }
-
+    
 }
