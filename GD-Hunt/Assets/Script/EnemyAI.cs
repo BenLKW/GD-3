@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyFollow : MonoBehaviour
+public class EnemyAI : MonoBehaviour
 {
-    public NavMeshAgent enemy;
+    private NavMeshAgent enemy;
     public Transform player;
     public float lookRadius = 10f;
 
