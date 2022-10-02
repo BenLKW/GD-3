@@ -654,6 +654,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Animal
       objectReference: {fileID: 0}
+    - target: {fileID: 7114405409458156108, guid: 4315ddda902d932499d1c3280f4ada0a, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1331649642}
     - target: {fileID: 7529297031193486181, guid: 4315ddda902d932499d1c3280f4ada0a, type: 3}
       propertyPath: m_RootOrder
       value: 2
