@@ -5,28 +5,28 @@ using UnityEngine;
 public class RandomSpawner : MonoBehaviour
 {
     public GameObject animal;
+    public int xPos;
+    public int zPos;
+    public int enemyCount;
+   
 
-    public float timeToSpawn;
-    private float currentTimeToSpawn;
-
-
-
-    void Update()
+    void Start()
     {
-        if (currentTimeToSpawn > 0)
+        StartCoroutine (EnemySpawn());
+
+    }
+
+    IEnumerator EnemySpawn()
+    {
+        while (enemyCount<10)
         {
-            currentTimeToSpawn -= Time.deltaTime;
-        }
-        else
-        {
-            Spawn();
-            currentTimeToSpawn = timeToSpawn;
+            xPos = Random.Range(-20,20);
+            zPos = Random.Range(-20, 25);
+            Instantiate(animal, new Vector3(xPos, 0, zPos), Quaternion.identity);
+            yield return new WaitForSeconds(0.1f);
+            enemyCount += 1;
+
         }
     }
 
-    public void Spawn()
-    {
-        Vector3 randomSpawnPosition = new Vector3(Random.Range(-10, 11), 1, Random.Range(-10, 11));
-        Instantiate(animal, randomSpawnPosition, Quaternion.identity);
-    }
 }

@@ -5,13 +5,15 @@ using UnityEngine.AI;
 
 public class AnimalAI : MonoBehaviour
 {
-    private NavMeshAgent animal;
+    public NavMeshAgent animal;
     public Transform player;
     public float lookRadius = 10f;
     
+    
 
-    void Start()
+    private void Awake()
     {
+        
         animal = GetComponent<NavMeshAgent>();
     }
 
@@ -32,8 +34,13 @@ public class AnimalAI : MonoBehaviour
             animal.SetDestination(newPos);
         }
 
+        
+
 
     }
+
+    
+   
 
     private void OnDrawGizmosSelected()
     {
