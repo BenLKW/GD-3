@@ -13,8 +13,7 @@ GameObject:
   - component: {fileID: 2426218085967282697}
   - component: {fileID: 7509912417716755225}
   - component: {fileID: 3383836054845019583}
-  - component: {fileID: 4394015468892119960}
-  - component: {fileID: 1142043609936639217}
+  - component: {fileID: 7114405409458156108}
   m_Layer: 0
   m_Name: Animal
   m_TagString: Untagged
@@ -110,7 +109,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 10
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -122,25 +121,7 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &4394015468892119960
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6615114282680937038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90ca39353473c6d4fbadbe107cd51a3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 3383836054845019583}
-  waypoints:
-  - {fileID: 3349639092065907950, guid: fba56fb5759417348b69a4cf813f8b33, type: 3}
-  - {fileID: 3579787039927867985, guid: df7eb6de1846792419155eab4a5bcfa4, type: 3}
-  - {fileID: 3644328184815655983, guid: e8841471c58f562458aea90e06c1bf50, type: 3}
-  - {fileID: 7929929300578325213, guid: ee8f92f32adcf3b459e16b572f16bd52, type: 3}
---- !u!114 &1142043609936639217
+--- !u!114 &7114405409458156108
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,5 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de09097216edd634b99a3e0076108de1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 6499334102165056615, guid: 169e73f12e0277843aff3f8ba27debb1, type: 3}
+  animal: {fileID: 3383836054845019583}
+  player: {fileID: 0}
   lookRadius: 10
+  range: 0
+  centrePoint: {fileID: 0}
