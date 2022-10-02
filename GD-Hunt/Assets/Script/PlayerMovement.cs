@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     public float dashDuraction;
     public float dashCd;
     private float dashCdTimer;
+    public WeaponSystem weaponSystem;
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -43,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
     public KeyCode RunKey = KeyCode.LeftShift;
     public KeyCode JumpKey = KeyCode.Space;
     public KeyCode DashKey = KeyCode.E;
+    public KeyCode DrawWeapon = KeyCode.Mouse1;
     
 
     float horizontalinput;
@@ -52,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody rb;
 
     public MovementState state;
+    public CombatState combat;
     public enum MovementState
     {
         walking,
@@ -59,14 +62,20 @@ public class PlayerMovement : MonoBehaviour
         dashing,
         air
     }
+
+    public enum CombatState
+    {
+        WeaponInShealth, Drawweapon
+    }
     // Start is called before the first frame update
     void Start()
     {
-
+        weaponSystem = gameObject.GetComponent<WeaponSystem>();
         animator = GetComponent<Animator>();
         VelocityHash = Animator.StringToHash("Velocity");
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        
     }
 
     // Update is called once per frame
@@ -117,6 +126,20 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(DashKey) && grounded)
         {
             Dash();
+        }
+
+        if (Input.GetKeyDown(DrawWeapon))
+        {
+            if (combat == CombatState.WeaponInShealth)
+            {
+                weaponSystem.DrawWeapon();
+                combat = CombatState.Drawweapon;
+            }
+            else if (combat == CombatState.Drawweapon)
+            {
+                weaponSystem.SheathWeapon();
+                combat = CombatState.WeaponInShealth;
+            }
         }
     }
 
@@ -246,6 +269,15 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             animator.SetBool("OnAir", false);
+        }
+
+        if(combat == CombatState.Drawweapon)
+        {
+            animator.SetBool("WeaponDraw", true);
+        }
+        else if (combat == CombatState.WeaponInShealth)
+        {
+            animator.SetBool("WeaponDraw", false);
         }
 
         animator.SetFloat(VelocityHash, velocity);
