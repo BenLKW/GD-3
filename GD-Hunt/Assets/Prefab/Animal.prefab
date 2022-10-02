@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 7509912417716755225}
   - component: {fileID: 3383836054845019583}
   - component: {fileID: 7114405409458156108}
-  - component: {fileID: 2518882282071559007}
   m_Layer: 0
   m_Name: Animal
   m_TagString: Untagged
@@ -137,21 +136,5 @@ MonoBehaviour:
   animal: {fileID: 3383836054845019583}
   player: {fileID: 0}
   lookRadius: 10
---- !u!114 &2518882282071559007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6615114282680937038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90ca39353473c6d4fbadbe107cd51a3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 3383836054845019583}
-  waypoints:
-  - {fileID: 8907585284870745873, guid: c3332ed19d839ed46bf7048b643d93bd, type: 3}
-  - {fileID: 8094162762315092992, guid: 7b939d189fe9f1a46a5a02e67d019417, type: 3}
-  - {fileID: 3633791301044761451, guid: 2ebb91e59030c8241b99604ed53e2666, type: 3}
-  - {fileID: 8999816224306650147, guid: 174686c37670a8a4a84197734f44467f, type: 3}
+  range: 0
+  centrePoint: {fileID: 0}
