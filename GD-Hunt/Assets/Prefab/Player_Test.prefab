@@ -323,7 +323,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9324138, y: 1}
+    m_SensorSize: {x: 1.5278081, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -651,7 +651,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9324138, y: 1}
+    m_SensorSize: {x: 1.5278081, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1543,7 +1543,7 @@ Animator:
   m_GameObject: {fileID: 3371630963674970061}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 98084076b68f6bc4cae7aad2d2f199a5, type: 3}
-  m_Controller: {fileID: 9100000, guid: f906887f369a9b748892929bdb0c54d1, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2e2cbbe0db6ee28488a5b7eae7c3279b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1800,7 +1800,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9324138, y: 1}
+    m_SensorSize: {x: 1.5278081, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2713,7 +2713,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9324138, y: 1}
+    m_SensorSize: {x: 1.5278081, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
