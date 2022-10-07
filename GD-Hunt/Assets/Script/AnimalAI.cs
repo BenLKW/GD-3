@@ -10,13 +10,11 @@ public class AnimalAI : MonoBehaviour
     public float lookRadius = 10f;
     public float range;
     public Transform centrePoint;
-    public float speed;
 
-    private void Start()
+    private void Awake()
     {
         
         animal = GetComponent<NavMeshAgent>();
-        animal.speed = 3.5f;
     }
 
 
@@ -24,7 +22,7 @@ public class AnimalAI : MonoBehaviour
     {
 
         RunAwayFromPlayer();
-        
+
 
         if (animal.remainingDistance <= animal.stoppingDistance) 
         {
@@ -35,7 +33,7 @@ public class AnimalAI : MonoBehaviour
                 animal.SetDestination(point);
             }
         }
-        
+
 
 
 
@@ -69,17 +67,15 @@ public class AnimalAI : MonoBehaviour
     {
         float distance = Vector3.Distance(player.position, transform.position);
 
-        
+        Debug.Log("Animal Distance:" + distance);
         if (distance < lookRadius)
         {
-            animal.speed = 5;
             Vector3 dirToPlayer = transform.position - player.transform.position;
 
             Vector3 newPos = transform.position + dirToPlayer;
 
             animal.SetDestination(newPos);
         }
-        
     }
 
 
