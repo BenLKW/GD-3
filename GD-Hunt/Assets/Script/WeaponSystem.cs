@@ -24,6 +24,7 @@ public class WeaponSystem : MonoBehaviour
         
     }
 
+
     public void DrawWeapon()
     {
         currentWeaponInHand = Instantiate(weapon, weaponHolder.transform);

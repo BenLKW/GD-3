@@ -132,12 +132,12 @@ public class PlayerMovement : MonoBehaviour
         {
             if (combat == CombatState.WeaponInShealth)
             {
-                weaponSystem.DrawWeapon();
+                
                 combat = CombatState.Drawweapon;
             }
             else if (combat == CombatState.Drawweapon)
             {
-                weaponSystem.SheathWeapon();
+                
                 combat = CombatState.WeaponInShealth;
             }
         }
