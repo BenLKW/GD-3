@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public float walkSpeed;
     public float runSpreed;
     public float dashSpeed;
+    public float AttackingSpeed;
     public float air;
     public float groundDrag;
     public float jumpForce;
@@ -44,7 +45,8 @@ public class PlayerMovement : MonoBehaviour
     public KeyCode RunKey = KeyCode.LeftShift;
     public KeyCode JumpKey = KeyCode.Space;
     public KeyCode DashKey = KeyCode.E;
-    public KeyCode DrawWeapon = KeyCode.Mouse1;
+    public KeyCode DrawWeaponKey = KeyCode.Mouse1;
+    public KeyCode AttackKey = KeyCode.Mouse0;
     
 
     float horizontalinput;
@@ -55,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
 
     public MovementState state;
     public CombatState combat;
+    public ActionState Action;
     public enum MovementState
     {
         walking,
@@ -63,6 +66,11 @@ public class PlayerMovement : MonoBehaviour
         air
     }
 
+    public enum ActionState
+    {
+        Move,
+        Attack
+    }
     public enum CombatState
     {
         WeaponInShealth, Drawweapon
@@ -128,7 +136,7 @@ public class PlayerMovement : MonoBehaviour
             Dash();
         }
 
-        if (Input.GetKeyDown(DrawWeapon))
+        if (Input.GetKeyDown(DrawWeaponKey))
         {
             if (combat == CombatState.WeaponInShealth)
             {
@@ -141,6 +149,8 @@ public class PlayerMovement : MonoBehaviour
                 combat = CombatState.WeaponInShealth;
             }
         }
+
+        
     }
 
 
@@ -190,26 +200,34 @@ public class PlayerMovement : MonoBehaviour
 
     private void stateHandler()
     {
-        if(dashing && grounded)
+        if (Action == ActionState.Move)
         {
-            state = MovementState.dashing;
-            moveSpeed = dashSpeed;
-        }
-        else if (grounded && Input.GetKey(RunKey))
-        {
-            state = MovementState.running;
-            moveSpeed = runSpreed;
+            if (dashing && grounded)
+            {
+                state = MovementState.dashing;
+                moveSpeed = dashSpeed;
+            }
+            else if (grounded && Input.GetKey(RunKey))
+            {
+                state = MovementState.running;
+                moveSpeed = runSpreed;
+
+            }
+            else if (grounded)
+            {
+                state = MovementState.walking;
+                moveSpeed = walkSpeed;
+            }
+            else
+            {
+                state = MovementState.air;
+            }
+
             
         }
-        else if (grounded)
-        {
-            state = MovementState.walking;
-            moveSpeed = walkSpeed;
-        }
-        else
-        {
-            state = MovementState.air;
-        }
+        
+        
+        
     }
 
     private bool Onslope()
@@ -279,6 +297,8 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("WeaponDraw", false);
         }
+
+       
 
         animator.SetFloat(VelocityHash, velocity);
     }
