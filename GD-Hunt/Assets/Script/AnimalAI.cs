@@ -29,7 +29,7 @@ public class AnimalAI : MonoBehaviour
             Vector3 point;
             if (RandomPoint(centrePoint.position, range, out point)) 
             {
-                Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f); 
+                //Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f); 
                 animal.SetDestination(point);
             }
         }
@@ -67,7 +67,7 @@ public class AnimalAI : MonoBehaviour
     {
         float distance = Vector3.Distance(player.position, transform.position);
 
-        Debug.Log("Animal Distance:" + distance);
+        //Debug.Log("Animal Distance:" + distance);
         if (distance < lookRadius)
         {
             Vector3 dirToPlayer = transform.position - player.transform.position;

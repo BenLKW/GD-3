@@ -2286,9 +2286,17 @@ PrefabInstance:
       value: Em
       objectReference: {fileID: 0}
     - target: {fileID: 476453231895687793, guid: 659285849bc3cff4c8e70a4231e078d8, type: 3}
+      propertyPath: range
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 476453231895687793, guid: 659285849bc3cff4c8e70a4231e078d8, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1949183065}
+    - target: {fileID: 476453231895687793, guid: 659285849bc3cff4c8e70a4231e078d8, type: 3}
+      propertyPath: centrePoint
+      value: 
+      objectReference: {fileID: 28782636}
     - target: {fileID: 4684431806623791006, guid: 659285849bc3cff4c8e70a4231e078d8, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2333,26 +2341,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7168913939663455108, guid: 659285849bc3cff4c8e70a4231e078d8, type: 3}
-      propertyPath: waypoints.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7168913939663455108, guid: 659285849bc3cff4c8e70a4231e078d8, type: 3}
-      propertyPath: waypoints.Array.data[0]
-      value: 
-      objectReference: {fileID: 1855218465}
-    - target: {fileID: 7168913939663455108, guid: 659285849bc3cff4c8e70a4231e078d8, type: 3}
-      propertyPath: waypoints.Array.data[1]
-      value: 
-      objectReference: {fileID: 528991747}
-    - target: {fileID: 7168913939663455108, guid: 659285849bc3cff4c8e70a4231e078d8, type: 3}
-      propertyPath: waypoints.Array.data[2]
-      value: 
-      objectReference: {fileID: 1017550123}
-    - target: {fileID: 7168913939663455108, guid: 659285849bc3cff4c8e70a4231e078d8, type: 3}
-      propertyPath: waypoints.Array.data[3]
-      value: 
-      objectReference: {fileID: 1845418106}
     - target: {fileID: 8174728222226527651, guid: 659285849bc3cff4c8e70a4231e078d8, type: 3}
       propertyPath: m_StoppingDistance
       value: 2.5
