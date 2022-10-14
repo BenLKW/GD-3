@@ -100,6 +100,7 @@ MonoBehaviour:
   walkSpeed: 3
   runSpreed: 7
   dashSpeed: 20
+  AttackingSpeed: 0
   air: 0.4
   groundDrag: 5
   jumpForce: 12
@@ -107,6 +108,7 @@ MonoBehaviour:
   dashForce: 20
   dashDuraction: 0.25
   dashCd: 1.5
+  weaponSystem: {fileID: 0}
   playerHeight: 2
   whatIsGround:
     serializedVersion: 2
@@ -116,7 +118,11 @@ MonoBehaviour:
   RunKey: 304
   JumpKey: 32
   DashKey: 101
+  DrawWeaponKey: 324
+  AttackKey: 323
   state: 0
+  combat: 0
+  Action: 0
 --- !u!95 &1299583670474846240
 Animator:
   serializedVersion: 4
@@ -1072,8 +1078,7 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.074983664
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5866666021909216657, guid: 98084076b68f6bc4cae7aad2d2f199a5, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98084076b68f6bc4cae7aad2d2f199a5, type: 3}
 --- !u!4 &35684981130524294 stripped
 Transform:

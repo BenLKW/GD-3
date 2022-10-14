@@ -1513,13 +1513,14 @@ MonoBehaviour:
   walkSpeed: 3
   runSpreed: 7
   dashSpeed: 20
+  AttackingSpeed: 1
   air: 0.4
   groundDrag: 5
   jumpForce: 12
   jumpcooldown: 2
   dashForce: 20
   dashDuraction: 0.25
-  dashCd: 1.5
+  dashCd: 1
   weaponSystem: {fileID: 3118932747568349399}
   playerHeight: 2
   whatIsGround:
@@ -1530,9 +1531,11 @@ MonoBehaviour:
   RunKey: 304
   JumpKey: 32
   DashKey: 101
-  DrawWeapon: 324
+  DrawWeaponKey: 324
+  AttackKey: 323
   state: 0
   combat: 0
+  Action: 0
 --- !u!95 &6755515411505965027
 Animator:
   serializedVersion: 4

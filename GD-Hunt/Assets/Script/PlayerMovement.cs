@@ -5,12 +5,12 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Animation")]
-    
+
     public Animator animator;
-    float velocity=0;
+    float velocity = 0;
     public float acceleration = 0.2f;
     int VelocityHash;
-    
+
 
     [Header("Movement")]
     private float moveSpeed;
@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     public float dashDuraction;
     public float dashCd;
     private float dashCdTimer;
+    public int CountAttack;
     public WeaponSystem weaponSystem;
 
     [Header("Ground Check")]
@@ -47,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
     public KeyCode DashKey = KeyCode.E;
     public KeyCode DrawWeaponKey = KeyCode.Mouse1;
     public KeyCode AttackKey = KeyCode.Mouse0;
-    
+
 
     float horizontalinput;
     float verticalInput;
@@ -83,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
         VelocityHash = Animator.StringToHash("Velocity");
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-        
+
     }
 
     // Update is called once per frame
@@ -94,8 +95,8 @@ public class PlayerMovement : MonoBehaviour
         Playerinput();
         SpeedControl();
         stateHandler();
-        
-        
+
+
 
         if (grounded)
         {
@@ -124,14 +125,14 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(JumpKey) && readyToJump && grounded)
         {
-            
+
             readyToJump = false;
-            
+
             Jump();
             Invoke(nameof(ResetJump), jumpcooldown);
         }
 
-        if (Input.GetKeyDown(DashKey) && grounded)
+        if (Input.GetKeyDown(DashKey) && grounded && Input.GetButton("Horizontal") || Input.GetButton("Vertical") && Input.GetKeyDown(DashKey) && grounded)
         {
             Dash();
         }
@@ -140,17 +141,31 @@ public class PlayerMovement : MonoBehaviour
         {
             if (combat == CombatState.WeaponInShealth)
             {
-                
+
                 combat = CombatState.Drawweapon;
             }
             else if (combat == CombatState.Drawweapon)
             {
-                
+
                 combat = CombatState.WeaponInShealth;
             }
         }
 
-        
+        if (grounded && combat == CombatState.Drawweapon && Input.GetKeyDown(AttackKey) )
+        {
+            
+            Action = ActionState.Attack;
+            CountAttack++;
+            
+        }
+        else
+        {
+            if(CountAttack >= 16)
+            {
+                
+                CountAttack = 0;
+            }
+        }
     }
 
 
@@ -182,7 +197,7 @@ public class PlayerMovement : MonoBehaviour
 
     void ResetJump()
     {
-        
+
         readyToJump = true;
     }
 
@@ -195,13 +210,14 @@ public class PlayerMovement : MonoBehaviour
             Vector3 limitedVel = flatVel.normalized * moveSpeed;
             rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
         }
-        
+
     }
 
     private void stateHandler()
     {
         if (Action == ActionState.Move)
         {
+            
             if (dashing && grounded)
             {
                 state = MovementState.dashing;
@@ -222,17 +238,18 @@ public class PlayerMovement : MonoBehaviour
             {
                 state = MovementState.air;
             }
-
-            
         }
-        
-        
-        
+        else if (Action == ActionState.Attack)
+        {
+            moveSpeed = AttackingSpeed;
+        }
+
+
     }
 
     private bool Onslope()
     {
-        if (Physics.Raycast(transform.position, Vector3.down,out slopeHit, playerHeight * 0.5f + 0.3f))
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + 0.3f))
         {
             float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
             return angle < maxSlopeAngle && angle != 0;
@@ -256,23 +273,23 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (velocity < 1f)
             {
-                velocity += Time.deltaTime * acceleration*5;
+                velocity += Time.deltaTime * acceleration * 5;
             }
         }
         else if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
         {
             if (velocity > 0.3f)
             {
-                velocity -= Time.deltaTime * acceleration*5;
+                velocity -= Time.deltaTime * acceleration * 5;
             }
             if (velocity < 0.3f)
             {
-                velocity += Time.deltaTime * acceleration*10;
+                velocity += Time.deltaTime * acceleration * 10;
             }
         }
         else if (velocity > 0.0f)
         {
-            velocity -= Time.deltaTime * acceleration*10;
+            velocity -= Time.deltaTime * acceleration * 10;
         }
 
         if (velocity < 0.0f)
@@ -280,7 +297,7 @@ public class PlayerMovement : MonoBehaviour
             velocity = 0;
         }
 
-        if(state == MovementState.air)
+        if (state == MovementState.air)
         {
             animator.SetBool("OnAir", true);
         }
@@ -289,7 +306,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("OnAir", false);
         }
 
-        if(combat == CombatState.Drawweapon)
+        if (combat == CombatState.Drawweapon)
         {
             animator.SetBool("WeaponDraw", true);
         }
@@ -298,7 +315,48 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("WeaponDraw", false);
         }
 
+        if (CountAttack == 1)
+        {
+            animator.SetInteger("Attack", 1);
+        }
+        
+        if (animator.GetCurrentAnimatorStateInfo(2).IsName("Combo Attack Ver1"))
+        {
+            if (CountAttack > 1)
+            {
+                animator.SetInteger("Attack", 2);
+            }
+            else
+            {
+                ReturntoMove();
+                
+            }
+            
+        }
+        else if (animator.GetCurrentAnimatorStateInfo(2).IsName("Combo Attack Ver2"))
+        {
+            if (CountAttack > 2)
+            {
+                animator.SetInteger("Attack", 3);
+            }
+            else
+            {
+                ReturntoMove();
+                
+            }
+        }
+        else if(animator.GetCurrentAnimatorStateInfo(2).IsName("Combo Attack Ver3"))
+        {
+            
+            if (CountAttack >= 3)
+            {
+                ReturntoMove();
+            }
+            
+        }
+        
        
+        
 
         animator.SetFloat(VelocityHash, velocity);
     }
@@ -309,7 +367,7 @@ public class PlayerMovement : MonoBehaviour
         else dashCdTimer = dashCd;
 
         dashing = true;
-        animator.SetBool("IsDashing", true);
+        animator.SetTrigger("IsDashing");
         Vector3 forceApply = moveDirection.normalized * dashForce;
         delayedForceToApply = forceApply;
         Invoke(nameof(DelayedDashForce), 0.025f);
@@ -324,6 +382,16 @@ public class PlayerMovement : MonoBehaviour
     void ResetDash()
     {
         dashing = false;
-        animator.SetBool("IsDashing", false);
+
     }
+
+    void ReturntoMove()
+    {
+        CountAttack = 0;
+        animator.SetInteger("Attack", 0);
+        Action = ActionState.Move;
+
+    }
+
+
 }
