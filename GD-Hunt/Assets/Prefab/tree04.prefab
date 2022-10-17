@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6102671724587424735}
   - component: {fileID: 5220631290248813449}
   - component: {fileID: 7745664345233527261}
+  - component: {fileID: 5872203144235030744}
   m_Layer: 0
   m_Name: pCylinder3
   m_TagString: Untagged
@@ -83,6 +84,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &5872203144235030744
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270568008769722376}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 84.521484
+  m_Height: 418.33038
+  m_Direction: 1
+  m_Center: {x: -2.6367188, y: -142.75513, z: 2.935791}
 --- !u!1 &1756062436110732996
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,7 +356,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5697581804562474219}
-  - component: {fileID: 679653479195433984}
+  - component: {fileID: 959477112165252884}
   m_Layer: 0
   m_Name: tree04
   m_TagString: Untagged
@@ -372,20 +387,54 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &679653479195433984
-CapsuleCollider:
+--- !u!205 &959477112165252884
+LODGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4925302856570682961}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.060821533, y: 8.018252, z: 0.18103862}
+  m_Size: 16.058878
+  m_FadeMode: 2
+  m_AnimateCrossFading: 1
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.6
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 7745664345233527261}
+    - renderer: {fileID: 888651767987395579}
+    - renderer: {fileID: 3223995709860129458}
+    - renderer: {fileID: 3406257700181109995}
+    - renderer: {fileID: 1323035986203611077}
+    - renderer: {fileID: 8264213457786860923}
+    - renderer: {fileID: 5260848922572395939}
+    - renderer: {fileID: 1662730475443485928}
+  - screenRelativeHeight: 0.3
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 7745664345233527261}
+    - renderer: {fileID: 888651767987395579}
+    - renderer: {fileID: 3223995709860129458}
+    - renderer: {fileID: 3406257700181109995}
+    - renderer: {fileID: 1323035986203611077}
+    - renderer: {fileID: 8264213457786860923}
+    - renderer: {fileID: 5260848922572395939}
+    - renderer: {fileID: 1662730475443485928}
+  - screenRelativeHeight: 0.1
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 7745664345233527261}
+    - renderer: {fileID: 888651767987395579}
+    - renderer: {fileID: 3223995709860129458}
+    - renderer: {fileID: 3406257700181109995}
+    - renderer: {fileID: 1323035986203611077}
+    - renderer: {fileID: 8264213457786860923}
+    - renderer: {fileID: 5260848922572395939}
+    - renderer: {fileID: 1662730475443485928}
   m_Enabled: 1
-  m_Radius: 0.8565917
-  m_Height: 2.4760792
-  m_Direction: 1
-  m_Center: {x: -0.0017068386, y: 0.55313456, z: 0.01050806}
 --- !u!1 &5447561562131878200
 GameObject:
   m_ObjectHideFlags: 0

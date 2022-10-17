@@ -385,7 +385,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 287680220064122076}
-  - component: {fileID: 436111789499514496}
+  - component: {fileID: 8234571153381443886}
   m_Layer: 0
   m_Name: tree03
   m_TagString: Untagged
@@ -417,20 +417,45 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &436111789499514496
-CapsuleCollider:
+--- !u!205 &8234571153381443886
+LODGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3308968614912550309}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.21659422, y: 6.9744606, z: 0.25587106}
+  m_Size: 14.040829
+  m_FadeMode: 2
+  m_AnimateCrossFading: 1
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.6
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 2134004705845707878}
+    - renderer: {fileID: 8825437939231794481}
+    - renderer: {fileID: 5494676688926417799}
+    - renderer: {fileID: 2661827007961343271}
+    - renderer: {fileID: 6754280250084809339}
+  - screenRelativeHeight: 0.3
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 2134004705845707878}
+    - renderer: {fileID: 8825437939231794481}
+    - renderer: {fileID: 5494676688926417799}
+    - renderer: {fileID: 2661827007961343271}
+    - renderer: {fileID: 6754280250084809339}
+  - screenRelativeHeight: 0.09677824
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 2134004705845707878}
+    - renderer: {fileID: 8825437939231794481}
+    - renderer: {fileID: 5494676688926417799}
+    - renderer: {fileID: 2661827007961343271}
+    - renderer: {fileID: 6754280250084809339}
   m_Enabled: 1
-  m_Radius: 1.665874
-  m_Height: 4.3977985
-  m_Direction: 1
-  m_Center: {x: -0.04192972, y: 0.7347038, z: 0.12555504}
 --- !u!1 &4487780659206974619
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,6 +467,7 @@ GameObject:
   - component: {fileID: 483814386073984112}
   - component: {fileID: 7713531167954164980}
   - component: {fileID: 2134004705845707878}
+  - component: {fileID: 9063717467827039711}
   m_Layer: 0
   m_Name: pCylinder1
   m_TagString: Untagged
@@ -514,6 +540,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &9063717467827039711
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4487780659206974619}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 168.46812
+  m_Height: 979.0762
+  m_Direction: 1
+  m_Center: {x: 6.1290503, y: -180.12724, z: -10.238981}
 --- !u!1 &4601580072022255563
 GameObject:
   m_ObjectHideFlags: 0
