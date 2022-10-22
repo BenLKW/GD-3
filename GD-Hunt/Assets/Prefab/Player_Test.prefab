@@ -1513,7 +1513,7 @@ MonoBehaviour:
   walkSpeed: 3
   runSpreed: 7
   dashSpeed: 20
-  AttackingSpeed: 1.2
+  AttackingSpeed: 1.5
   air: 0.4
   groundDrag: 5
   jumpForce: 12
