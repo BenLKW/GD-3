@@ -319,7 +319,7 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetInteger("Attack", 1);
         }
-        
+
         if (animator.GetCurrentAnimatorStateInfo(2).IsName("Combo Attack Ver1"))
         {
             if (CountAttack > 1)
@@ -329,9 +329,9 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 ReturntoMove();
-                
+
             }
-            
+
         }
         else if (animator.GetCurrentAnimatorStateInfo(2).IsName("Combo Attack Ver2"))
         {
@@ -342,21 +342,9 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 ReturntoMove();
-                
+
             }
-        }
-        else if(animator.GetCurrentAnimatorStateInfo(2).IsName("Combo Attack Ver3"))
-        {
-            
-            if (CountAttack >= 3)
-            {
-                ReturntoMove();
-            }
-            
-        }
-        
-       
-        
+        }        
 
         animator.SetFloat(VelocityHash, velocity);
     }
@@ -385,6 +373,14 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+
+    void EndAttackAnimation()
+    {
+        if (CountAttack >= 3)
+        {
+            ReturntoMove();
+        }
+    }
     void ReturntoMove()
     {
         CountAttack = 0;

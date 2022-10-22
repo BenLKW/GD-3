@@ -4,47 +4,11 @@ using UnityEngine;
 
 public class DamageDealer : MonoBehaviour
 {
-    bool canDealDamage;
-    List<GameObject> hasDealtDamage;
-
-    [SerializeField] float weaponLength;
-    [SerializeField] float weaponDamage;
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        canDealDamage = false;
-        hasDealtDamage = new List<GameObject>();
-    }
-
-    void Update()
-    {
-        if (canDealDamage)
+        if (other.tag == "Enemy")
         {
-            RaycastHit hit;
-
-            int layerMask = 1 << 7;
-            if (Physics.Raycast(transform.position, -transform.up, out hit, weaponLength, layerMask))
-            {
-                if (!hasDealtDamage.Contains(hit.transform.gameObject))
-                {
-                    Debug.Log(("Damage"));
-                    hasDealtDamage.Add(hit.transform.gameObject);
-                }
-            }
+            Debug.Log(other.name + "Hit");
         }
-    }
-    public void StartDealDamage()
-    {
-        canDealDamage = true;
-        hasDealtDamage.Clear();
-    }
-    public void EndDealDamage()
-    {
-        canDealDamage = false;
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(transform.position, transform.position - transform.up * weaponLength);
     }
 }

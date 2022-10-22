@@ -39,10 +39,10 @@ public class WeaponSystem : MonoBehaviour
 
     public void StartDealDamage()
     {
-        currentWeaponInHand.GetComponentInChildren<DamageDealer>().StartDealDamage();
+        currentWeaponInHand.GetComponentInChildren<DamageDealer>();
     }
     public void EndDealDamage()
     {
-        currentWeaponInHand.GetComponentInChildren<DamageDealer>().EndDealDamage();
+        currentWeaponInHand.GetComponentInChildren<DamageDealer>();
     }
 }

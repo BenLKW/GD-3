@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 476453231895687793}
   m_Layer: 0
   m_Name: Em
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,3 +135,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   lookRadius: 10
+  range: 0
+  centrePoint: {fileID: 0}
