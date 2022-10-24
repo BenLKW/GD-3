@@ -9,20 +9,27 @@ public class RandomSpawner : MonoBehaviour
     public int xPos;
     public int zPos;
     public int enemyCount;
-    
 
-    
-   
+
+
+
 
     void Start()
     {
-        StartCoroutine (EnemySpawn());
+        StartCoroutine(EnemySpawn());
         
+
     }
+
+    void Update()
+    {
+        EnemySpawn();
+    }
+
 
     IEnumerator EnemySpawn()
     {
-        while (enemyCount<10)
+        while(enemyCount<10)
         {
             Instantiate(SpawnObject, spawnpoint.position, Quaternion.identity);
             yield return new WaitForSeconds(0.1f);
