@@ -35,8 +35,6 @@ public class RandomSpawner : MonoBehaviour
         while (enemyCount<10)
         {
             Instantiate(SpawnObject, spawnpoint.position, Quaternion.identity);
-
-            
             enemyCount += 1;
 
         }
