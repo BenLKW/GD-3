@@ -5,30 +5,36 @@ using UnityEngine;
 public class DamageDealer : MonoBehaviour
 {
     public RandomSpawner randomspawner;
+    public PlayerMovement playerMovement;
     
     
 
     void Start()
     {
         randomspawner = GameObject.Find("EnemySpawner").GetComponent<RandomSpawner>();
+        playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
     }
 
 
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Enemy")
+        if (playerMovement.Action == PlayerMovement.ActionState.Attack)
         {
-         Debug.Log(other.name + "Hit");
-         Destroy(other.gameObject);
-            randomspawner.enemyCount -= 1;
+            if (other.tag == "Enemy")
+            {
+                Debug.Log(other.name + "Hit");
+                Destroy(other.gameObject);
+                randomspawner.enemyCount -= 1;
+
+
+            }
+            if (other.tag == "Animal")
+            {
+                Debug.Log(other.name + "Hit");
+                Destroy(other.gameObject);
+            }
+        }
         
-            
-        }
-        if (other.tag == "Animal")
-        {
-            Debug.Log(other.name + "Hit");
-            Destroy(other.gameObject);
-        }
     }
 }

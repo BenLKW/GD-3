@@ -6259,10 +6259,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 9146120821623711377, guid: 084c4f282c709e54ba07291f977ceae3, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 9165158383256005894, guid: 084c4f282c709e54ba07291f977ceae3, type: 3}
       propertyPath: m_Layer
       value: 6
