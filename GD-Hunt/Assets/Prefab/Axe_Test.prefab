@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 667689832783316421}
   m_Layer: 0
   m_Name: pCube1
-  m_TagString: Untagged
+  m_TagString: Axe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -359,6 +359,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ee6651541f7d30468127265795f7e4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Enemy: {fileID: 309111833939216978, guid: 659285849bc3cff4c8e70a4231e078d8, type: 3}
+  EnemySpawner: {fileID: 5988613549878597588, guid: 3c7ef710c5044234fa838ac208941841, type: 3}
+  ObjCount: 0
 --- !u!1 &3890083723015568522
 GameObject:
   m_ObjectHideFlags: 0

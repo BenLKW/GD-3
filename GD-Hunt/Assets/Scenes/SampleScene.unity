@@ -160,7 +160,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh22042
+  m_Name: pb_Mesh22820
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -422,7 +422,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh21958
+  m_Name: pb_Mesh22736
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -683,7 +683,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh22010
+  m_Name: pb_Mesh22788
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1404,7 +1404,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3383836054845019583, guid: 4315ddda902d932499d1c3280f4ada0a, type: 3}
       propertyPath: m_Speed
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3383836054845019583, guid: 4315ddda902d932499d1c3280f4ada0a, type: 3}
       propertyPath: m_BaseOffset
@@ -1433,6 +1433,10 @@ PrefabInstance:
     - target: {fileID: 6615114282680937038, guid: 4315ddda902d932499d1c3280f4ada0a, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615114282680937038, guid: 4315ddda902d932499d1c3280f4ada0a, type: 3}
+      propertyPath: m_TagString
+      value: Animal
       objectReference: {fileID: 0}
     - target: {fileID: 7114405409458156108, guid: 4315ddda902d932499d1c3280f4ada0a, type: 3}
       propertyPath: range
@@ -5973,7 +5977,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3754890575153405103, guid: 084c4f282c709e54ba07291f977ceae3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 100
+      value: 220.3
       objectReference: {fileID: 0}
     - target: {fileID: 3754890575153405103, guid: 084c4f282c709e54ba07291f977ceae3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5981,7 +5985,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3754890575153405103, guid: 084c4f282c709e54ba07291f977ceae3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 150
+      value: 73.3
       objectReference: {fileID: 0}
     - target: {fileID: 3754890575153405103, guid: 084c4f282c709e54ba07291f977ceae3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6262,6 +6266,10 @@ PrefabInstance:
     - target: {fileID: 9146120821623711377, guid: 084c4f282c709e54ba07291f977ceae3, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146120821623711377, guid: 084c4f282c709e54ba07291f977ceae3, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 9165158383256005894, guid: 084c4f282c709e54ba07291f977ceae3, type: 3}
       propertyPath: m_Layer
