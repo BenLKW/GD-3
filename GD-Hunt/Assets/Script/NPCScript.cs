@@ -7,13 +7,14 @@ public class NPCScript : MonoBehaviour
 {
     public string npcName;
     public GameObject TextName;
-    public GameObject Player;
+    public GameObject player;
+    public float lookRadius = 10f;
     public GameObject Quest;
 
 
     public void Start()
     {
-        //Quest.SetActive(false);
+        
     }
     private void Update()
     {
@@ -25,20 +26,21 @@ public class NPCScript : MonoBehaviour
             TextName.GetComponent<TextMesh>().text = "" + npcName;
         }
         RotateToPlayer();
-        //GiveQuest();
+        GiveQuest();
     }
 
 
     void RotateToPlayer()
     {
-        transform.LookAt(Player.transform.position);
+        transform.LookAt(player.transform.position);
     }
 
     void GiveQuest()
     {
+        
         if (Input.GetKeyDown(KeyCode.V))
         {
-            Quest.SetActive(true);
+            Debug.Log("Start Quest");
             
         }
     }

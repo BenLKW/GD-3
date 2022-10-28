@@ -30,7 +30,7 @@ public class Quest : MonoBehaviour
         {
             
             currentAmount = 0;
-            Debug.Log("Great Job");
+            Debug.Log("Quest End");
         }
     }
 
