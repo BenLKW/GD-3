@@ -6,18 +6,25 @@ public class DamageDealer : MonoBehaviour
 {
     public RandomSpawner randomspawner;
     public PlayerMovement playerMovement;
-    
+
+    public bool enemyKilled;
     
 
     void Start()
     {
         randomspawner = GameObject.Find("EnemySpawner").GetComponent<RandomSpawner>();
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
+        enemyKilled = false;
     }
 
+    private void Update()
+    {
+        
+    }
 
+    
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (playerMovement.Action == PlayerMovement.ActionState.Attack)
         {
@@ -26,6 +33,7 @@ public class DamageDealer : MonoBehaviour
                 Debug.Log(other.name + "Hit");
                 Destroy(other.gameObject);
                 randomspawner.enemyCount -= 1;
+                enemyKilled = true;
 
 
             }
@@ -37,4 +45,6 @@ public class DamageDealer : MonoBehaviour
         }
         
     }
+
+    
 }

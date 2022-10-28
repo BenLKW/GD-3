@@ -38,6 +38,7 @@ public class RandomSpawner : MonoBehaviour
             enemyCount += 1;
 
         }
+        
     }
 
 }
