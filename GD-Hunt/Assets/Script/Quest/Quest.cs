@@ -8,7 +8,6 @@ public class Quest : MonoBehaviour
 {
     public int currentAmount;
     public int requiredAmount;
-    public NPCScript npc;
     
 
     
@@ -19,19 +18,12 @@ public class Quest : MonoBehaviour
     }
     public void Update()
     {
-        
+       
         QuestCompleted();
-        Questing();
+       
     }
     
-    public void Questing()
-    {
-        
-        if (npc.doDamage.enemyKilled)
-        {
-            currentAmount++;
-        }
-    }
+    
     public void QuestCompleted()
     {
         if (currentAmount >= requiredAmount)

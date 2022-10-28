@@ -7,20 +7,17 @@ public class DamageDealer : MonoBehaviour
     public RandomSpawner randomspawner;
     public PlayerMovement playerMovement;
 
-    public bool enemyKilled;
+    public Quest quest;
     
 
     void Start()
     {
         randomspawner = GameObject.Find("EnemySpawner").GetComponent<RandomSpawner>();
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
-        enemyKilled = false;
+        quest= GameObject.Find("Quest").GetComponent<Quest>();
     }
 
-    private void Update()
-    {
-        
-    }
+    
 
     
 
@@ -33,10 +30,11 @@ public class DamageDealer : MonoBehaviour
                 Debug.Log(other.name + "Hit");
                 Destroy(other.gameObject);
                 randomspawner.enemyCount -= 1;
-                enemyKilled = true;
+                quest.currentAmount++;
 
 
             }
+            
             if (other.tag == "Animal")
             {
                 Debug.Log(other.name + "Hit");

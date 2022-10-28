@@ -8,15 +8,12 @@ public class NPCScript : MonoBehaviour
     public string npcName;
     public GameObject TextName;
     public GameObject Player;
-
-
-    public DamageDealer doDamage;
     public GameObject Quest;
 
 
     public void Start()
     {
-        Quest.SetActive(false);
+        //Quest.SetActive(false);
     }
     private void Update()
     {
@@ -28,7 +25,7 @@ public class NPCScript : MonoBehaviour
             TextName.GetComponent<TextMesh>().text = "" + npcName;
         }
         RotateToPlayer();
-        GiveQuest();
+        //GiveQuest();
     }
 
 
@@ -42,7 +39,7 @@ public class NPCScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.V))
         {
             Quest.SetActive(true);
-            doDamage = GameObject.Find("pCube1").GetComponent<DamageDealer>();
+            
         }
     }
 
