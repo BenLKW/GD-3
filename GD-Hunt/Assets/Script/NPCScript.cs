@@ -10,7 +10,7 @@ public class NPCScript : MonoBehaviour
     public GameObject player;
     public float lookRadius = 10f;
     public GameObject Quest;
-
+    public DamageDealer questTrue;
 
     public void Start()
     {
@@ -40,7 +40,9 @@ public class NPCScript : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.V))
         {
+            questTrue = GameObject.Find("pCube1").GetComponent<DamageDealer>();
             Quest.SetActive(true);
+            questTrue.isQuesting = true;
             Debug.Log("Start Quest");
             
         }

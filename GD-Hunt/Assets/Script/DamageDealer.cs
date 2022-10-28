@@ -17,7 +17,7 @@ public class DamageDealer : MonoBehaviour
         isQuesting = false;
     }
 
-    private void Update()
+    public void Update()
     {
         StartQuesting();
     }
@@ -52,10 +52,10 @@ public class DamageDealer : MonoBehaviour
     }
     void StartQuesting()
     {
-        if (Input.GetKeyDown(KeyCode.V))
+        if (isQuesting == true)
         {
             quest = GameObject.Find("Quest").GetComponent<Quest>();
-            isQuesting = true;
+           
         }
     }
     
