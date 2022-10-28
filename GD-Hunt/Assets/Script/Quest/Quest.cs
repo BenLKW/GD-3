@@ -4,7 +4,9 @@ using UnityEngine;
 
 
 
-public class Quest : NPCScript
+public class Quest : MonoBehaviour
+
+
 {
     public int currentAmount;
     public int requiredAmount;
