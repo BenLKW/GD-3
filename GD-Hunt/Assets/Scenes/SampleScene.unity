@@ -3231,7 +3231,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Villager
   TextName: {fileID: 1745202689}
-  Player: {fileID: 173489747}
+  player: {fileID: 173489747}
+  lookRadius: 10
   Quest: {fileID: 1112634283}
 --- !u!54 &1434546114
 Rigidbody:

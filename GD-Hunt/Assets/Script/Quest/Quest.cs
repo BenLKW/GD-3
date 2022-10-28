@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 
-public class Quest : MonoBehaviour
+public class Quest : NPCScript
 {
     public int currentAmount;
     public int requiredAmount;
@@ -12,10 +12,6 @@ public class Quest : MonoBehaviour
 
     
 
-    public void Start()
-    {
-        
-    }
     public void Update()
     {
        

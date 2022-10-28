@@ -14,7 +14,7 @@ public class NPCScript : MonoBehaviour
 
     public void Start()
     {
-        
+        Quest.SetActive(false);
     }
     private void Update()
     {
@@ -40,6 +40,7 @@ public class NPCScript : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.V))
         {
+            Quest.SetActive(true);
             Debug.Log("Start Quest");
             
         }
