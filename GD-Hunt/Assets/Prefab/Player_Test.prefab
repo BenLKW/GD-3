@@ -1456,6 +1456,7 @@ GameObject:
   - component: {fileID: 484795150339845778}
   - component: {fileID: 6755515411505965027}
   - component: {fileID: 3118932747568349399}
+  - component: {fileID: 3323752218400846076}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1574,6 +1575,18 @@ MonoBehaviour:
   weaponSheath: {fileID: 3118932747145928962}
   currentWeaponInHand: {fileID: 0}
   currentWeaponInSheath: {fileID: 0}
+--- !u!114 &3323752218400846076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3371630963674970061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 071e36cfec65f3c469609dd4d3db493a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3455265945265011248
 GameObject:
   m_ObjectHideFlags: 0
@@ -3295,6 +3308,7 @@ GameObject:
   - component: {fileID: 4135475874851376203}
   - component: {fileID: 5751383360460302285}
   - component: {fileID: 3414607318736718448}
+  - component: {fileID: 3504058749757977275}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3418,7 +3432,29 @@ MonoBehaviour:
   player: {fileID: 1084758151418285629}
   playerObj: {fileID: 2486405625581491570}
   rb: {fileID: 7479314071711939630}
+  TargetLock: {fileID: 3504058749757977275}
   rotationSpeed: 7
+--- !u!114 &3504058749757977275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8015763249284620296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f33640e05238af47994d6176753167b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 2225360361266597697}
+  cinemachineFreeLook: {fileID: 7086249615528318943}
+  aimIcon: {fileID: 0}
+  enemyTag: Enemy
+  targetLockOffset: {x: 0, y: 0}
+  minDistance: 2
+  maxDistance: 20
+  isTargeting: 0
+  ThirdPersonCamMovement: {fileID: 3414607318736718448}
 --- !u!1 &8062914711356612619
 GameObject:
   m_ObjectHideFlags: 0

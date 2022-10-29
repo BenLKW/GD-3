@@ -14,7 +14,7 @@ public class NPCScript : MonoBehaviour
 
     public void Start()
     {
-        Quest.SetActive(false);
+        //Quest.SetActive(false);
     }
     private void Update()
     {
@@ -41,7 +41,7 @@ public class NPCScript : MonoBehaviour
         
         
             questTrue = GameObject.Find("pCube1").GetComponent<DamageDealer>();
-            Quest.SetActive(true);
+            //Quest.SetActive(true);
             questTrue.isQuesting = true;
             Debug.Log("Start Quest");
             

@@ -9,19 +9,24 @@ public class DamageDealer : MonoBehaviour
     public TargetLock TargetLock;
 
     public Quest quest;
-    
+    public bool isQuesting;
+
 
     void Start()
     {
         randomspawner = GameObject.Find("EnemySpawner").GetComponent<RandomSpawner>();
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
-        quest= GameObject.Find("Quest").GetComponent<Quest>();
         TargetLock = GameObject.Find("Main Camera").GetComponent<TargetLock>();
+        quest = GameObject.Find("Quest").GetComponent<Quest>();
+        isQuesting = false;
     }
 
-    
+    public void Update()
+    {
+        StartQuesting();
+    }
 
-    
+
 
     void OnTriggerEnter(Collider other)
     {
@@ -33,7 +38,11 @@ public class DamageDealer : MonoBehaviour
                 Destroy(other.gameObject);
                 TargetLock.isTargeting = false;
                 randomspawner.enemyCount -= 1;
-                quest.currentAmount++;
+
+                if (isQuesting == true)
+                {
+                    quest.currentAmount++;
+                }
 
 
             }
@@ -44,8 +53,16 @@ public class DamageDealer : MonoBehaviour
                 Destroy(other.gameObject);
             }
         }
+
         
     }
 
-    
+    void StartQuesting()
+    {
+        if (isQuesting == true)
+        {
+            quest = GameObject.Find("Quest").GetComponent<Quest>();
+
+        }
+    }
 }
