@@ -5,20 +5,18 @@ using UnityEngine;
 
 
 public class Quest : MonoBehaviour
+
+
 {
     public int currentAmount;
     public int requiredAmount;
-    
+    public DamageDealer questFalse;
 
-    
 
-    public void Start()
-    {
-        
-    }
+
     public void Update()
     {
-       
+        questFalse = GameObject.Find("pCube1").GetComponent<DamageDealer>();
         QuestCompleted();
        
     }
@@ -28,7 +26,7 @@ public class Quest : MonoBehaviour
     {
         if (currentAmount >= requiredAmount)
         {
-            
+            questFalse.isQuesting = false;
             currentAmount = 0;
             Debug.Log("Quest End");
         }
