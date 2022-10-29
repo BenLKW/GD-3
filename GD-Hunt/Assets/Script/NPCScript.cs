@@ -26,7 +26,7 @@ public class NPCScript : MonoBehaviour
             TextName.GetComponent<TextMesh>().text = "" + npcName;
         }
         RotateToPlayer();
-        GiveQuest();
+       
     }
 
 
@@ -35,17 +35,17 @@ public class NPCScript : MonoBehaviour
         transform.LookAt(player.transform.position);
     }
 
-    void GiveQuest()
+    public void GiveQuest()
     {
         
-        if (Input.GetKeyDown(KeyCode.V))
-        {
+        
+        
             questTrue = GameObject.Find("pCube1").GetComponent<DamageDealer>();
             Quest.SetActive(true);
             questTrue.isQuesting = true;
             Debug.Log("Start Quest");
             
-        }
+        
     }
 
 }
