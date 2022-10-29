@@ -16,29 +16,34 @@ public class RandomSpawner : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("EnemySpawn", spawnTime, spawnDelay);
-        
+        //InvokeRepeating("EnemySpawn", spawnTime, spawnDelay);
+        //StartCoroutine(SpawnMobs());
 
     }
 
     void Update()
     {
-        
-        
+        enemyNumDetector();
+
     }
 
 
-    void  EnemySpawn()
+    void enemyNumDetector()
     {
-
-        
-        while (enemyCount<10)
+        if (enemyCount == 0)
+        {
+            StartCoroutine(SpawnMobs());
+        }
+    }
+    
+    IEnumerator SpawnMobs()
+    {
+        while (enemyCount < 10)
         {
             Instantiate(SpawnObject, spawnpoint.position, Quaternion.identity);
             enemyCount += 1;
+            yield return new WaitForSecondsRealtime(1f);
 
         }
-        
     }
-
 }
