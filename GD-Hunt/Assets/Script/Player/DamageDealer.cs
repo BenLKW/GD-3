@@ -11,14 +11,18 @@ public class DamageDealer : MonoBehaviour
     public Quest quest;
     public bool isQuesting;
 
-
-    void Start()
+    public EnemyHealth enemyHealth;
+    public int damageAmount=1;
+    
+    private void Start()
     {
         randomspawner = GameObject.Find("EnemySpawner").GetComponent<RandomSpawner>();
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
         TargetLock = GameObject.Find("Main Camera").GetComponent<TargetLock>();
         quest = GameObject.Find("Quest").GetComponent<Quest>();
+        enemyHealth = GameObject.Find("piggg").GetComponent<EnemyHealth>();
         isQuesting = false;
+        
     }
 
     public void Update()
@@ -28,14 +32,14 @@ public class DamageDealer : MonoBehaviour
 
 
 
-    void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
         if (playerMovement.Action == PlayerMovement.ActionState.Attack)
         {
             if (other.tag == "Enemy")
             {
-                Debug.Log(other.name + "Hit");
-                Destroy(other.gameObject);
+
+                
                 TargetLock.isTargeting = false;
                 randomspawner.enemyCount -= 1;
 
