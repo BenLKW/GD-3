@@ -14,6 +14,7 @@ public class EnemyAI : MonoBehaviour
 
     void Start()
     {
+
         enemy = GetComponent<NavMeshAgent>();
         player = GameObject.Find("/Player_Test/Player").GetComponent<Transform>();
         centrePoint = GameObject.Find("/EnemySpawner/Center").GetComponent<Transform>();

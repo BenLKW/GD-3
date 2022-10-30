@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
+    public Animator animator;
     public RandomSpawner randomspawner;
     public DamageDealer DamageDealer;
     public  float health;
@@ -19,6 +20,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         quest = GameObject.Find("Quest").GetComponent<Quest>();
         NPCScript = GameObject.Find("NPC_Test").GetComponent<NPCScript>();
         TargetLock = GameObject.Find("Main Camera").GetComponent<TargetLock>();
@@ -53,13 +55,9 @@ public class EnemyHealth : MonoBehaviour
         {
             
             TargetLock.isTargeting = false;
-            randomspawner.enemyCount -= 1;
-
-            if (NPCScript.isQuesting == true)
-            {
-                quest.currentAmount++;
-            }
-            Destroy(gameObject);
+            
+            animator.SetBool("Dead", true);
+            
         }
     }
     
@@ -68,7 +66,15 @@ public class EnemyHealth : MonoBehaviour
         return health / maxHealth;
     }
 
-    
+    public void dead()
+    {
+        if (NPCScript.isQuesting == true)
+        {
+            quest.currentAmount++;
+        }
+        randomspawner.enemyCount -= 1;
+        Destroy(gameObject);
+    }
        
 
     
