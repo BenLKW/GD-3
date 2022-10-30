@@ -25,7 +25,7 @@ public class TargetLock : MonoBehaviour
     public ThirdPersonCamMovement ThirdPersonCamMovement;
 
     private float maxAngle;
-    private Transform currentTarget;
+    public GameObject currentTarget;
     float horizontalInput;
     float verticalInput;
 
@@ -50,20 +50,24 @@ public class TargetLock : MonoBehaviour
 
     public void TargetForCall()
     {
-        NewInputTarget(currentTarget);
+        NewInputTarget(currentTarget.GetComponent<Transform>());
     }
     private void AssignTarget()
     {
         if (isTargeting)
         {
             isTargeting = false;
+            GameObject healthbar = currentTarget.transform.GetChild(4).gameObject;
+            healthbar.SetActive(false);
             currentTarget = null;
             return;
         }
 
         if (ClosestTarget())
         {
-            currentTarget = ClosestTarget().transform;
+            currentTarget = ClosestTarget();
+            GameObject healthbar = currentTarget.transform.GetChild(4).gameObject;
+            healthbar.SetActive(true);
             isTargeting = true;
         }
     }

@@ -11,10 +11,14 @@ public class NPCScript : MonoBehaviour
     public float lookRadius = 10f;
     public GameObject Quest;
     public DamageDealer questTrue;
+    public Quest quest;
+    public bool isQuesting;
 
     public void Start()
     {
-        //Quest.SetActive(false);
+        quest = GameObject.Find("Quest").GetComponent<Quest>();
+
+        isQuesting = false;
     }
     private void Update()
     {
@@ -26,7 +30,7 @@ public class NPCScript : MonoBehaviour
             TextName.GetComponent<TextMesh>().text = "" + npcName;
         }
         RotateToPlayer();
-       
+        StartQuesting();
     }
 
 
@@ -40,12 +44,20 @@ public class NPCScript : MonoBehaviour
         
         
         
-            questTrue = GameObject.Find("pCube1").GetComponent<DamageDealer>();
-            //Quest.SetActive(true);
-            questTrue.isQuesting = true;
+            
+            
+            isQuesting = true;
             Debug.Log("Start Quest");
             
         
     }
 
+    void StartQuesting()
+    {
+        if (isQuesting == true)
+        {
+            quest = GameObject.Find("Quest").GetComponent<Quest>();
+
+        }
+    }
 }

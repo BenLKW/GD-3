@@ -10,13 +10,13 @@ public class Quest : MonoBehaviour
 {
     public int currentAmount;
     public int requiredAmount;
-    public DamageDealer questFalse;
+    public NPCScript questFalse;
 
 
 
     public void Update()
     {
-        questFalse = GameObject.Find("pCube1").GetComponent<DamageDealer>();
+        questFalse = GameObject.Find("NPC_Test").GetComponent<NPCScript>();
         QuestCompleted();
        
     }

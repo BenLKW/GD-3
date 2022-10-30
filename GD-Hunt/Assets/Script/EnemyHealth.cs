@@ -5,18 +5,28 @@ using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
+    public RandomSpawner randomspawner;
+    public DamageDealer DamageDealer;
     public  float health;
     public float maxHealth;
+    public Quest quest;
+    public NPCScript NPCScript;
 
     public GameObject healthBar;
     public Slider slider;
-    
+    public TargetLock TargetLock;
+
 
     private void Start()
     {
+        quest = GameObject.Find("Quest").GetComponent<Quest>();
+        NPCScript = GameObject.Find("NPC_Test").GetComponent<NPCScript>();
+        TargetLock = GameObject.Find("Main Camera").GetComponent<TargetLock>();
+        randomspawner = GameObject.Find("EnemySpawner").GetComponent<RandomSpawner>();
+        DamageDealer = GameObject.Find("pCube1").GetComponent<DamageDealer>();
         health = maxHealth;
         slider.value = CalculateHealth();
-        
+        healthBar.SetActive(false);
     }
 
     private void Update()
@@ -38,20 +48,21 @@ public class EnemyHealth : MonoBehaviour
         {
             health = maxHealth;
         }
-        HealthDetect();
 
-    }
-    public void HealthDetect()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            health--;
-        }
         if (health <= 0)
         {
+            
+            TargetLock.isTargeting = false;
+            randomspawner.enemyCount -= 1;
+
+            if (NPCScript.isQuesting == true)
+            {
+                quest.currentAmount++;
+            }
             Destroy(gameObject);
         }
     }
+    
     private float CalculateHealth()
     {
         return health / maxHealth;
