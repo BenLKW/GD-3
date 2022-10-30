@@ -20,7 +20,7 @@ public class DamageDealer : MonoBehaviour
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
         TargetLock = GameObject.Find("Main Camera").GetComponent<TargetLock>();
         quest = GameObject.Find("Quest").GetComponent<Quest>();
-        enemyHealth = GameObject.Find("piggg").GetComponent<EnemyHealth>();
+        enemyHealth = GameObject.Find("pig").GetComponent<EnemyHealth>();
         isQuesting = false;
         
     }
@@ -32,14 +32,14 @@ public class DamageDealer : MonoBehaviour
 
 
 
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider collision)
     {
         if (playerMovement.Action == PlayerMovement.ActionState.Attack)
         {
-            if (other.tag == "Enemy")
+            if (collision.gameObject.TryGetComponent<EnemyHealth>(out EnemyHealth enemyComponent))
             {
 
-                
+                enemyComponent.TakeDamage(1);
                 TargetLock.isTargeting = false;
                 randomspawner.enemyCount -= 1;
 
@@ -51,11 +51,7 @@ public class DamageDealer : MonoBehaviour
 
             }
             
-            if (other.tag == "Animal")
-            {
-                Debug.Log(other.name + "Hit");
-                Destroy(other.gameObject);
-            }
+            
         }
 
         

@@ -38,27 +38,26 @@ public class EnemyHealth : MonoBehaviour
         {
             health = maxHealth;
         }
-        HealthDetect();
+
+        
+        
 
     }
-    public void HealthDetect()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            health--;
-        }
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
+    
     private float CalculateHealth()
     {
         return health / maxHealth;
     }
 
-    
-       
+    public void TakeDamage(float damageAmount)
+    {
+        health -= damageAmount;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     
+
 }

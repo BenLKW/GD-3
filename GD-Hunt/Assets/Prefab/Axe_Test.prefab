@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 667689832783316421}
   m_Layer: 0
   m_Name: pCube1
-  m_TagString: Axe
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -361,6 +361,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   randomspawner: {fileID: 0}
   playerMovement: {fileID: 0}
+  TargetLock: {fileID: 0}
+  quest: {fileID: 0}
+  isQuesting: 0
+  enemyHealth: {fileID: 0}
+  damageAmount: 1
 --- !u!1 &3890083723015568522
 GameObject:
   m_ObjectHideFlags: 0
