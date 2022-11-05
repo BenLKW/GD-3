@@ -6,9 +6,9 @@ TerrainLayer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: NewLayer
-  m_DiffuseTexture: {fileID: 2800000, guid: 5547a2b0b175fd3469e5d16060c741dc, type: 3}
-  m_NormalMapTexture: {fileID: 2800000, guid: 8afd3c4bb7ca9fe42b6750d04b6856e4, type: 3}
+  m_Name: Moutain_L
+  m_DiffuseTexture: {fileID: 2800000, guid: c635abcc0b2901948824538b26eb88c3, type: 3}
+  m_NormalMapTexture: {fileID: 0}
   m_MaskMapTexture: {fileID: 0}
   m_TileSize: {x: 2, y: 2}
   m_TileOffset: {x: 0, y: 0}

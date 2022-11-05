@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Ground Check")]
     public float playerHeight;
-    public LayerMask whatIsGround;
+    public LayerMask Grass;
     bool grounded;
 
     [Header("Slope check")]
@@ -64,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
         walking,
         running,
         dashing,
+        jumping,
         air
     }
 
@@ -90,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, Grass);
 
         Playerinput();
         SpeedControl();
@@ -127,7 +128,6 @@ public class PlayerMovement : MonoBehaviour
         {
 
             readyToJump = false;
-
             Jump();
             Invoke(nameof(ResetJump), jumpcooldown);
         }
@@ -197,7 +197,7 @@ public class PlayerMovement : MonoBehaviour
 
     void ResetJump()
     {
-
+        
         readyToJump = true;
     }
 
@@ -236,7 +236,15 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                state = MovementState.air;
+                if (readyToJump==false)
+                {
+                    state = MovementState.jumping;
+                }
+                else
+                {
+                    state = MovementState.air;
+                }
+                
             }
         }
         else if (Action == ActionState.Attack)
@@ -304,6 +312,15 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             animator.SetBool("OnAir", false);
+        }
+
+        if (state == MovementState.jumping)
+        {
+            animator.SetBool("IsJumping", true);
+        }
+        else if (state != MovementState.jumping)
+        {
+            animator.SetBool("IsJumping", false);
         }
 
         if (combat == CombatState.Drawweapon)

@@ -1607,7 +1607,7 @@ MonoBehaviour:
   CountAttack: 0
   weaponSystem: {fileID: 3118932747568349399}
   playerHeight: 2
-  whatIsGround:
+  Grass:
     serializedVersion: 2
     m_Bits: 1024
   maxSlopeAngle: 40
