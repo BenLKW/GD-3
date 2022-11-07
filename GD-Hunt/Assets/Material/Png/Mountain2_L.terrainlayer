@@ -6,11 +6,11 @@ TerrainLayer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Moutain_L
-  m_DiffuseTexture: {fileID: 2800000, guid: c635abcc0b2901948824538b26eb88c3, type: 3}
-  m_NormalMapTexture: {fileID: 2800000, guid: 3b466f782e53e4e4cbe21bf3e92f9aa3, type: 3}
+  m_Name: Mountain2_L
+  m_DiffuseTexture: {fileID: 2800000, guid: 2326ad7fa3f7fa841899bafd808ed9c9, type: 3}
+  m_NormalMapTexture: {fileID: 2800000, guid: 5a80c0b49a6d330469cbd9fc141dec26, type: 3}
   m_MaskMapTexture: {fileID: 0}
-  m_TileSize: {x: 3, y: 2}
+  m_TileSize: {x: 2, y: 2}
   m_TileOffset: {x: 0, y: 0}
   m_Specular: {r: 0, g: 0, b: 0, a: 0}
   m_Metallic: 0
