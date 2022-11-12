@@ -6,64 +6,88 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     public Animator animator;
+
     private NavMeshAgent enemy;
+
     public Transform player;
-    public float lookRadius = 10f;
+
+    public LayerMask whatIsPlayer;
+
     public float range;
     public Transform centrePoint;
-    public float speed;
 
+    public float timeBetweenAttacks;
+    bool alreadyAttacked;
 
-    void Start()
+    public float lookRadius = 10f;
+    public float attackRadius = 3f;
+    public bool playerInLookRadius, playerInAttackRadius;
+    private void Awake()
     {
         animator = GetComponent<Animator>();
         enemy = GetComponent<NavMeshAgent>();
         player = GameObject.Find("/Player_Test/Player").GetComponent<Transform>();
         centrePoint = GameObject.Find("/EnemySpawner/Center").GetComponent<Transform>();
+        animator.SetBool("Walk", true);
     }
 
-    void Update()
+    private void Update()
     {
-        Attack();
-        speed=enemy.speed  ;
+        playerInLookRadius = Physics.CheckSphere(transform.position, lookRadius, whatIsPlayer);
+        playerInAttackRadius = Physics.CheckSphere(transform.position, attackRadius, whatIsPlayer);
 
+        if (playerInLookRadius && !playerInAttackRadius) Chase();
+        if (playerInAttackRadius && playerInLookRadius) Attack();
 
         if (enemy.remainingDistance <= enemy.stoppingDistance)
         {
             Vector3 point;
             if (RandomPoint(centrePoint.position, range, out point))
             {
-                //Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f); 
+                
                 enemy.SetDestination(point);
-                animator.SetBool("Walk", true);
+                
             }
         }
-        
+
+    }
+
+    private void Chase()
+    {
+
+        animator.SetBool("Walk", true);
+        enemy.SetDestination(player.position);
+       
+     
     }
     private void Attack()
     {
-        float distance = Vector3.Distance(player.position, transform.position);
-        if (distance < lookRadius)
-        {
-            //transform.LookAt(player);
-            //GetComponent<Rigidbody>().AddForce(transform.forward * speed);
-            enemy.SetDestination(player.position);
-            animator.SetBool("Walk", true);
-        }
-
-        if (distance <= enemy.stoppingDistance)
-        {
-            speed = 0;
-            animator.SetBool("Walk", false);
-        }
-        else
-        {
-            speed = 2.5f;
-        }
-
+        //animator.SetBool("Idle", false);
+        animator.SetBool("Walk", false);
         
+        enemy.SetDestination(player.position);
+        
+
+
+
+        if (!alreadyAttacked)
+        {
+
+            Debug.Log("Attack!!");
+            animator.SetTrigger("Attack");
+
+            alreadyAttacked = true;
+            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            
+        }
     }
-    
+
+    private void ResetAttack()
+    {
+        alreadyAttacked = false;
+        //animator.SetBool("Attack", false);
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
