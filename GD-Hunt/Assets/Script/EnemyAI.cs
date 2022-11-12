@@ -38,7 +38,7 @@ public class EnemyAI : MonoBehaviour
                 animator.SetBool("Walk", true);
             }
         }
-
+        
     }
     private void Attack()
     {
@@ -60,6 +60,7 @@ public class EnemyAI : MonoBehaviour
         {
             speed = 2.5f;
         }
+
         
     }
     
