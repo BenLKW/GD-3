@@ -17,17 +17,18 @@ public class TargetLock : MonoBehaviour
     [Header("Settings")]
     [Space]
     [SerializeField] private string enemyTag; // the enemies tag.
-    [SerializeField] private Vector2 targetLockOffset;
+    [SerializeField] public Vector2 targetLockOffset;
     [SerializeField] private float minDistance; // minimum distance to stop rotation if you get close to target
     [SerializeField] private float maxDistance;
+    [SerializeField] public Vector3 viewPos;
+    [Space]
 
     public bool isTargeting;
     public ThirdPersonCamMovement ThirdPersonCamMovement;
 
     private float maxAngle;
-    public GameObject currentTarget;
-    float horizontalInput;
-    float verticalInput;
+    public Transform currentTarget;
+    
 
     void Start()
     {
@@ -40,7 +41,16 @@ public class TargetLock : MonoBehaviour
         if (aimIcon)
             aimIcon.gameObject.SetActive(isTargeting);
 
-        
+        if (isTargeting)
+        {
+            NewInputTarget(currentTarget);
+            ThirdPersonCamMovement.TargetLookAt = currentTarget.transform;
+            ThirdPersonCamMovement.CurrentMode = ThirdPersonCamMovement.CameraMode.Lock;
+        }
+        else
+        {
+            ThirdPersonCamMovement.CurrentMode = ThirdPersonCamMovement.CameraMode.Basic;
+        }
 
         if (Input.GetKeyDown(KeyCode.Mouse2))
         {
@@ -57,34 +67,35 @@ public class TargetLock : MonoBehaviour
         if (isTargeting)
         {
             isTargeting = false;
-            GameObject healthbar = currentTarget.transform.GetChild(4).gameObject;
-            healthbar.SetActive(false);
             currentTarget = null;
             return;
         }
 
         if (ClosestTarget())
         {
-            currentTarget = ClosestTarget();
+            currentTarget = ClosestTarget().transform;
             GameObject healthbar = currentTarget.transform.GetChild(4).gameObject;
             healthbar.SetActive(true);
             isTargeting = true;
+            
         }
     }
 
     void NewInputTarget(Transform target) // sets new input value.
     {
-        if (!currentTarget) return;
+        if (!currentTarget)
+        return;
 
-        
+        viewPos = mainCamera.WorldToViewportPoint(target.position);
 
-        
+
+
 
         if (aimIcon)
+        
             aimIcon.transform.position = mainCamera.WorldToScreenPoint(target.position);
-
-
-
+        
+        
     }
 
 

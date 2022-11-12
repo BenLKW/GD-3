@@ -329,7 +329,6 @@ LODGroup:
     - renderer: {fileID: 3979128585240932408}
     - renderer: {fileID: 4325147368220055444}
     - renderer: {fileID: 1409450094501256100}
-    - renderer: {fileID: 5592944976012620527}
   - screenRelativeHeight: 0.09677824
     fadeTransitionWidth: 0
     renderers:
@@ -380,6 +379,7 @@ GameObject:
   - component: {fileID: 1886969213555191662}
   - component: {fileID: 639024360907542846}
   - component: {fileID: 2551307337132253698}
+  - component: {fileID: 3961917984855446671}
   m_Layer: 0
   m_Name: pCylinder1
   m_TagString: Untagged
@@ -452,6 +452,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &3961917984855446671
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2765798158348788068}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.6901627
+  m_Height: 9.6260605
+  m_Direction: 1
+  m_Center: {x: 0.11669421, y: 1.8007603, z: 0.0129311085}
 --- !u!1 &3326475780643265035
 GameObject:
   m_ObjectHideFlags: 0
