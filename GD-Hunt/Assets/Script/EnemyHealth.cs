@@ -55,8 +55,10 @@ public class EnemyHealth : MonoBehaviour
         {
             
             TargetLock.isTargeting = false;
+            animator.SetBool("Walk", false);
             
             animator.SetBool("Dead", true);
+            
             
         }
     }

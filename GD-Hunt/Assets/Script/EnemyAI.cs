@@ -65,25 +65,27 @@ public class EnemyAI : MonoBehaviour
         //animator.SetBool("Idle", false);
         animator.SetBool("Walk", false);
         
-        enemy.SetDestination(transform.position);
-        //transform.LookAt(player);
+        enemy.SetDestination(player.position);
+        
 
 
 
         if (!alreadyAttacked)
         {
-            
+
             Debug.Log("Attack!!");
-            
+            animator.SetTrigger("Attack");
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            
         }
     }
 
     private void ResetAttack()
     {
         alreadyAttacked = false;
+        //animator.SetBool("Attack", false);
     }
 
     private void OnDrawGizmosSelected()
