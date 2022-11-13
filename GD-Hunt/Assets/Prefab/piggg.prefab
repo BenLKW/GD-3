@@ -360,7 +360,7 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 64
-  range: 30
+  range: 50
   centrePoint: {fileID: 6819424601768528149, guid: cb9b5d63d2fefd84eab36311e4b129af, type: 3}
   timeBetweenAttacks: 3
   lookRadius: 15

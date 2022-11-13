@@ -62,7 +62,7 @@ public class EnemyAI : MonoBehaviour
     }
     private void Attack()
     {
-        //animator.SetBool("Idle", false);
+        
         animator.SetBool("Walk", false);
         
         enemy.SetDestination(player.position);
