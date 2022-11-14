@@ -69,7 +69,7 @@ public class EnemyAI : MonoBehaviour
     {
         
         animator.SetBool("Walk", false);
-        
+        //transform.LookAt(player);
         enemy.SetDestination(player.position);
         
 
