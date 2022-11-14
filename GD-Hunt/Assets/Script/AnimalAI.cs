@@ -7,54 +7,40 @@ public class AnimalAI : MonoBehaviour
 {
     public NavMeshAgent animal;
     public Transform player;
-    
+    public float lookRadius = 10f;
     public float range;
     public Transform centrePoint;
 
-    public LayerMask whatIsPlayer;
-
-    public float lookRadius;
-    public float runAwayRadius;
-    public bool playerInLookRadius, playerInAttackRadius;
     private void Awake()
     {
         
         animal = GetComponent<NavMeshAgent>();
-        player = GameObject.Find("/Player_Test/Player").GetComponent<Transform>();
-        centrePoint = GameObject.Find("/AnimalSpawner/Center").GetComponent<Transform>();
     }
 
 
     void Update()
     {
 
-        
-
-        playerInLookRadius = Physics.CheckSphere(transform.position, lookRadius, whatIsPlayer);
-        playerInAttackRadius = Physics.CheckSphere(transform.position, runAwayRadius, whatIsPlayer);
-
-        Patroling();
-        RunAwayFromPlayer(); 
+        RunAwayFromPlayer();
 
 
-
-
-
-    }
-
-
-    private void Patroling()
-    {
-        if (animal.remainingDistance <= animal.stoppingDistance)
+        if (animal.remainingDistance <= animal.stoppingDistance) 
         {
             Vector3 point;
-            if (RandomPoint(centrePoint.position, range, out point))
+            if (RandomPoint(centrePoint.position, range, out point)) 
             {
-                
+                //Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f); 
                 animal.SetDestination(point);
             }
         }
+
+
+
+
     }
+
+
+
 
     private void OnDrawGizmosSelected()
     {
@@ -81,7 +67,7 @@ public class AnimalAI : MonoBehaviour
     {
         float distance = Vector3.Distance(player.position, transform.position);
 
-        
+        //Debug.Log("Animal Distance:" + distance);
         if (distance < lookRadius)
         {
             Vector3 dirToPlayer = transform.position - player.transform.position;

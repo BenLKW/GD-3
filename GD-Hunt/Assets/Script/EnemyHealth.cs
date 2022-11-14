@@ -8,12 +8,10 @@ public class EnemyHealth : MonoBehaviour
     public Animator animator;
     public RandomSpawner randomspawner;
     public DamageDealer DamageDealer;
-    public Quest quest;
-    public NPCScript NPCScript;
-    public EnemyAI enemyAI;
     public  float health;
     public float maxHealth;
-   
+    public Quest quest;
+    public NPCScript NPCScript;
 
     public GameObject healthBar;
     public Slider slider;
@@ -58,6 +56,7 @@ public class EnemyHealth : MonoBehaviour
             
             TargetLock.isTargeting = false;
             animator.SetBool("Walk", false);
+            
             animator.SetBool("Dead", true);
             
             
