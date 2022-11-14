@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 7f272cdb58bf746458591a71a1e91c2b, type: 3}
+  - {fileID: 2100000, guid: e621ee108fde15148a5e4b4ab67667b9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -144,7 +144,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f1882269f386a754bacc5e4ab92b3f6a, type: 2}
+  - {fileID: 2100000, guid: ea1ba9485daae3c4a90965ff7b99fa65, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -227,7 +227,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f1882269f386a754bacc5e4ab92b3f6a, type: 2}
+  - {fileID: 2100000, guid: ea1ba9485daae3c4a90965ff7b99fa65, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -312,7 +312,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5775865398287329665, guid: 92b2f871c27c8c34dbe3773d3784cb1a, type: 3}
+  - {fileID: 2100000, guid: a3384ef3e2313034f9016ad8a1f3999f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -361,8 +361,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   randomspawner: {fileID: 0}
   playerMovement: {fileID: 0}
-  enemyHealth: {fileID: 0}
-  damageAmount: 1
 --- !u!1 &3890083723015568522
 GameObject:
   m_ObjectHideFlags: 0
