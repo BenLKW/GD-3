@@ -10,6 +10,7 @@ public class EnemyAI : MonoBehaviour
     private NavMeshAgent enemy;
 
     public Transform player;
+    
 
     public LayerMask whatIsPlayer;
 
@@ -19,8 +20,8 @@ public class EnemyAI : MonoBehaviour
     public float timeBetweenAttacks;
     bool alreadyAttacked;
 
-    public float lookRadius = 10f;
-    public float attackRadius = 3f;
+    public float lookRadius;
+    public float attackRadius;
     public bool playerInLookRadius, playerInAttackRadius;
     private void Awake()
     {
@@ -36,22 +37,27 @@ public class EnemyAI : MonoBehaviour
         playerInLookRadius = Physics.CheckSphere(transform.position, lookRadius, whatIsPlayer);
         playerInAttackRadius = Physics.CheckSphere(transform.position, attackRadius, whatIsPlayer);
 
+        if (!playerInLookRadius && !playerInAttackRadius) Patroling();
         if (playerInLookRadius && !playerInAttackRadius) Chase();
         if (playerInAttackRadius && playerInLookRadius) Attack();
 
+        
+    }
+
+    private void Patroling()
+    {
         if (enemy.remainingDistance <= enemy.stoppingDistance)
         {
             Vector3 point;
             if (RandomPoint(centrePoint.position, range, out point))
             {
-                
+
                 enemy.SetDestination(point);
-                
+
             }
         }
 
     }
-
     private void Chase()
     {
 
@@ -62,9 +68,8 @@ public class EnemyAI : MonoBehaviour
     }
     private void Attack()
     {
-        //animator.SetBool("Idle", false);
-        animator.SetBool("Walk", false);
         
+        animator.SetBool("Walk", false);
         enemy.SetDestination(player.position);
         
 

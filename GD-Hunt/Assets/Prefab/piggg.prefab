@@ -364,7 +364,7 @@ MonoBehaviour:
   centrePoint: {fileID: 6819424601768528149, guid: cb9b5d63d2fefd84eab36311e4b129af, type: 3}
   timeBetweenAttacks: 3
   lookRadius: 15
-  attackRadius: 3
+  attackRadius: 2
   playerInLookRadius: 0
   playerInAttackRadius: 0
 --- !u!65 &2204386678490266848
@@ -378,8 +378,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.91708374, y: 2.067659, z: 3.5296555}
-  m_Center: {x: 0.01776123, y: -0.889302, z: -0.18358612}
+  m_Size: {x: 0.91708374, y: 2.067659, z: 3.101429}
+  m_Center: {x: 0.01776123, y: -0.889302, z: -0.39769936}
 --- !u!114 &3996244500475710264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,10 +395,11 @@ MonoBehaviour:
   animator: {fileID: 0}
   randomspawner: {fileID: 0}
   DamageDealer: {fileID: 0}
-  health: 5
-  maxHealth: 5
   quest: {fileID: 0}
   NPCScript: {fileID: 0}
+  enemyAI: {fileID: 0}
+  health: 5
+  maxHealth: 5
   healthBar: {fileID: 5067053543922806957}
   slider: {fileID: 4372023096841755701}
   TargetLock: {fileID: 0}
