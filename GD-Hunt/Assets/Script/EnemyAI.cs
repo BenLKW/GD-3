@@ -36,20 +36,25 @@ public class EnemyAI : MonoBehaviour
         playerInLookRadius = Physics.CheckSphere(transform.position, lookRadius, whatIsPlayer);
         playerInAttackRadius = Physics.CheckSphere(transform.position, attackRadius, whatIsPlayer);
 
+        if (!playerInLookRadius && !playerInAttackRadius) Patroling();
         if (playerInLookRadius && !playerInAttackRadius) Chase();
         if (playerInAttackRadius && playerInLookRadius) Attack();
 
+        
+
+    }
+    private void Patroling()
+    {
         if (enemy.remainingDistance <= enemy.stoppingDistance)
         {
             Vector3 point;
             if (RandomPoint(centrePoint.position, range, out point))
             {
-                
+
                 enemy.SetDestination(point);
-                
+
             }
         }
-
     }
 
     private void Chase()
