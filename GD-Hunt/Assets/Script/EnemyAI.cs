@@ -17,7 +17,7 @@ public class EnemyAI : MonoBehaviour
     public Transform centrePoint;
 
     public float timeBetweenAttacks;
-    bool alreadyAttacked;
+    public bool alreadyAttacked;
 
     public float lookRadius = 10f;
     public float attackRadius = 3f;
@@ -78,7 +78,7 @@ public class EnemyAI : MonoBehaviour
         if (!alreadyAttacked)
         {
 
-            Debug.Log("Attack!!");
+            
             animator.SetTrigger("Attack");
 
             alreadyAttacked = true;
@@ -93,6 +93,7 @@ public class EnemyAI : MonoBehaviour
         //animator.SetBool("Attack", false);
     }
 
+    
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
