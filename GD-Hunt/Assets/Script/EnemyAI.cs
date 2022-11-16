@@ -69,10 +69,11 @@ public class EnemyAI : MonoBehaviour
     {
         
         animator.SetBool("Walk", false);
-        //transform.LookAt(player);
         enemy.SetDestination(player.position);
-        
 
+        //Vector3 direction = player.position - transform.position;
+        //Quaternion rotaion = Quaternion.LookRotation(direction);
+        //transform.rotation = rotaion;
 
 
         if (!alreadyAttacked)
