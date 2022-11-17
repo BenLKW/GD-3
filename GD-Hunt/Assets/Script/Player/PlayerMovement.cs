@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Ground Check")]
     public float playerHeight;
-    public LayerMask Grass;
+    public LayerMask Ground;
     bool grounded;
 
     [Header("Slope check")]
@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
     public KeyCode RunKey = KeyCode.LeftShift;
     public KeyCode JumpKey = KeyCode.Space;
     public KeyCode DashKey = KeyCode.E;
-    public KeyCode DrawWeaponKey = KeyCode.Mouse1;
+    public KeyCode DrawWeaponKey = KeyCode.X;
     public KeyCode AttackKey = KeyCode.Mouse0;
 
 
@@ -91,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, Grass);
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, Ground);
 
         Playerinput();
         SpeedControl();

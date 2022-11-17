@@ -40,7 +40,7 @@ public class RandomSpawner : MonoBehaviour
     {
         while (enemyCount < 10)
         {
-            Instantiate(SpawnObject, new Vector3(spawnpoint.position.x+Random.Range(-35,35),spawnpoint.position.y,spawnpoint.position.z+ Random.Range(-15, 15)), Quaternion.identity);
+            Instantiate(SpawnObject, new Vector3(spawnpoint.position.x+Random.Range(-25,25),spawnpoint.position.y,spawnpoint.position.z+ Random.Range(-25, 25)), Quaternion.identity);
             enemyCount += 1;
             yield return new WaitForSecondsRealtime(1f);
 
