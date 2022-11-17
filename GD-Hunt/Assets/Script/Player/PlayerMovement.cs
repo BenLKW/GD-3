@@ -13,6 +13,9 @@ public class PlayerMovement : MonoBehaviour
 
 
     [Header("Movement")]
+    public Transform orientation;
+    Vector3 moveDirection;
+    Rigidbody rb;
     private float moveSpeed;
     public float walkSpeed;
     public float runSpreed;
@@ -40,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
     public float maxSlopeAngle;
     RaycastHit slopeHit;
 
-    public Transform orientation;
+    
 
     [Header("Key")]
     public KeyCode RunKey = KeyCode.LeftShift;
@@ -49,15 +52,14 @@ public class PlayerMovement : MonoBehaviour
     public KeyCode DrawWeaponKey = KeyCode.X;
     public KeyCode AttackKey = KeyCode.Mouse0;
 
-
+    [Space]
     float horizontalinput;
     float verticalInput;
 
-    Vector3 moveDirection;
-    Rigidbody rb;
-
-    public MovementState state;
-    public CombatState combat;
+    
+    [Header("State")]
+    public MovementState Move;
+    public CombatState Combat;
     public ActionState Action;
     public enum MovementState
     {
@@ -139,19 +141,19 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(DrawWeaponKey))
         {
-            if (combat == CombatState.WeaponInShealth)
+            if (Combat == CombatState.WeaponInShealth)
             {
 
-                combat = CombatState.Drawweapon;
+                Combat = CombatState.Drawweapon;
             }
-            else if (combat == CombatState.Drawweapon)
+            else if (Combat == CombatState.Drawweapon)
             {
 
-                combat = CombatState.WeaponInShealth;
+                Combat = CombatState.WeaponInShealth;
             }
         }
 
-        if (grounded && combat == CombatState.Drawweapon && Input.GetKeyDown(AttackKey) )
+        if (grounded && Combat == CombatState.Drawweapon && Input.GetKeyDown(AttackKey) )
         {
             
             Action = ActionState.Attack;
@@ -224,29 +226,29 @@ public class PlayerMovement : MonoBehaviour
             
             if (dashing && grounded)
             {
-                state = MovementState.dashing;
+                Move = MovementState.dashing;
                 moveSpeed = dashSpeed;
             }
             else if (grounded && Input.GetKey(RunKey))
             {
-                state = MovementState.running;
+                Move = MovementState.running;
                 moveSpeed = runSpreed;
 
             }
             else if (grounded)
             {
-                state = MovementState.walking;
+                Move = MovementState.walking;
                 moveSpeed = walkSpeed;
             }
             else
             {
                 if (readyToJump==false)
                 {
-                    state = MovementState.jumping;
+                    Move = MovementState.jumping;
                 }
                 else
                 {
-                    state = MovementState.air;
+                    Move = MovementState.air;
                 }
                 
             }
@@ -277,7 +279,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void AnimationState()
     {
-        if (state == MovementState.running && Input.GetButton("Horizontal") || Input.GetButton("Vertical") && state == MovementState.running)
+        if (Move == MovementState.running && Input.GetButton("Horizontal") || Input.GetButton("Vertical") && Move == MovementState.running)
         {
             if (velocity < 0.3f)
             {
@@ -309,7 +311,7 @@ public class PlayerMovement : MonoBehaviour
             velocity = 0;
         }
 
-        if (state == MovementState.air)
+        if (Move == MovementState.air)
         {
             animator.SetBool("OnAir", true);
         }
@@ -318,20 +320,20 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("OnAir", false);
         }
 
-        if (state == MovementState.jumping)
+        if (Move == MovementState.jumping)
         {
             animator.SetBool("IsJumping", true);
         }
-        else if (state != MovementState.jumping)
+        else if (Move != MovementState.jumping)
         {
             animator.SetBool("IsJumping", false);
         }
 
-        if (combat == CombatState.Drawweapon)
+        if (Combat == CombatState.Drawweapon)
         {
             animator.SetBool("WeaponDraw", true);
         }
-        else if (combat == CombatState.WeaponInShealth)
+        else if (Combat == CombatState.WeaponInShealth)
         {
             animator.SetBool("WeaponDraw", false);
         }
