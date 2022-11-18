@@ -37,12 +37,5 @@ public class WeaponSystem : MonoBehaviour
         Destroy(currentWeaponInHand);
     }
 
-    public void StartDealDamage()
-    {
-        currentWeaponInHand.GetComponentInChildren<DamageDealer>();
-    }
-    public void EndDealDamage()
-    {
-        currentWeaponInHand.GetComponentInChildren<DamageDealer>();
-    }
+    
 }

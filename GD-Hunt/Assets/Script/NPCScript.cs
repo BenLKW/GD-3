@@ -10,7 +10,7 @@ public class NPCScript : MonoBehaviour
     public GameObject player;
     public float lookRadius = 10f;
     public GameObject Quest;
-    public DamageDealer questTrue;
+    
     public Quest quest;
     public bool isQuesting;
 

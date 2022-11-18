@@ -7,7 +7,7 @@ public class EnemyHealth : MonoBehaviour
 {
     public Animator animator;
     public RandomSpawner randomspawner;
-    public DamageDealer DamageDealer;
+    
     public  float health;
     public float maxHealth;
     public Quest quest;
@@ -25,7 +25,7 @@ public class EnemyHealth : MonoBehaviour
         NPCScript = GameObject.Find("NPC_Test").GetComponent<NPCScript>();
         TargetLock = GameObject.Find("Main Camera").GetComponent<TargetLock>();
         randomspawner = GameObject.Find("EnemySpawner").GetComponent<RandomSpawner>();
-        DamageDealer = GameObject.Find("pCube1").GetComponent<DamageDealer>();
+        
         health = maxHealth;
         slider.value = CalculateHealth();
         healthBar.SetActive(false);

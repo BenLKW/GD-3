@@ -11,7 +11,13 @@ public class EnemyAI : MonoBehaviour
 
     public Transform player;
 
+    public EnemyHealth enemyHealth;
+
+    public PlayerMovement playerMovement;
+
     public LayerMask whatIsPlayer;
+
+    public int damageAmount = 1;
 
     public float range;
     public Transform centrePoint;
@@ -26,7 +32,9 @@ public class EnemyAI : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         enemy = GetComponent<NavMeshAgent>();
+        enemyHealth = GetComponent<EnemyHealth>();
         player = GameObject.Find("/Player_Test/Player").GetComponent<Transform>();
+        playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
         centrePoint = GameObject.Find("/EnemySpawner/Center").GetComponent<Transform>();
         animator.SetBool("Walk", true);
     }
@@ -94,12 +102,16 @@ public class EnemyAI : MonoBehaviour
         //animator.SetBool("Attack", false);
     }
 
-    public void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
-        {
-            animator.SetTrigger("GetHit");
+        if (playerMovement.Action == PlayerMovement.ActionState.Attack) 
+        { 
+        
+            if (other.tag == "Axe")
+           {
+            enemyHealth.health--;
 
+            }
         }
     }
 
