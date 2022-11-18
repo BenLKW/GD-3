@@ -53,6 +53,7 @@ public class EnemyAI : MonoBehaviour
     }
     private void Patroling()
     {
+        enemy.speed = 3.5f;
         if (enemy.remainingDistance <= enemy.stoppingDistance)
         {
             Vector3 point;
@@ -67,7 +68,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Chase()
     {
-
+        enemy.speed = 3.5f;
         animator.SetBool("Walk", true);
         enemy.SetDestination(player.position);
        
@@ -75,13 +76,18 @@ public class EnemyAI : MonoBehaviour
     }
     private void Attack()
     {
-        
-        animator.SetBool("Walk", false);
-        enemy.SetDestination(player.position);
 
-        //Vector3 direction = player.position - transform.position;
-        //Quaternion rotaion = Quaternion.LookRotation(direction);
-        //transform.rotation = rotaion;
+        enemy.speed = 0;
+        enemy.SetDestination(player.position);
+        
+        if (enemy.speed == 0)
+        {
+            animator.SetBool("Walk", false);
+        }
+        else
+        {
+            animator.SetBool("Walk", true);
+        }
 
 
         if (!alreadyAttacked)
