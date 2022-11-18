@@ -47,6 +47,7 @@ public class DamageDealer : MonoBehaviour
                 
                 
                 other.GetComponent<EnemyHealth>().health = other.GetComponent<EnemyHealth>().health - damageAmount;
+                other.GetComponent<Animator>().SetTrigger("GetHit");
                 HasDealDamage = true;
 
 
