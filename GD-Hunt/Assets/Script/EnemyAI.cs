@@ -94,7 +94,15 @@ public class EnemyAI : MonoBehaviour
         //animator.SetBool("Attack", false);
     }
 
-    
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            animator.SetTrigger("GetHit");
+
+        }
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
