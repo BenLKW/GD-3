@@ -102,18 +102,7 @@ public class EnemyAI : MonoBehaviour
         //animator.SetBool("Attack", false);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (playerMovement.Action == PlayerMovement.ActionState.Attack) 
-        { 
-        
-            if (other.tag == "Axe")
-           {
-            enemyHealth.health--;
-
-            }
-        }
-    }
+    
 
     private void OnDrawGizmosSelected()
     {

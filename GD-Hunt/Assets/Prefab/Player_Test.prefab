@@ -471,7 +471,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "WASD - \u79FB\u52D5\nLeft Shift - \u8DD1\u6B65\nE -\u77ED\u885D\nM0 -
-    \u653B\u64CA\nX - \u62FF\u51FA\u6B66\u5668\nM2 - \u9396\u5B9A\u76EE\u6A19\nV
+    \u653B\u64CA\nX - \u62FF\u51FA\u6B66\u5668\nM2 - \u9396\u5B9A\u76EE\u6A19\nF
     - \u8207NPC\u4E92\u52D5"
 --- !u!1 &1330864476162778772
 GameObject:
@@ -1904,6 +1904,7 @@ GameObject:
   - component: {fileID: 5018208789024564104}
   - component: {fileID: 3687471694380074172}
   - component: {fileID: 3910386988448150679}
+  - component: {fileID: 3411549045175247341}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -1958,6 +1959,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 5018208789024564104}
   acceleration: 0.1
+  orientation: {fileID: 4545898056911163603}
   walkSpeed: 3
   runSpreed: 7
   dashSpeed: 20
@@ -1976,14 +1978,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   maxSlopeAngle: 40
-  orientation: {fileID: 4545898056911163603}
   RunKey: 304
   JumpKey: 32
   DashKey: 101
   DrawWeaponKey: 120
   AttackKey: 323
-  state: 0
-  combat: 0
+  Move: 0
+  Combat: 0
   Action: 0
 --- !u!95 &5018208789024564104
 Animator:
@@ -2034,6 +2035,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 071e36cfec65f3c469609dd4d3db493a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3411549045175247341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3940187089873531814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b2f5898e8bb49c4b8274cf66af4aa64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  maxHealth: 10
 --- !u!1 &4005873962804739675
 GameObject:
   m_ObjectHideFlags: 0
