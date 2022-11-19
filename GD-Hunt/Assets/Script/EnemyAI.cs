@@ -24,10 +24,15 @@ public class EnemyAI : MonoBehaviour
 
     public float timeBetweenAttacks;
     public bool alreadyAttacked;
+    
 
     public float lookRadius = 10f;
     public float attackRadius = 3f;
-    public bool playerInLookRadius, playerInAttackRadius;
+    public bool playerInLookRadius, playerInAttackRadius,lowHealth,isDead;
+
+
+
+    
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -46,8 +51,8 @@ public class EnemyAI : MonoBehaviour
 
         if (!playerInLookRadius && !playerInAttackRadius) Patroling();
         if (playerInLookRadius && !playerInAttackRadius) Chase();
-        if (playerInAttackRadius && playerInLookRadius) Attack();
-
+        if (!isDead && playerInAttackRadius && playerInLookRadius) Attack();
+        
         
 
     }
@@ -100,16 +105,28 @@ public class EnemyAI : MonoBehaviour
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
             
         }
+        if (enemyHealth.health <= 3)
+        {
+            timeBetweenAttacks = 0;
+        }
     }
 
     private void ResetAttack()
     {
         alreadyAttacked = false;
-        //animator.SetBool("Attack", false);
+        
+    }
+
+    private void LowHealth()
+    {
+        
+       
+
+
     }
 
     
-
+    
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
