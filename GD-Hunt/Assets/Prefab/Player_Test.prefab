@@ -1973,6 +1973,13 @@ MonoBehaviour:
   dashCd: 1
   CountAttack: 0
   weaponSystem: {fileID: 3687471694380074172}
+  ThrowForce: 0
+  ThrowUpwardForce: 0
+  TotalThrow: 0
+  ThrowCoolDown: 0
+  Cam: {fileID: 0}
+  AtkPoi: {fileID: 0}
+  ObjectToTrow: {fileID: 0}
   playerHeight: 2
   Ground:
     serializedVersion: 2
@@ -1983,6 +1990,7 @@ MonoBehaviour:
   DashKey: 101
   DrawWeaponKey: 120
   AttackKey: 323
+  ThrowKey: 324
   Move: 0
   Combat: 0
   Action: 0
@@ -2083,6 +2091,37 @@ Transform:
   - {fileID: 3687471694802806120}
   m_Father: {fileID: 7064940919610960911}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4334481003258013023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7682142970967489841}
+  m_Layer: 6
+  m_Name: ThrowingPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7682142970967489841
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4334481003258013023}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.077, y: -0.029, z: -0.0132}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3327113673289242675}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4465758428283754369
 GameObject:
@@ -3700,6 +3739,7 @@ Transform:
   - {fileID: 7186065556667657207}
   - {fileID: 8879144875879648108}
   - {fileID: 3574587147255593679}
+  - {fileID: 7682142970967489841}
   m_Father: {fileID: 8834878203439975320}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

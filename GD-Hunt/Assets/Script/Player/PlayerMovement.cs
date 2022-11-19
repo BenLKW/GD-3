@@ -31,8 +31,21 @@ public class PlayerMovement : MonoBehaviour
     public float dashDuraction;
     public float dashCd;
     private float dashCdTimer;
+
+    [Header("Attask")]
     public int CountAttack;
     public WeaponSystem weaponSystem;
+
+    [Header("Throwing")]
+    
+    public float ThrowForce;
+    public float ThrowUpwardForce;
+    bool ReadyToThrow;
+    public int TotalThrow;
+    public float ThrowCoolDown;
+    public Transform ThrowDir;
+    public Transform AtkPoi;
+    public GameObject ObjectToTrow;
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -43,14 +56,13 @@ public class PlayerMovement : MonoBehaviour
     public float maxSlopeAngle;
     RaycastHit slopeHit;
 
-    
-
     [Header("Key")]
     public KeyCode RunKey = KeyCode.LeftShift;
     public KeyCode JumpKey = KeyCode.Space;
     public KeyCode DashKey = KeyCode.E;
     public KeyCode DrawWeaponKey = KeyCode.X;
     public KeyCode AttackKey = KeyCode.Mouse0;
+    public KeyCode ThrowKey = KeyCode.Mouse1;
 
     [Space]
     float horizontalinput;
@@ -87,6 +99,7 @@ public class PlayerMovement : MonoBehaviour
         VelocityHash = Animator.StringToHash("Velocity");
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        ReadyToThrow = true;
 
     }
 
@@ -168,6 +181,13 @@ public class PlayerMovement : MonoBehaviour
                 CountAttack = 0;
             }
         }
+
+        if (grounded && Input.GetKeyDown(ThrowKey) && ReadyToThrow && TotalThrow > 0 && Action != ActionState.Attack)
+        {
+            
+            animator.SetTrigger("Throwing");
+        }
+        
     }
 
 
@@ -343,7 +363,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetInteger("Attack", 1);
         }
 
-        if (animator.GetCurrentAnimatorStateInfo(2).IsName("Combo Attack Ver1"))
+        if (animator.GetCurrentAnimatorStateInfo(3).IsName("Combo Attack Ver1"))
         {
             if (CountAttack > 1)
             {
@@ -356,7 +376,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
         }
-        else if (animator.GetCurrentAnimatorStateInfo(2).IsName("Combo Attack Ver2"))
+        else if (animator.GetCurrentAnimatorStateInfo(3).IsName("Combo Attack Ver2"))
         {
             if (CountAttack > 2)
             {
@@ -412,5 +432,23 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    public void Throw()
+    {
+        ReadyToThrow = false;
 
+        GameObject stone = Instantiate(ObjectToTrow, AtkPoi.position, ThrowDir.rotation);
+        Rigidbody stoneRb = stone.GetComponent<Rigidbody>();
+        Vector3 ForceToAdd = ThrowDir.forward * ThrowForce + transform.up * ThrowUpwardForce;
+
+        stoneRb.AddForce(ForceToAdd, ForceMode.Impulse);
+
+        TotalThrow--;
+
+        Invoke(nameof(ResetThrow), ThrowCoolDown);
+    }
+
+    private void ResetThrow()
+    {
+        ReadyToThrow = true;
+    }
 }
