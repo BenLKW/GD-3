@@ -73,6 +73,10 @@ public class PlayerMovement : MonoBehaviour
     public MovementState Move;
     public CombatState Combat;
     public ActionState Action;
+    public HealthState HealStage;
+    public Health Health;
+    public bool HasPlayedAnim = false;
+    
     public enum MovementState
     {
         walking,
@@ -80,6 +84,12 @@ public class PlayerMovement : MonoBehaviour
         dashing,
         jumping,
         air
+    }
+
+    public enum HealthState
+    {
+        Alive,
+        Dead
     }
 
     public enum ActionState
@@ -139,76 +149,87 @@ public class PlayerMovement : MonoBehaviour
         horizontalinput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetKeyDown(JumpKey) && readyToJump && grounded)
+        if (HealStage != HealthState.Dead)
         {
-
-            readyToJump = false;
-            Jump();
-            Invoke(nameof(ResetJump), jumpcooldown);
-        }
-
-        if (Input.GetKeyDown(DashKey) && grounded && Input.GetButton("Horizontal") || Input.GetButton("Vertical") && Input.GetKeyDown(DashKey) && grounded)
-        {
-            Dash();
-        }
-
-        if (Input.GetKeyDown(DrawWeaponKey))
-        {
-            if (Combat == CombatState.WeaponInShealth)
+            if (Input.GetKeyDown(JumpKey) && readyToJump && grounded)
             {
 
-                Combat = CombatState.Drawweapon;
+                readyToJump = false;
+                Jump();
+                Invoke(nameof(ResetJump), jumpcooldown);
             }
-            else if (Combat == CombatState.Drawweapon)
+
+            if (Input.GetKeyDown(DashKey) && grounded && Input.GetButton("Horizontal") || Input.GetButton("Vertical") && Input.GetKeyDown(DashKey) && grounded)
+            {
+                Dash();
+            }
+
+            if (Input.GetKeyDown(DrawWeaponKey))
+            {
+                if (Combat == CombatState.WeaponInShealth)
+                {
+
+                    Combat = CombatState.Drawweapon;
+                }
+                else if (Combat == CombatState.Drawweapon)
+                {
+
+                    Combat = CombatState.WeaponInShealth;
+                }
+            }
+
+            if (grounded && Combat == CombatState.Drawweapon && Input.GetKeyDown(AttackKey))
             {
 
-                Combat = CombatState.WeaponInShealth;
-            }
-        }
+                Action = ActionState.Attack;
+                CountAttack++;
 
-        if (grounded && Combat == CombatState.Drawweapon && Input.GetKeyDown(AttackKey) )
-        {
-            
-            Action = ActionState.Attack;
-            CountAttack++;
-            
-        }
-        else
-        {
-            if(CountAttack >= 16)
+            }
+            else
             {
-                
-                CountAttack = 0;
+                if (CountAttack >= 16)
+                {
+
+                    CountAttack = 0;
+                }
+            }
+
+            if (grounded && Input.GetKeyDown(ThrowKey) && ReadyToThrow && TotalThrow > 0 && Action != ActionState.Attack)
+            {
+
+                animator.SetTrigger("Throwing");
             }
         }
-
-        if (grounded && Input.GetKeyDown(ThrowKey) && ReadyToThrow && TotalThrow > 0 && Action != ActionState.Attack)
-        {
-            
-            animator.SetTrigger("Throwing");
-        }
+        
         
     }
 
 
     void MovePlayer()
     {
-        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalinput;
+        if (HealStage != HealthState.Dead)
+        {
+            moveDirection = orientation.forward * verticalInput + orientation.right * horizontalinput;
 
-        if (Onslope())
-        {
-            rb.AddForce(GetSlopMoveDirection() * moveSpeed * 5f, ForceMode.Force);
-            if (rb.velocity.y > 0)
+            if (Onslope())
             {
-                rb.AddForce(Vector3.down * 8f, ForceMode.Force);
+                rb.AddForce(GetSlopMoveDirection() * moveSpeed * 5f, ForceMode.Force);
+                if (rb.velocity.y > 0)
+                {
+                    rb.AddForce(Vector3.down * 8f, ForceMode.Force);
+                }
             }
-        }
-        else if (grounded)
-        {
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+            else if (grounded)
+            {
+                rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+            }
         }
         else if (!grounded)
         {
+            
+            moveDirection = orientation.forward * verticalInput + orientation.right * horizontalinput;
+            
+            
             rb.AddForce(moveDirection.normalized * moveSpeed * 1f * air, ForceMode.Force);
         }
 
@@ -278,6 +299,10 @@ public class PlayerMovement : MonoBehaviour
             moveSpeed = AttackingSpeed;
         }
 
+        if (Health.health <= 0)
+        {
+            HealStage = HealthState.Dead;
+        }
 
     }
 
@@ -299,97 +324,114 @@ public class PlayerMovement : MonoBehaviour
 
     public void AnimationState()
     {
-        if (Move == MovementState.running && Input.GetButton("Horizontal") || Input.GetButton("Vertical") && Move == MovementState.running)
+                
+
+        if (HealStage != HealthState.Dead)
         {
-            if (velocity < 0.3f)
+            
+
+            if (Move == MovementState.running && Input.GetButton("Horizontal") || Input.GetButton("Vertical") && Move == MovementState.running)
             {
-                velocity += Time.deltaTime * acceleration * 20;
+                if (velocity < 0.3f)
+                {
+                    velocity += Time.deltaTime * acceleration * 20;
+                }
+                else if (velocity < 1f)
+                {
+                    velocity += Time.deltaTime * acceleration * 5;
+                }
             }
-            else if (velocity < 1f)
+            else if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
             {
-                velocity += Time.deltaTime * acceleration * 5;
+                if (velocity > 0.3f)
+                {
+                    velocity -= Time.deltaTime * acceleration * 5;
+                }
+                if (velocity < 0.3f)
+                {
+                    velocity += Time.deltaTime * acceleration * 10;
+                }
             }
-        }
-        else if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
-        {
-            if (velocity > 0.3f)
+            else if (velocity > 0.0f)
             {
-                velocity -= Time.deltaTime * acceleration * 5;
+                velocity -= Time.deltaTime * acceleration * 10;
             }
-            if (velocity < 0.3f)
+
+            if (velocity < 0.0f)
             {
-                velocity += Time.deltaTime * acceleration * 10;
+                velocity = 0;
             }
-        }
-        else if (velocity > 0.0f)
-        {
-            velocity -= Time.deltaTime * acceleration * 10;
-        }
 
-        if (velocity < 0.0f)
-        {
-            velocity = 0;
-        }
-
-        if (Move == MovementState.air)
-        {
-            animator.SetBool("OnAir", true);
-        }
-        else
-        {
-            animator.SetBool("OnAir", false);
-        }
-
-        if (Move == MovementState.jumping)
-        {
-            animator.SetBool("IsJumping", true);
-        }
-        else if (Move != MovementState.jumping)
-        {
-            animator.SetBool("IsJumping", false);
-        }
-
-        if (Combat == CombatState.Drawweapon)
-        {
-            animator.SetBool("WeaponDraw", true);
-        }
-        else if (Combat == CombatState.WeaponInShealth)
-        {
-            animator.SetBool("WeaponDraw", false);
-        }
-
-        if (CountAttack == 1)
-        {
-            animator.SetInteger("Attack", 1);
-        }
-
-        if (animator.GetCurrentAnimatorStateInfo(3).IsName("Combo Attack Ver1"))
-        {
-            if (CountAttack > 1)
+            if (Move == MovementState.air)
             {
-                animator.SetInteger("Attack", 2);
+                animator.SetBool("OnAir", true);
             }
             else
             {
-                ReturntoMove();
-
+                animator.SetBool("OnAir", false);
             }
 
+            if (Move == MovementState.jumping)
+            {
+                animator.SetBool("IsJumping", true);
+            }
+            else if (Move != MovementState.jumping)
+            {
+                animator.SetBool("IsJumping", false);
+            }
+
+            if (Combat == CombatState.Drawweapon)
+            {
+                animator.SetBool("WeaponDraw", true);
+            }
+            else if (Combat == CombatState.WeaponInShealth)
+            {
+                animator.SetBool("WeaponDraw", false);
+            }
+
+            if (CountAttack == 1)
+            {
+                animator.SetInteger("Attack", 1);
+            }
+
+            if (animator.GetCurrentAnimatorStateInfo(3).IsName("Combo Attack Ver1"))
+            {
+                if (CountAttack > 1)
+                {
+                    animator.SetInteger("Attack", 2);
+                }
+                else
+                {
+                    ReturntoMove();
+
+                }
+
+            }
+            else if (animator.GetCurrentAnimatorStateInfo(3).IsName("Combo Attack Ver2"))
+            {
+                if (CountAttack > 2)
+                {
+                    animator.SetInteger("Attack", 3);
+                }
+                else
+                {
+                    ReturntoMove();
+
+                }
+            }
+
+            animator.SetFloat(VelocityHash, velocity);
         }
-        else if (animator.GetCurrentAnimatorStateInfo(3).IsName("Combo Attack Ver2"))
+        else if (HealStage == HealthState.Dead)
         {
-            if (CountAttack > 2)
+            if (HasPlayedAnim == false)
             {
-                animator.SetInteger("Attack", 3);
+                HasPlayedAnim = true;
+                animator.SetTrigger("Dead");
             }
-            else
-            {
-                ReturntoMove();
+        }
 
-            }
-        }        
 
-        animator.SetFloat(VelocityHash, velocity);
     }
 
     void Dash()
