@@ -109,7 +109,7 @@ public class EnemyAI : MonoBehaviour
         }
         if (enemyHealth.health <= 3)
         {
-            timeBetweenAttacks = 0;
+            timeBetweenAttacks = 0.5f;
         }
     }
 

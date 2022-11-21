@@ -1,52 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8638544646591603029
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8638544646591603027}
-  - component: {fileID: 8638544646591603026}
-  m_Layer: 0
-  m_Name: Quest
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8638544646591603027
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8638544646591603029}
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 4.6278687, y: -1.7846292, z: -1.6658478}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8638544646846414144}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8638544646591603026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8638544646591603029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 879ef714783d9d744886067a2ad615e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentAmount: 0
-  requiredAmount: 10
-  doDamage: {fileID: 0}
 --- !u!1 &8638544646846414147
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,6 +12,7 @@ GameObject:
   - component: {fileID: 8638544646846414145}
   - component: {fileID: 8638544646846414143}
   - component: {fileID: 8638544646846414140}
+  - component: {fileID: 7718497711399053998}
   m_Layer: 0
   m_Name: NPC_Test 2
   m_TagString: Untagged
@@ -80,7 +34,6 @@ Transform:
   m_Children:
   - {fileID: 8100005316248581908}
   - {fileID: 8638544647022787834}
-  - {fileID: 8638544646591603027}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -118,8 +71,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Villager
   TextName: {fileID: 8638544647022787839}
-  Player: {fileID: 9146120821623711377, guid: 084c4f282c709e54ba07291f977ceae3, type: 3}
-  Quest: {fileID: 8638544646591603029}
+  player: {fileID: 0}
+  lookRadius: 10
+  Quest: {fileID: 0}
+  quest: {fileID: 0}
+  isQuesting: 0
 --- !u!54 &8638544646846414140
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -136,6 +92,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 90
   m_CollisionDetection: 0
+--- !u!136 &7718497711399053998
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8638544646846414147}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.29280853
+  m_Height: 1.8060625
+  m_Direction: 1
+  m_Center: {x: -0.002998352, y: 0.91865504, z: 0}
 --- !u!1 &8638544647022787839
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,22 +265,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d1650e15c94e68544ba7acf3c24d7bc8, type: 3}
   m_PrefabInstance: {fileID: 8638544645837082879}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8872987677058002350 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d1650e15c94e68544ba7acf3c24d7bc8, type: 3}
-  m_PrefabInstance: {fileID: 8638544645837082879}
-  m_PrefabAsset: {fileID: 0}
---- !u!136 &8638544645944981353
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8872987677058002350}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1.9687524
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
