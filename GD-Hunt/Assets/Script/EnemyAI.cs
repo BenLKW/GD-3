@@ -12,6 +12,7 @@ public class EnemyAI : MonoBehaviour
     public Transform player;
 
     public EnemyHealth enemyHealth;
+    public enemyAttackDetector attackDetector;
 
     public PlayerMovement playerMovement;
     public Health playerHealth;
@@ -99,8 +100,11 @@ public class EnemyAI : MonoBehaviour
 
         if (!alreadyAttacked)
         {
-
-            playerHealth.health--;
+            if (attackDetector.isAttack == true)
+            {
+                playerHealth.health--;
+            }
+            
             animator.SetTrigger("Attack");
 
             alreadyAttacked = true;
@@ -119,14 +123,7 @@ public class EnemyAI : MonoBehaviour
         
     }
 
-    private void LowHealth()
-    {
-        
-       
-
-
-    }
-
+    
     
     
     private void OnDrawGizmosSelected()

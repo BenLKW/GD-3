@@ -359,7 +359,9 @@ MonoBehaviour:
   animator: {fileID: 0}
   player: {fileID: 0}
   enemyHealth: {fileID: 0}
+  attackDetector: {fileID: 9110790326212266445}
   playerMovement: {fileID: 0}
+  playerHealth: {fileID: 0}
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 64
@@ -890,10 +892,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.25960547
-  m_Height: 0.5192108
+  m_Radius: 0.32504752
+  m_Height: 0.65009487
   m_Direction: 1
-  m_Center: {x: 0.06429711, y: 0.06053579, z: -0.08238342}
+  m_Center: {x: 0.064297095, y: 0.060535792, z: -0.016941363}
 --- !u!114 &9110790326212266445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -907,6 +909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAI: {fileID: 9155799610079120609}
+  isAttack: 0
 --- !u!1 &2715352647439200118
 GameObject:
   m_ObjectHideFlags: 0

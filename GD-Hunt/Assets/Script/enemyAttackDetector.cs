@@ -5,14 +5,18 @@ using UnityEngine;
 public class enemyAttackDetector : MonoBehaviour
 {
     public EnemyAI enemyAI;
-
+    public bool isAttack;
     
 
     public void OnTriggerEnter(Collider other)
     {
-        if (enemyAI.alreadyAttacked&&other.tag == "Player")
+        if (enemyAI.alreadyAttacked==true&&other.tag == "Player")
         {
-            Debug.Log("Attack!!");
+            isAttack = true;
+        }
+        else
+        {
+            isAttack = false;
         }
     }
 }
