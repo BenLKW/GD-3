@@ -15,7 +15,7 @@ public class EnemyAI : MonoBehaviour
     public enemyAttackDetector attackDetector;
 
     public PlayerMovement playerMovement;
-    public Health playerHealth;
+   
 
     public LayerMask whatIsPlayer;
 
@@ -42,7 +42,7 @@ public class EnemyAI : MonoBehaviour
         enemyHealth = GetComponent<EnemyHealth>();
         player = GameObject.Find("/Player_Test/Player").GetComponent<Transform>();
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
-        playerHealth= GameObject.Find("Player").GetComponent<Health>();
+        
         centrePoint = GameObject.Find("/EnemySpawner/Center").GetComponent<Transform>();
         animator.SetBool("Walk", true);
     }
@@ -100,10 +100,7 @@ public class EnemyAI : MonoBehaviour
 
         if (!alreadyAttacked)
         {
-            if (attackDetector.isAttack == true)
-            {
-                playerHealth.health--;
-            }
+            
             
             animator.SetTrigger("Attack");
 
