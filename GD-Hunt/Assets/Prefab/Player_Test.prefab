@@ -2197,7 +2197,9 @@ MonoBehaviour:
   Move: 0
   Combat: 0
   Action: 0
+  HealStage: 0
   Health: {fileID: 3411549045175247341}
+  HasPlayedAnim: 0
 --- !u!95 &5018208789024564104
 Animator:
   serializedVersion: 4
@@ -4304,6 +4306,7 @@ MonoBehaviour:
   TargetLock: {fileID: 2937686064306616016}
   rotationSpeed: 7
   CurrentMode: 0
+  Health: {fileID: 3411549045175247341}
 --- !u!114 &2937686064306616016
 MonoBehaviour:
   m_ObjectHideFlags: 0
