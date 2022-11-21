@@ -1803,7 +1803,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8638544646846414147, guid: a5eca0a16b1360446afa98f638e4c8eb, type: 3}
       propertyPath: m_Name
-      value: NPC_Test 2
+      value: NPC_Test
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5eca0a16b1360446afa98f638e4c8eb, type: 3}
