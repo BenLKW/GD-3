@@ -13,9 +13,9 @@ public class AnimalAI : MonoBehaviour
 
     public LayerMask whatIsPlayer;
 
+    
     public float lookRadius;
-    public float runAwayRadius;
-    public bool playerInLookRadius, playerInAttackRadius;
+    public bool playerInRunAwayRadius;
     private void Awake()
     {
 
@@ -28,14 +28,10 @@ public class AnimalAI : MonoBehaviour
     void Update()
     {
 
+        playerInRunAwayRadius = Physics.CheckSphere(transform.position, lookRadius, whatIsPlayer);
 
-
-        playerInLookRadius = Physics.CheckSphere(transform.position, lookRadius, whatIsPlayer);
-        playerInAttackRadius = Physics.CheckSphere(transform.position, runAwayRadius, whatIsPlayer);
-
-        Patroling();
-        RunAwayFromPlayer();
-
+        if (!playerInRunAwayRadius) Patroling();
+        if (playerInRunAwayRadius) RunAwayFromPlayer();
 
 
 
@@ -55,7 +51,17 @@ public class AnimalAI : MonoBehaviour
             }
         }
     }
+    private void RunAwayFromPlayer()
+    {
+       
+        
+     Vector3 dirToPlayer = transform.position - player.transform.position;
 
+     Vector3 newPos = transform.position + dirToPlayer;
+       
+     animal.SetDestination(newPos);       
+              
+    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.blue;
@@ -77,20 +83,7 @@ public class AnimalAI : MonoBehaviour
         result = Vector3.zero;
         return false;
     }
-    private void RunAwayFromPlayer()
-    {
-        float distance = Vector3.Distance(player.position, transform.position);
-
-
-        if (distance < lookRadius)
-        {
-            Vector3 dirToPlayer = transform.position - player.transform.position;
-
-            Vector3 newPos = transform.position + dirToPlayer;
-
-            animal.SetDestination(newPos);
-        }
-    }
+    
 
 
 }
