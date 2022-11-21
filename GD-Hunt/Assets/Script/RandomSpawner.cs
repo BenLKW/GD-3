@@ -8,6 +8,7 @@ public class RandomSpawner : MonoBehaviour
     public Transform spawnpoint;
     public int xPos;
     public int zPos;
+    [SerializeField]private int spawnAmount;
     public int enemyCount;
     public float spawnDelay;
     public float spawnTime;
@@ -38,7 +39,7 @@ public class RandomSpawner : MonoBehaviour
     
     IEnumerator SpawnMobs()
     {
-        while (enemyCount < 10)
+        while (enemyCount < spawnAmount)
         {
             Instantiate(SpawnObject, new Vector3(spawnpoint.position.x+Random.Range(-25,25),spawnpoint.position.y,spawnpoint.position.z+ Random.Range(-25, 25)), Quaternion.identity);
             enemyCount += 1;
