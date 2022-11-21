@@ -1414,6 +1414,7 @@ GameObject:
   - component: {fileID: 6428529627098862281}
   - component: {fileID: 2804955817910400976}
   - component: {fileID: 1174416027819337512}
+  - component: {fileID: 6391270123612344130}
   m_Layer: 0
   m_Name: rabit
   m_TagString: Untagged
@@ -1519,6 +1520,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!136 &6391270123612344130
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8205201377088071805}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.38759995
+  m_Height: 0.7751999
+  m_Direction: 1
+  m_Center: {x: 0.035064697, y: 0.25, z: 0.003929138}
 --- !u!1 &8212763558484700534
 GameObject:
   m_ObjectHideFlags: 0
