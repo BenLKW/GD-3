@@ -39,9 +39,9 @@ public class EnemyHealth : MonoBehaviour
         
         slider.value = CalculateHealth();
         slider.transform.LookAt(Camera.main.transform.position);
-        slider.transform.Rotate(0, 180, 0);
+        //slider.transform.Rotate(0, 180, 0);
         healthBar.transform.LookAt(Camera.main.transform.position);
-        healthBar.transform.Rotate(0, 180, 0);
+        //healthBar.transform.Rotate(0, 180, 0);
 
         if (health < maxHealth)
         {

@@ -361,7 +361,6 @@ MonoBehaviour:
   enemyHealth: {fileID: 0}
   attackDetector: {fileID: 9110790326212266445}
   playerMovement: {fileID: 0}
-  playerHealth: {fileID: 0}
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 64
@@ -371,7 +370,7 @@ MonoBehaviour:
   timeBetweenAttacks: 3
   alreadyAttacked: 0
   lookRadius: 15
-  attackRadius: 3
+  attackRadius: 2.5
   playerInLookRadius: 0
   playerInAttackRadius: 0
   lowHealth: 0
@@ -387,8 +386,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.8401947, y: 2.040894, z: 3.3950424}
-  m_Center: {x: 0.0025100708, y: -0.87591946, z: -0.08137894}
+  m_Size: {x: 0.8401947, y: 2.040894, z: 3.3172417}
+  m_Center: {x: 0.0025100708, y: -0.87591946, z: -0.12027931}
 --- !u!114 &3996244500475710264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -874,14 +873,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2556275278255849831}
-  m_LocalRotation: {x: -0.40749487, y: -0.57788223, z: -0.40749487, w: 0.57788223}
-  m_LocalPosition: {x: -17.7, y: -7, z: 0.1}
+  m_LocalRotation: {x: -0.453275, y: -0.5427171, z: -0.453275, w: 0.5427171}
+  m_LocalPosition: {x: -8.5, y: 6.4, z: 4.5}
   m_LocalScale: {x: 100.00002, y: 100.00002, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2696878353072604895}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -79.737, y: -90, z: 0}
 --- !u!136 &7381705904179066232
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -892,10 +891,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.3
-  m_Height: 0.5
+  m_Radius: 0.37864283
+  m_Height: 0.7572855
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -0.043434136, y: -0.052134987, z: -0.13922013}
 --- !u!114 &9110790326212266445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -910,6 +909,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyAI: {fileID: 9155799610079120609}
   isAttack: 0
+  playerHealth: {fileID: 0}
 --- !u!1 &2715352647439200118
 GameObject:
   m_ObjectHideFlags: 0

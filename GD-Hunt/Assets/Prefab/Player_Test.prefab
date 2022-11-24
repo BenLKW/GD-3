@@ -1963,7 +1963,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4243894470319362329}
-  - component: {fileID: 4253149414875967918}
   - component: {fileID: 5480433746745914130}
   m_Layer: 6
   m_Name: ybot
@@ -1990,20 +1989,6 @@ Transform:
   m_Father: {fileID: 1687159901053192790}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &4253149414875967918
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3838170531595836823}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.23245344
-  m_Height: 1.7896651
-  m_Direction: 1
-  m_Center: {x: -0.004280776, y: 0.88982385, z: 0}
 --- !u!114 &5480433746745914130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2108,6 +2093,7 @@ GameObject:
   - component: {fileID: 3687471694380074172}
   - component: {fileID: 3910386988448150679}
   - component: {fileID: 3411549045175247341}
+  - component: {fileID: 37965863311777706}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -2265,6 +2251,20 @@ MonoBehaviour:
   maxHealth: 10
   healthBar: {fileID: 3309750218037371571}
   slider: {fileID: 5657418882569180950}
+--- !u!136 &37965863311777706
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3940187089873531814}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.23245344
+  m_Height: 1.7896651
+  m_Direction: 1
+  m_Center: {x: -0.004280776, y: 0.88982385, z: 0}
 --- !u!1 &4005873962804739675
 GameObject:
   m_ObjectHideFlags: 0

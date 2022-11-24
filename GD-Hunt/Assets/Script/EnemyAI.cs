@@ -10,6 +10,7 @@ public class EnemyAI : MonoBehaviour
     private NavMeshAgent enemy;
 
     public Transform player;
+    
 
     public EnemyHealth enemyHealth;
     public enemyAttackDetector attackDetector;
@@ -40,9 +41,7 @@ public class EnemyAI : MonoBehaviour
         animator = GetComponent<Animator>();
         enemy = GetComponent<NavMeshAgent>();
         enemyHealth = GetComponent<EnemyHealth>();
-        player = GameObject.Find("/Player_Test/Player").GetComponent<Transform>();
-        playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
-        
+        player = null;
         centrePoint = GameObject.Find("/EnemySpawner/Center").GetComponent<Transform>();
         animator.SetBool("Walk", true);
     }
@@ -52,8 +51,17 @@ public class EnemyAI : MonoBehaviour
         playerInLookRadius = Physics.CheckSphere(transform.position, lookRadius, whatIsPlayer);
         playerInAttackRadius = Physics.CheckSphere(transform.position, attackRadius, whatIsPlayer);
 
-        if (!playerInLookRadius && !playerInAttackRadius) Patroling();
-        if (playerInLookRadius && !playerInAttackRadius) Chase();
+        if (!playerInLookRadius && !playerInAttackRadius) 
+        {
+            Patroling();
+            player = null;
+            playerMovement = null;
+        } 
+        if (playerInLookRadius && !playerInAttackRadius)
+        {
+            AssignTarget();
+            Chase();
+        }
         if (!isDead && playerInAttackRadius && playerInLookRadius) Attack();
         
         
@@ -87,6 +95,7 @@ public class EnemyAI : MonoBehaviour
 
         enemy.speed = 0;
         enemy.SetDestination(player.position);
+        
         
         if (enemy.speed == 0)
         {
@@ -145,6 +154,30 @@ public class EnemyAI : MonoBehaviour
         return false;
     }
 
-  
-    
+    private GameObject ClosestTarget() // this is modified func from unity Docs ( Gets Closest Object with Tag ). 
+    {
+        GameObject[] Players;
+        Players = GameObject.FindGameObjectsWithTag("Player");
+        Vector3 position = transform.position;
+        GameObject closet = null;
+
+        foreach (GameObject Player in Players)
+        {
+            Vector3 diff = Player.transform.position - position;
+            float curDistance = diff.magnitude;
+            if (curDistance < lookRadius)
+            {
+                closet = Player;
+
+            }
+        }
+        return closet;
+    }
+
+    void AssignTarget()
+    {
+         player = ClosestTarget().GetComponent<Transform>();
+         playerMovement = ClosestTarget().GetComponent<PlayerMovement>();
+
+    }
 }
