@@ -9,8 +9,10 @@ public class DamageDealer : MonoBehaviour
 
 
 
-    public bool CanDealDamage;
-    public bool HasDealDamage;
+    public bool canDealDamage;
+    public bool hasDealDamage;
+    [SerializeField] float weaponLength;
+
     public EnemyHealth enemyHealth;
     public int damageAmount=1;
 
@@ -18,7 +20,7 @@ public class DamageDealer : MonoBehaviour
     
     private void Start()
     {
-        CanDealDamage = false;
+        canDealDamage = false;
         randomspawner = GameObject.Find("EnemySpawner").GetComponent<RandomSpawner>();
         playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
         
@@ -26,21 +28,22 @@ public class DamageDealer : MonoBehaviour
         
     }
 
+    
     public void StartDealDamage()
     {
-        CanDealDamage = true;
+        canDealDamage = true;
     }
     public void EndDealDamage()
     {
-        CanDealDamage = false;
-        HasDealDamage = false;
+        canDealDamage = false;
+        hasDealDamage = false;
     }
 
 
 
     public void OnTriggerEnter(Collider other)
     {
-        if (playerMovement.Action == PlayerMovement.ActionState.Attack && CanDealDamage == true && HasDealDamage == false)
+        if (playerMovement.Action == PlayerMovement.ActionState.Attack && canDealDamage == true && hasDealDamage == false)
         {
             if (other.tag == "Enemy")
             {
@@ -48,7 +51,7 @@ public class DamageDealer : MonoBehaviour
                 
                 other.GetComponent<EnemyHealth>().health = other.GetComponent<EnemyHealth>().health - damageAmount;
                 other.GetComponent<Animator>().SetTrigger("GetHit");
-                HasDealDamage = true;
+                hasDealDamage = true;
 
 
             }

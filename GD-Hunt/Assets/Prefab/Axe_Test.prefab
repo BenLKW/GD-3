@@ -260,8 +260,8 @@ GameObject:
   - component: {fileID: 7757057069066041206}
   - component: {fileID: 807289548830722912}
   - component: {fileID: 1364649720503142586}
-  - component: {fileID: 6466844572273067034}
   - component: {fileID: 7077250341540274528}
+  - component: {fileID: 8074710605569265331}
   m_Layer: 0
   m_Name: pCube1
   m_TagString: Axe
@@ -334,19 +334,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6466844572273067034
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3523801481365939336}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.050946545, y: 0.026912741, z: 0.023868322}
-  m_Center: {x: 0.0226408, y: 0.0011601064, z: 0.0020647496}
 --- !u!114 &7077250341540274528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -361,8 +348,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   randomspawner: {fileID: 0}
   playerMovement: {fileID: 0}
+  canDealDamage: 0
+  hasDealDamage: 0
+  weaponLength: 0
   enemyHealth: {fileID: 0}
   damageAmount: 1
+--- !u!64 &8074710605569265331
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3523801481365939336}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4068373912626513877, guid: d0edef7e96eb94d478ce86d633687499, type: 3}
 --- !u!1 &3890083723015568522
 GameObject:
   m_ObjectHideFlags: 0
