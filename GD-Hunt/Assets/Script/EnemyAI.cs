@@ -30,6 +30,7 @@ public class EnemyAI : MonoBehaviour
     
 
     public float lookRadius = 10f;
+    public float chaseRadius = 8f;
     public float attackRadius = 3f;
     public bool playerInLookRadius, playerInAttackRadius,lowHealth,isDead;
 
@@ -57,12 +58,30 @@ public class EnemyAI : MonoBehaviour
             player = null;
             playerMovement = null;
         } 
-        if (playerInLookRadius && !playerInAttackRadius)
+
+
+        if (playerInLookRadius && !playerInAttackRadius && !isDead)
         {
+            
             AssignTarget();
-            Chase();
+
+            if (player != null)
+            {
+                Chase();
+            }
+            
         }
-        if (!isDead && playerInAttackRadius && playerInLookRadius) Attack();
+
+        if (!isDead && playerInAttackRadius && playerInLookRadius) 
+        {
+
+            AssignTarget();
+            if (player != null)
+            {
+                Attack();
+                
+            }
+        } 
         
         
 
@@ -95,8 +114,12 @@ public class EnemyAI : MonoBehaviour
 
         enemy.speed = 0;
         enemy.SetDestination(player.position);
-        
-        
+        //transform.LookAt(player.position);
+        Vector3 lookPos = player.position - transform.position;
+        lookPos.y = 0;
+        Quaternion rotation = Quaternion.LookRotation(lookPos);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 0.1f*Time.deltaTime);
+
         if (enemy.speed == 0)
         {
             animator.SetBool("Walk", false);
@@ -174,10 +197,15 @@ public class EnemyAI : MonoBehaviour
         return closet;
     }
 
-    void AssignTarget()
+    private void AssignTarget()
     {
-         player = ClosestTarget().GetComponent<Transform>();
-         playerMovement = ClosestTarget().GetComponent<PlayerMovement>();
-
+        if (ClosestTarget() != null)
+        {
+            player = ClosestTarget().GetComponent<Transform>();
+            playerMovement = ClosestTarget().GetComponent<PlayerMovement>();
+        }
+            
+        
+        
     }
 }

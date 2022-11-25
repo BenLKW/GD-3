@@ -389,12 +389,21 @@ public class PlayerMovement : MonoBehaviour
                 animator.SetBool("WeaponDraw", false);
             }
 
-            if (CountAttack == 1)
-            {
-                animator.SetInteger("Attack", 1);
-            }
 
-            if (animator.GetCurrentAnimatorStateInfo(3).IsName("Combo Attack Ver1"))
+            if (animator.GetCurrentAnimatorStateInfo(3).IsName("default"))
+            {
+                if (CountAttack > 0)
+                {
+                    animator.SetInteger("Attack", 1);
+                }
+                else
+                {
+                    ReturntoMove();
+
+                }
+
+            }
+            else if (animator.GetCurrentAnimatorStateInfo(3).IsName("Combo Attack Ver1"))
             {
                 if (CountAttack > 1)
                 {
@@ -468,6 +477,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void ReturntoMove()
     {
+        
         CountAttack = 0;
         animator.SetInteger("Attack", 0);
         Action = ActionState.Move;
