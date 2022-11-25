@@ -336,7 +336,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 2.5
+  m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -367,10 +367,11 @@ MonoBehaviour:
   damageAmount: 1
   range: 50
   centrePoint: {fileID: 6819424601768528149, guid: cb9b5d63d2fefd84eab36311e4b129af, type: 3}
-  timeBetweenAttacks: 3
+  timeBetweenAttacks: 2.5
   alreadyAttacked: 0
   lookRadius: 15
-  attackRadius: 2.5
+  chaseRadius: 8
+  attackRadius: 2
   playerInLookRadius: 0
   playerInAttackRadius: 0
   lowHealth: 0
@@ -874,7 +875,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2556275278255849831}
   m_LocalRotation: {x: -0.453275, y: -0.5427171, z: -0.453275, w: 0.5427171}
-  m_LocalPosition: {x: -8.5, y: 6.4, z: 4.5}
+  m_LocalPosition: {x: 1.2, y: 8.2, z: 4.5}
   m_LocalScale: {x: 100.00002, y: 100.00002, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []

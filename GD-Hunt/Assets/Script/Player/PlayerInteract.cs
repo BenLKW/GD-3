@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour
 {
+    public PlayerMovement PM;
+
+    private void Start()
+    {
+        PM = GameObject.Find("Player").GetComponent<PlayerMovement>();
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.F)){
@@ -15,6 +22,8 @@ public class PlayerInteract : MonoBehaviour
                 {
                     npc.GiveQuest();
                 }
+
+                PM.TotalThrow = 20;
             }
         }
     }
