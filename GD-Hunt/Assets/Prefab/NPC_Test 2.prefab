@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 5192731054488806244}
   - component: {fileID: 44260685866938915}
   m_Layer: 5
-  m_Name: NPCGUI (1)
+  m_Name: NPCGUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -271,12 +271,18 @@ MonoBehaviour:
   npcName: Villager
   TextName: {fileID: 8638544647022787839}
   player: {fileID: 0}
+  NPCGUI: {fileID: 0}
+  NPCGUIText: {fileID: 0}
   lookRadius: 10
   Name: 
   sentences: []
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 64
   Quest: {fileID: 0}
   quest: {fileID: 0}
   isQuesting: 0
+  playerInLookingRadius: 0
 --- !u!54 &8638544646846414140
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -291,7 +297,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 90
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!136 &7718497711399053998
 CapsuleCollider:

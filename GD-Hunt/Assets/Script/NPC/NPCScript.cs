@@ -8,7 +8,8 @@ public class NPCScript : MonoBehaviour
     public string npcName;
     public GameObject TextName;
     public GameObject player;
-    public GameObject NPCGUI;
+    public GameObject NPCGUI,NPCGUIText;
+    
     public float lookRadius = 10f;
 
     private DialogueSystem dialogueSystem;
@@ -17,16 +18,18 @@ public class NPCScript : MonoBehaviour
     [TextArea(5, 10)]
     public string[] sentences;
 
+    public LayerMask whatIsPlayer;
 
     public GameObject Quest;
     public Quest quest;
     public bool isQuesting;
-
+    public bool playerInLookingRadius;
     public void Start()
     {
         quest = GameObject.Find("Quest").GetComponent<Quest>();
         dialogueSystem = FindObjectOfType<DialogueSystem>();
         isQuesting = false;
+        
     }
     private void Update()
     {
@@ -37,11 +40,25 @@ public class NPCScript : MonoBehaviour
             TextName.GetComponent<TextMesh>().color = Color.green;
             TextName.GetComponent<TextMesh>().text = "" + npcName;
         }
-        if (NPCGUI != null)
+        if (NPCGUI!=null)
         {
-            NPCGUI.transform.LookAt(Camera.main.transform.position);
-            NPCGUI.transform.Rotate(0, 180, 0);
+            NPCGUIText.transform.LookAt(Camera.main.transform.position);
+            NPCGUIText.transform.Rotate(0, 180, 0);
         }
+
+        playerInLookingRadius = Physics.CheckSphere(transform.position, lookRadius, whatIsPlayer);
+
+        if (playerInLookingRadius)
+        {
+            NPCGUI.SetActive(true);
+        }
+        else if (!playerInLookingRadius)
+        {
+            NPCGUI.SetActive(false);
+        }
+
+
+
         RotateToPlayer();
         StartQuesting();
     }
@@ -49,30 +66,26 @@ public class NPCScript : MonoBehaviour
 
     void RotateToPlayer()
     {
-        transform.LookAt(player.transform.position);
+       
     }
     public void OnTriggerStay(Collider other)
     {
-        //this.gameObject.GetComponent<NPCScript>().enabled = true;
-        FindObjectOfType<DialogueSystem>().EnterRangeOfNPC();
+        NPCGUI.SetActive(true);
+
         if ((other.gameObject.tag == "Player") && Input.GetKeyDown(KeyCode.F))
         {
-            this.gameObject.GetComponent<NPCScript>().enabled = true;
-            dialogueSystem.Names = Name;
-            dialogueSystem.dialogueLines = sentences;
-            FindObjectOfType<DialogueSystem>().NPCName();
+            
         }
     }
 
     public void OnTriggerExit()
     {
-        FindObjectOfType<DialogueSystem>().OutOfRange();
-        this.gameObject.GetComponent<NPCScript>().enabled = false;
+       
     }
     public void GiveQuest()
     {
-        
-            isQuesting = true;
+        Debug.Log("Quest Start");
+        isQuesting = true;
             
            
     }

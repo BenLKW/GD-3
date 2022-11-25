@@ -154,6 +154,11 @@ Transform:
   m_Father: {fileID: 1327260182}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &84305564 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8566607984083870183, guid: a5eca0a16b1360446afa98f638e4c8eb, type: 3}
+  m_PrefabInstance: {fileID: 736349985}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &149297488
 GameObject:
   m_ObjectHideFlags: 0
@@ -1950,13 +1955,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5902935623367497773, guid: a5eca0a16b1360446afa98f638e4c8eb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8566607984083870183, guid: a5eca0a16b1360446afa98f638e4c8eb, type: 3}
       propertyPath: m_Name
       value: NPCGUI
       objectReference: {fileID: 0}
     - target: {fileID: 8566607984083870183, guid: a5eca0a16b1360446afa98f638e4c8eb, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8566607984083870183, guid: a5eca0a16b1360446afa98f638e4c8eb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8638544646846414143, guid: a5eca0a16b1360446afa98f638e4c8eb, type: 3}
       propertyPath: Quest
@@ -1965,11 +1978,19 @@ PrefabInstance:
     - target: {fileID: 8638544646846414143, guid: a5eca0a16b1360446afa98f638e4c8eb, type: 3}
       propertyPath: NPCGUI
       value: 
-      objectReference: {fileID: 587003079}
+      objectReference: {fileID: 84305564}
     - target: {fileID: 8638544646846414143, guid: a5eca0a16b1360446afa98f638e4c8eb, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 6171374746696174107}
+    - target: {fileID: 8638544646846414143, guid: a5eca0a16b1360446afa98f638e4c8eb, type: 3}
+      propertyPath: NPCGUIText
+      value: 
+      objectReference: {fileID: 587003079}
+    - target: {fileID: 8638544646846414143, guid: a5eca0a16b1360446afa98f638e4c8eb, type: 3}
+      propertyPath: lookRadius
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8638544646846414144, guid: a5eca0a16b1360446afa98f638e4c8eb, type: 3}
       propertyPath: m_RootOrder
       value: 1
