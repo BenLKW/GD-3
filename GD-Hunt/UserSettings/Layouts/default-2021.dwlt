@@ -86,7 +86,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
+  m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -95,15 +95,15 @@ MonoBehaviour:
     y: 0
     width: 876
     height: 254.79999
-  m_MinSize: {x: 102, y: 121}
-  m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 15}
+  m_MinSize: {x: 232, y: 271}
+  m_MaxSize: {x: 10002, y: 10021}
+  m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
   - {fileID: 19}
   - {fileID: 15}
-  m_Selected: 2
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -510,8 +510,8 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 0}
-      snapOffsetDelta: {x: -100, y: -25.600006}
+      snapOffset: {x: -100, y: -25.600006}
+      snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 3
       id: Tool Settings
       index: 0
@@ -532,7 +532,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 0}
+      snapOffset: {x: 0, y: 24.8}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-scene-view-toolbar
@@ -713,9 +713,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 236.28918, y: 0.039952025, z: 127.833305}
+    m_Target: {x: 232.6, y: -0.000004053116, z: 71.96}
     speed: 2
-    m_Value: {x: 236.28918, y: 0.039952025, z: 127.833305}
+    m_Value: {x: 232.6, y: -0.000004053116, z: 71.96}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -762,13 +762,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.18459266, y: 0.41733524, z: -0.08698748, w: -0.8855711}
+    m_Target: {x: 0.0695788, y: 0.930383, z: -0.25989825, w: 0.24909374}
     speed: 2
-    m_Value: {x: -0.18458842, y: 0.41732565, z: -0.08698548, w: -0.88555074}
+    m_Value: {x: 0.06957711, y: 0.9303605, z: -0.25989196, w: 0.2490877}
   m_Size:
-    m_Target: 0.12211817
+    m_Target: 10
     speed: 2
-    m_Value: 0.12211817
+    m_Value: 10
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1038,23 +1038,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 00570000
-      m_LastClickedID: 22272
-      m_ExpandedIDs: 12fbffff70560000
+      m_SelectedIDs: d2efffff
+      m_LastClickedID: -4142
+      m_ExpandedIDs: eaf6ffffaef8ffffbc5a0000dc5b0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: '[F]to chat'
+        m_OriginalName: '[F]to chat'
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: 23284
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 6}
       m_SearchString: 
@@ -1118,9 +1118,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 26620000
-    m_LastClickedID: 25126
-    m_ExpandedIDs: 0000000070610000
+    m_SelectedIDs: aa640000
+    m_LastClickedID: 25770
+    m_ExpandedIDs: 00000000fe630000a064000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1148,7 +1148,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000070610000
+    m_ExpandedIDs: 00000000fe630000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1175,7 +1175,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: aa6102000a4b020000000000c4ea0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
