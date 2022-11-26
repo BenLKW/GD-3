@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5902935623367497773}
   m_LocalRotation: {x: -0, y: 0.47230762, z: -0, w: 0.88143384}
-  m_LocalPosition: {x: -855.4182, y: -547.9, z: 74.06472}
+  m_LocalPosition: {x: -867.552, y: -548.87, z: 71.86}
   m_LocalScale: {x: 0.05793445, y: 0.057934444, z: 0.05793445}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -271,9 +271,9 @@ MonoBehaviour:
   npcName: Villager
   TextName: {fileID: 8638544647022787839}
   player: {fileID: 0}
-  NPCGUI: {fileID: 0}
-  NPCGUIText: {fileID: 0}
-  lookRadius: 10
+  NPCGUI: {fileID: 8566607984083870183}
+  NPCGUIText: {fileID: 5902935623367497773}
+  lookRadius: 5
   Name: 
   sentences: []
   whatIsPlayer:
