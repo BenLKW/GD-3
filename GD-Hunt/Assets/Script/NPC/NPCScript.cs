@@ -84,7 +84,7 @@ public class NPCScript : MonoBehaviour
     }
     public void GiveQuest()
     {
-        if(quest.currentAmount < quest.requiredAmount&&isQuesting==false)
+        if(isQuesting==false)
         {
             Debug.Log("Quest Start");
             isQuesting = true;
