@@ -12,7 +12,7 @@ public class NPCScript : MonoBehaviour
     
     public float lookRadius = 10f;
 
-    private DialogueSystem dialogueSystem;
+    
     public string Name;
 
     [TextArea(5, 10)]
@@ -27,7 +27,7 @@ public class NPCScript : MonoBehaviour
     public void Start()
     {
         quest = GameObject.Find("Quest").GetComponent<Quest>();
-        dialogueSystem = FindObjectOfType<DialogueSystem>();
+        
         isQuesting = false;
         
     }
@@ -84,8 +84,12 @@ public class NPCScript : MonoBehaviour
     }
     public void GiveQuest()
     {
-        Debug.Log("Quest Start");
-        isQuesting = true;
+        if(quest.currentAmount < quest.requiredAmount&&isQuesting==false)
+        {
+            Debug.Log("Quest Start");
+            isQuesting = true;
+        }
+       
             
            
     }
