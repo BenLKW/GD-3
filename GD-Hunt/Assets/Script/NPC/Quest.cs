@@ -27,10 +27,16 @@ public class Quest : MonoBehaviour
         if (currentAmount >= requiredAmount)
         {
             questFalse.isQuesting = false;
+            questFalse.Startbar.SetActive(false);
+            questFalse.Endbar.SetActive(true);
+            Invoke("Endbargone", 2f);
             currentAmount = 0;
             Debug.Log("Quest End");
         }
     }
 
-
+    void Endbargone()
+    {
+        questFalse.Endbar.SetActive(false);
+    }
 }

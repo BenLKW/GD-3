@@ -8,7 +8,7 @@ public class NPCScript : MonoBehaviour
     public string npcName;
     public GameObject TextName;
     public GameObject player;
-    public GameObject NPCGUI,NPCGUIText;
+    public GameObject NPCGUI,NPCGUIText,Startbar,Endbar;
     
     public float lookRadius = 10f;
 
@@ -29,7 +29,7 @@ public class NPCScript : MonoBehaviour
         quest = GameObject.Find("Quest").GetComponent<Quest>();
         
         isQuesting = false;
-        
+        Endbar.SetActive(false);
     }
     private void Update()
     {
@@ -52,6 +52,11 @@ public class NPCScript : MonoBehaviour
         if (playerInLookingRadius)
         {
             NPCGUI.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                Startbar.SetActive(true);
+            }
+
         }
         else if (!playerInLookingRadius)
         {
@@ -69,15 +74,7 @@ public class NPCScript : MonoBehaviour
     {
        
     }
-    public void OnTriggerStay(Collider other)
-    {
-        NPCGUI.SetActive(true);
-
-        if ((other.gameObject.tag == "Player") && Input.GetKeyDown(KeyCode.F))
-        {
-            
-        }
-    }
+    
 
     public void OnTriggerExit()
     {
