@@ -43,7 +43,7 @@ public class DamageDealer : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (playerMovement.Action == PlayerMovement.ActionState.Attack && canDealDamage == true && hasDealDamage == false)
+        if (canDealDamage == true && hasDealDamage == false)
         {
             if (other.tag == "Enemy")
             {
