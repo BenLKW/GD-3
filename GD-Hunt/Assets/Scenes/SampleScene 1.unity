@@ -1706,7 +1706,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u96E2\u958B\u904A\u6232"
+  m_Text: Quit
 --- !u!222 &981100094
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3819,7 +3819,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 726312357}
         m_TargetAssemblyTypeName: Title, Assembly-CSharp
-        m_MethodName: StartTheGame
+        m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4150,7 +4150,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u958B\u59CB\u904A\u6232"
+  m_Text: Start
 --- !u!222 &1969698817
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -18,16 +18,21 @@ public class Restart : MonoBehaviour
     {
         if (PM.HealStage == PlayerMovement.HealthState.Dead)
         {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             GameOverUI.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                SceneManager.LoadScene(0);
-            }
+            
         }
             
     }
 
-  
+  public void ResetTheGame()
+    {
+        SceneManager.LoadScene(0);
+    }
 
-    
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }
