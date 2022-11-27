@@ -55,7 +55,7 @@ public class PauseSystem : MonoBehaviour
 
     public void ToMenu()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 
     public void Quit()
