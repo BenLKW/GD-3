@@ -44,20 +44,20 @@ public class EnemyAI : MonoBehaviour
         enemyHealth = GetComponent<EnemyHealth>();
         player = null;
         centrePoint = GameObject.Find("/EnemySpawner/Center").GetComponent<Transform>();
-        animator.SetBool("Walk", true);
+        
     }
 
     private void Update()
     {
         playerInLookRadius = Physics.CheckSphere(transform.position, lookRadius, whatIsPlayer);
         playerInAttackRadius = Physics.CheckSphere(transform.position, attackRadius, whatIsPlayer);
-
+        animator.SetFloat("Speed", enemy.velocity.magnitude);
         if (!playerInLookRadius && !playerInAttackRadius) 
         {
             Patroling();
             player = null;
             playerMovement = null;
-            enemy.speed = 3.5f;
+            
         } 
 
 
@@ -69,7 +69,7 @@ public class EnemyAI : MonoBehaviour
             if (player != null)
             {
                 Chase();
-                enemy.speed = 3.5f;
+                
             }
             
         }
@@ -81,17 +81,10 @@ public class EnemyAI : MonoBehaviour
             if (player != null)
             {
                 Attack();
-                enemy.speed = 0;
+                
             }
         }
-        if (enemy.speed == 0)
-        {
-            animator.SetBool("Walk", false);
-        }
-        else
-        {
-            animator.SetBool("Walk", true);
-        }
+        
 
 
     }
@@ -113,7 +106,7 @@ public class EnemyAI : MonoBehaviour
     private void Chase()
     {
         
-        animator.SetBool("Walk", true);
+        
         enemy.SetDestination(player.position);
        
      

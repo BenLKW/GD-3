@@ -66,7 +66,7 @@ public class EnemyHealth : MonoBehaviour
         {
             Destroy(GetComponent<BoxCollider>());
             TargetLock.isTargeting = false;
-            animator.SetBool("Walk", false);
+            animator.SetFloat("Speed", 0);
             animator.SetBool("Dead", true);
             enemyAI.isDead = true;
             
