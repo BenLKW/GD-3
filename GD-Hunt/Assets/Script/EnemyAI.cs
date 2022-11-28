@@ -57,6 +57,7 @@ public class EnemyAI : MonoBehaviour
             Patroling();
             player = null;
             playerMovement = null;
+            enemy.speed = 3.5f;
         } 
 
 
@@ -68,6 +69,7 @@ public class EnemyAI : MonoBehaviour
             if (player != null)
             {
                 Chase();
+                enemy.speed = 3.5f;
             }
             
         }
@@ -79,16 +81,23 @@ public class EnemyAI : MonoBehaviour
             if (player != null)
             {
                 Attack();
-                
+                enemy.speed = 0;
             }
-        } 
-        
-        
+        }
+        if (enemy.speed == 0)
+        {
+            animator.SetBool("Walk", false);
+        }
+        else
+        {
+            animator.SetBool("Walk", true);
+        }
+
 
     }
     private void Patroling()
     {
-        enemy.speed = 3.5f;
+        
         if (enemy.remainingDistance <= enemy.stoppingDistance)
         {
             Vector3 point;
@@ -103,7 +112,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Chase()
     {
-        enemy.speed = 3.5f;
+        
         animator.SetBool("Walk", true);
         enemy.SetDestination(player.position);
        
@@ -112,7 +121,7 @@ public class EnemyAI : MonoBehaviour
     private void Attack()
     {
 
-        enemy.speed = 0;
+        
         enemy.SetDestination(player.position);
         //transform.LookAt(player.position);
         Vector3 lookPos = player.position - transform.position;
@@ -120,14 +129,7 @@ public class EnemyAI : MonoBehaviour
         Quaternion rotation = Quaternion.LookRotation(lookPos);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 0.1f*Time.deltaTime);
 
-        if (enemy.speed == 0)
-        {
-            animator.SetBool("Walk", false);
-        }
-        else
-        {
-            animator.SetBool("Walk", true);
-        }
+       
 
 
         if (!alreadyAttacked)
