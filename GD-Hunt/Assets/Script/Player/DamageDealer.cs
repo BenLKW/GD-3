@@ -13,7 +13,7 @@ public class DamageDealer : MonoBehaviour
     public bool hasDealDamage;
     [SerializeField] float weaponLength;
 
-    public EnemyHealth enemyHealth;
+    
     public int damageAmount=1;
 
     
@@ -58,8 +58,8 @@ public class DamageDealer : MonoBehaviour
             
             if (other.tag == "Animal")
             {
-                Debug.Log(other.name + "Hit");
-                Destroy(other.gameObject);
+                other.GetComponent<FriendlyHealth>().health = other.GetComponent<FriendlyHealth>().health - damageAmount;
+                hasDealDamage = true;
             }
         }
 

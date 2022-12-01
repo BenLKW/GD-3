@@ -17,6 +17,7 @@ public class TargetLock : MonoBehaviour
     [Header("Settings")]
     [Space]
     [SerializeField] private string enemyTag; // the enemies tag.
+    [SerializeField] private string AnimalTag;
     [SerializeField] public Vector2 targetLockOffset;
     [SerializeField] private float minDistance; // minimum distance to stop rotation if you get close to target
     [SerializeField] private float maxDistance;
