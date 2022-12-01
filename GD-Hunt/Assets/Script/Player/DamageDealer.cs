@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class DamageDealer : MonoBehaviour
 {
-    public RandomSpawner randomspawner;
-    public PlayerMovement playerMovement;
-
-
-
+    
     public bool canDealDamage;
     public bool hasDealDamage;
     [SerializeField] float weaponLength;
@@ -21,10 +17,6 @@ public class DamageDealer : MonoBehaviour
     private void Start()
     {
         canDealDamage = false;
-        randomspawner = GameObject.Find("EnemySpawner").GetComponent<RandomSpawner>();
-        playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
-        
-        
         
     }
 

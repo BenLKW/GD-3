@@ -216,7 +216,7 @@ public class PlayerMovement : MonoBehaviour
                 rb.AddForce(GetSlopMoveDirection() * moveSpeed * 5f, ForceMode.Force);
                 if (rb.velocity.y > 0)
                 {
-                    rb.AddForce(Vector3.down * 8f, ForceMode.Force);
+                    rb.AddForce(Vector3.down * 5f, ForceMode.Force);
                 }
             }
             else if (grounded)
@@ -340,6 +340,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     velocity += Time.deltaTime * acceleration * 5;
                 }
+                
             }
             else if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
             {
@@ -352,12 +353,12 @@ public class PlayerMovement : MonoBehaviour
                     velocity += Time.deltaTime * acceleration * 10;
                 }
             }
-            else if (velocity > 0.0f)
+            else if (velocity >= 0.0f)
             {
                 velocity -= Time.deltaTime * acceleration * 10;
             }
 
-            if (velocity < 0.0f)
+            if (velocity <= 0.0f)
             {
                 velocity = 0;
             }

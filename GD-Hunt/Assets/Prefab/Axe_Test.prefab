@@ -277,8 +277,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3523801481365939336}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0018508808, y: 0.1275632, z: -0.008448888}
-  m_LocalScale: {x: 0.8800127, y: 0.8800127, z: 0.86855596}
+  m_LocalPosition: {x: -0.003, y: 0.1276, z: -0.0084}
+  m_LocalScale: {x: 0.98970455, y: 0.8800127, z: 0.86855596}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4519232644796343856}
@@ -351,7 +351,6 @@ MonoBehaviour:
   canDealDamage: 0
   hasDealDamage: 0
   weaponLength: 0
-  enemyHealth: {fileID: 0}
   damageAmount: 1
 --- !u!64 &8074710605569265331
 MeshCollider:
