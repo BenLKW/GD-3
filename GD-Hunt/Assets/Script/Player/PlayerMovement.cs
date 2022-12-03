@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     float velocity = 0;
     public float acceleration = 0.2f;
+    public float deceleration = 0.5f;
     int VelocityHash;
 
 
@@ -117,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, Ground);
-
+        Debug.Log("Speed :" + moveSpeed);
         Playerinput();
         SpeedControl();
         stateHandler();
@@ -355,7 +356,8 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (velocity >= 0.0f)
             {
-                velocity -= Time.deltaTime * acceleration * 10;
+                velocity -= Time.deltaTime * deceleration * 10;
+                
             }
 
             if (velocity <= 0.0f)
