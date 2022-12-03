@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Cinemachine;
 using UnityEngine.UI;
+
 
 public class TargetLock : MonoBehaviour
 {
@@ -16,8 +18,8 @@ public class TargetLock : MonoBehaviour
     [Space]
     [Header("Settings")]
     [Space]
-    [SerializeField] private string enemyTag; // the enemies tag.
-    [SerializeField] private string AnimalTag;
+    //[SerializeField] private string enemyTag; // the enemies tag.
+    //[SerializeField] private string AnimalTag;
     [SerializeField] public Vector2 targetLockOffset;
     [SerializeField] private float minDistance; // minimum distance to stop rotation if you get close to target
     [SerializeField] private float maxDistance;
@@ -102,8 +104,9 @@ public class TargetLock : MonoBehaviour
 
     private GameObject ClosestTarget() // this is modified func from unity Docs ( Gets Closest Object with Tag ). 
     {
+        
         GameObject[] gos;
-        gos = GameObject.FindGameObjectsWithTag(enemyTag);
+        gos = FindGameObjectsWithTags(new string[] { "Enemy", "Animal" });
         GameObject closest = null;
         float distance = maxDistance;
         float currAngle = maxAngle;
@@ -133,4 +136,18 @@ public class TargetLock : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, maxDistance);
     }
+
+    GameObject[] FindGameObjectsWithTags(params string[] tags)
+    {
+        var all = new List<GameObject>();
+
+        foreach (string tag in tags)
+        {
+            var temp = GameObject.FindGameObjectsWithTag(tag).ToList();
+            all = all.Concat(temp).ToList();
+        }
+
+        return all.ToArray();
+    }
+
 }

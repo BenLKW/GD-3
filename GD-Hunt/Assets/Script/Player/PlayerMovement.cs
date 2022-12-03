@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float acceleration = 0.2f;
     public float deceleration = 0.5f;
     int VelocityHash;
+    public TargetLock TargetLock;
 
 
     [Header("Movement")]
@@ -181,7 +182,6 @@ public class PlayerMovement : MonoBehaviour
 
             if (grounded && Combat == CombatState.Drawweapon && Input.GetKeyDown(AttackKey))
             {
-
                 Action = ActionState.Attack;
                 CountAttack++;
 
@@ -395,16 +395,46 @@ public class PlayerMovement : MonoBehaviour
 
             if (animator.GetCurrentAnimatorStateInfo(3).IsName("default"))
             {
-                if (CountAttack > 0)
+                if(TargetLock.isTargeting)
                 {
-                    animator.SetInteger("Attack", 1);
+                    if(TargetLock.currentTarget.tag == "Animal")
+                    {
+                        animator.SetBool("TargetLow", true);
+                        if (CountAttack > 0)
+                        {
+                            animator.SetInteger("Attack", 3);
+                        }
+                        else
+                        {
+                            ReturntoMove();
+                        }
+                    }
+                    else
+                    {
+                        if (CountAttack > 0)
+                        {
+                            animator.SetInteger("Attack", 1);
+                        }
+                        else
+                        {
+                            ReturntoMove();
+
+                        }
+                    }
                 }
                 else
                 {
-                    ReturntoMove();
+                    if (CountAttack > 0)
+                    {
+                        animator.SetInteger("Attack", 1);
+                    }
+                    else
+                    {
+                        ReturntoMove();
 
+                    }
                 }
-
+                
             }
             else if (animator.GetCurrentAnimatorStateInfo(3).IsName("Combo Attack Ver1"))
             {
@@ -471,13 +501,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    void EndAttackAnimation()
-    {
-        if (CountAttack >= 3)
-        {
-            ReturntoMove();
-        }
-    }
+    
     void ReturntoMove()
     {
         
