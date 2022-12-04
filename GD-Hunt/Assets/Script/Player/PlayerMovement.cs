@@ -438,6 +438,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (animator.GetCurrentAnimatorStateInfo(3).IsName("Combo Attack Ver1"))
             {
+                
                 if (CountAttack > 1)
                 {
                     animator.SetInteger("Attack", 2);
