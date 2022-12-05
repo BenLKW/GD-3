@@ -10,7 +10,8 @@ public class EnemyAI : MonoBehaviour
     private NavMeshAgent enemy;
 
     public Transform player;
-    
+
+    public DamageDealer damageDealer;
 
     public EnemyHealth enemyHealth;
     public enemyAttackDetector attackDetector;
@@ -42,6 +43,7 @@ public class EnemyAI : MonoBehaviour
         animator = GetComponent<Animator>();
         enemy = GetComponent<NavMeshAgent>();
         enemyHealth = GetComponent<EnemyHealth>();
+       
         player = null;
         centrePoint = GameObject.Find("/EnemySpawner/Center").GetComponent<Transform>();
         
@@ -49,6 +51,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
+        damageDealer = GetComponent<DamageDealer>();
         playerInLookRadius = Physics.CheckSphere(transform.position, lookRadius, whatIsPlayer);
         playerInAttackRadius = Physics.CheckSphere(transform.position, attackRadius, whatIsPlayer);
         animator.SetFloat("Speed", enemy.velocity.magnitude);
@@ -84,7 +87,7 @@ public class EnemyAI : MonoBehaviour
                 
             }
         }
-        
+       
 
 
     }
@@ -146,8 +149,8 @@ public class EnemyAI : MonoBehaviour
         alreadyAttacked = false;
         
     }
-
     
+   
     
     
     private void OnDrawGizmosSelected()
