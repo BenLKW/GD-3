@@ -142,7 +142,7 @@ public class EnemyAI : MonoBehaviour
         }
         if (enemyHealth.health <= 3)
         {
-            animator.SetInteger("AttackIndex", 1);
+            timeBetweenAttacks = 1f;
         }
     }
 
