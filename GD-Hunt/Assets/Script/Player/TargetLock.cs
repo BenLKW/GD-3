@@ -35,7 +35,7 @@ public class TargetLock : MonoBehaviour
 
     void Start()
     {
-        maxAngle = 90f; // always 90 to target enemies in front of camera.
+        maxAngle = 45f; // always 90 to target enemies in front of camera.
        
     }
 
@@ -59,6 +59,8 @@ public class TargetLock : MonoBehaviour
         {
             AssignTarget();
         }
+
+        
     }
 
     public void TargetForCall()
@@ -83,6 +85,8 @@ public class TargetLock : MonoBehaviour
             
         }
     }
+
+    
 
     void NewInputTarget(Transform target) // sets new input value.
     {
@@ -129,6 +133,8 @@ public class TargetLock : MonoBehaviour
         }
         return closest;
     }
+
+   
 
 
     private void OnDrawGizmos()
