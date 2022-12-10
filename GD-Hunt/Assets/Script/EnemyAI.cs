@@ -10,6 +10,7 @@ public class EnemyAI : MonoBehaviour
     private NavMeshAgent enemy;
 
     public Transform player;
+    public Health playerHealth;
 
     public DamageDealer damageDealer;
 
@@ -32,7 +33,7 @@ public class EnemyAI : MonoBehaviour
 
     public float lookRadius = 10f;
     public float chaseRadius = 8f;
-    public float attackRadius = 3f;
+    public float attackRadius = 2f;
     public bool playerInLookRadius, playerInAttackRadius,lowHealth,isDead;
 
 
@@ -45,6 +46,7 @@ public class EnemyAI : MonoBehaviour
         enemyHealth = GetComponent<EnemyHealth>();
        
         player = null;
+        
         centrePoint = GameObject.Find("/EnemySpawner/Center").GetComponent<Transform>();
         
     }
@@ -119,7 +121,7 @@ public class EnemyAI : MonoBehaviour
 
         
         enemy.SetDestination(player.position);
-        //transform.LookAt(player.position);
+        
         Vector3 lookPos = player.position - transform.position;
         lookPos.y = 0;
         Quaternion rotation = Quaternion.LookRotation(lookPos);
@@ -133,14 +135,14 @@ public class EnemyAI : MonoBehaviour
             
             
             animator.SetTrigger("Attack");
-
+            Dealdamage();
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
             
         }
         if (enemyHealth.health <= 3)
         {
-            timeBetweenAttacks = 0.5f;
+            animator.SetInteger("AttackIndex", 1);
         }
     }
 
@@ -150,9 +152,16 @@ public class EnemyAI : MonoBehaviour
         
     }
     
-   
-    
-    
+   public void Dealdamage()
+    {
+        playerHealth=GameObject.Find("Player").GetComponent<Health>();
+       
+        
+        playerHealth.TakeDamage(1);
+        
+    }
+
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

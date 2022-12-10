@@ -6,7 +6,7 @@ public class enemyAttackDetector : MonoBehaviour
 {
     public EnemyAI enemyAI;
     public bool isAttack;
-    public Health playerHealth;
+    public Health health;
     Animator animator;
 
 
@@ -16,14 +16,15 @@ public class enemyAttackDetector : MonoBehaviour
     }
     public void OnTriggerEnter(Collider other)
     {
-        if (enemyAI.alreadyAttacked&&other.gameObject.tag == "Player")
+        if (other.tag == "Player")
         {
-            playerHealth = other.GetComponent<Health>();
-            animator = other.GetComponent<Animator>();
+            
+            health = other.GetComponent<Health>();
 
-            playerHealth.health--;
-            animator.SetTrigger("GetHit");
-
+            //health.TakeDamage(1);
         }
+       
+        
     }
+    
 }
