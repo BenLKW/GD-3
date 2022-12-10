@@ -5,26 +5,54 @@ using UnityEngine;
 public class enemyAttackDetector : MonoBehaviour
 {
     public EnemyAI enemyAI;
-    public bool isAttack;
-    public Health health;
-    Animator animator;
-
-
-    private void Awake()
+    
+    public Health playerHealth;
+    
+    public bool canDealDamage;
+    public bool hasDealDamage;
+    [SerializeField] float weaponLength;
+    private void Start()
     {
-        
+        canDealDamage = false;
+
+    }
+    public void StartDealDamage()
+    {
+        canDealDamage = true;
+    }
+    public void EndDealDamage()
+    {
+        canDealDamage = false;
+        hasDealDamage = false;
     }
     public void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (canDealDamage == true && hasDealDamage == false)
         {
-            
-            health = other.GetComponent<Health>();
+            if (other.tag == "Player")
+            {
 
-            //health.TakeDamage(1);
+
+
+                Dealdamage();
+                hasDealDamage = true;
+
+
+            }
+
         }
+            
        
         
     }
+    void Dealdamage()
+    {
+        playerHealth = GameObject.Find("Player").GetComponent<Health>();
+        playerHealth.TakeDamage(1);
+       
+    }
+
+
     
+
 }

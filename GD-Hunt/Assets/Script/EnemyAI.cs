@@ -135,7 +135,7 @@ public class EnemyAI : MonoBehaviour
             
             
             animator.SetTrigger("Attack");
-            Dealdamage();
+            
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
             
@@ -151,15 +151,15 @@ public class EnemyAI : MonoBehaviour
         alreadyAttacked = false;
         
     }
-    
-   public void Dealdamage()
+    public void StartDealDamage()
     {
-        playerHealth=GameObject.Find("Player").GetComponent<Health>();
-       
-        
-        playerHealth.TakeDamage(1);
-        
+        GetComponentInChildren<enemyAttackDetector>().StartDealDamage();
     }
+    public void EndDealDamage()
+    {
+        GetComponentInChildren<enemyAttackDetector>().EndDealDamage();
+    }
+
 
 
     private void OnDrawGizmosSelected()

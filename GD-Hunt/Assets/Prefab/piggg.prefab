@@ -389,8 +389,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.2841034, y: 3.3221893, z: 3.3961902}
-  m_Center: {x: -0.014472961, y: -0.23527193, z: -0.15267348}
+  m_Size: {x: 1.2841034, y: 3.3221893, z: 3.3334575}
+  m_Center: {x: -0.014472961, y: -0.23527193, z: -0.18403983}
 --- !u!114 &3996244500475710264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -877,7 +877,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2556275278255849831}
   m_LocalRotation: {x: -0.29904094, y: -0.032267578, z: 0.10231312, w: 0.9481906}
-  m_LocalPosition: {x: -38.8, y: 1, z: 0}
+  m_LocalPosition: {x: -28.4, y: -9.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -897,8 +897,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAI: {fileID: 9155799610079120609}
-  isAttack: 0
-  health: {fileID: 0}
+  playerHealth: {fileID: 0}
+  canDealDamage: 0
+  hasDealDamage: 0
+  weaponLength: 0
 --- !u!135 &4476859217842640963
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -910,8 +912,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.8112965
-  m_Center: {x: 2.311299, y: 0.0000002199182, z: -0.0000010822713}
+  m_Radius: 9.995186
+  m_Center: {x: 2.3113067, y: 7.1838903, z: -0.0000039932797}
 --- !u!1 &2715352647439200118
 GameObject:
   m_ObjectHideFlags: 0
