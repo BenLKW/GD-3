@@ -65,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
     public KeyCode DrawWeaponKey = KeyCode.X;
     public KeyCode AttackKey = KeyCode.Mouse0;
     public KeyCode ThrowKey = KeyCode.Mouse1;
+    public KeyCode ItemKey = KeyCode.R;
 
     [Space]
     float horizontalinput;
@@ -78,6 +79,7 @@ public class PlayerMovement : MonoBehaviour
     public HealthState HealStage;
     public Health Health;
     public bool HasPlayedAnim = false;
+    public WhichItem Item;
     
     public enum MovementState
     {
@@ -97,12 +99,20 @@ public class PlayerMovement : MonoBehaviour
     public enum ActionState
     {
         Move,
-        Attack
+        Attack,
+        Aiming
     }
     public enum CombatState
     {
         WeaponInShealth, Drawweapon
     }
+
+    public enum WhichItem
+    {
+        Stone,
+        Rope,
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -195,13 +205,9 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
 
-            if (grounded && Input.GetKeyDown(ThrowKey) && ReadyToThrow && TotalThrow > 0 && Action != ActionState.Attack)
-            {
+            
 
-                animator.SetTrigger("Throwing");
-            }
         }
-        
         
     }
 
@@ -266,12 +272,12 @@ public class PlayerMovement : MonoBehaviour
         if (Action == ActionState.Move)
         {
             
-            if (dashing && grounded)
+            if (dashing && grounded && Action != ActionState.Aiming)
             {
                 Move = MovementState.dashing;
                 moveSpeed = dashSpeed;
             }
-            else if (grounded && Input.GetKey(RunKey))
+            else if (grounded && Input.GetKey(RunKey) && Action != ActionState.Aiming)
             {
                 Move = MovementState.running;
                 moveSpeed = runSpreed;
@@ -294,6 +300,46 @@ public class PlayerMovement : MonoBehaviour
                 }
                 
             }
+
+            if (Input.GetKeyDown(ItemKey))
+            {
+                if (Item == WhichItem.Stone)
+                {
+                    Item = WhichItem.Rope;
+                    Debug.Log("Rope");
+                }
+                else if(Item == WhichItem.Rope)
+                {
+                    Item = WhichItem.Stone;
+                    Debug.Log("Stone");
+                }
+
+            }
+
+            if (grounded && ReadyToThrow && TotalThrow > 0 && Action != ActionState.Attack)
+            {
+                if (Item == WhichItem.Stone && Input.GetKeyDown(ThrowKey))
+                {
+                    animator.SetTrigger("Throwing");
+                }
+
+                if (Item == WhichItem.Rope && Input.GetKey(ThrowKey) && Combat != CombatState.Drawweapon)
+                {
+                    
+                    animator.SetBool("Aiming", true);
+                    Action = ActionState.Aiming;
+                    moveSpeed = AttackingSpeed;
+
+                }
+                else
+                {
+                    
+                    animator.SetBool("Aiming", false);
+                    
+                }
+
+            }
+
         }
         else if (Action == ActionState.Attack)
         {
@@ -331,17 +377,20 @@ public class PlayerMovement : MonoBehaviour
         {
             
 
-            if (Move == MovementState.running && Input.GetButton("Horizontal") || Input.GetButton("Vertical") && Move == MovementState.running)
+            if (Move == MovementState.running && Action != ActionState.Aiming)
             {
-                if (velocity < 0.3f)
+                if(Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
                 {
-                    velocity += Time.deltaTime * acceleration * 20;
+                    if (velocity < 0.3f)
+                    {
+                        velocity += Time.deltaTime * acceleration * 20;
+                    }
+                    else if (velocity < 1f)
+                    {
+                        velocity += Time.deltaTime * acceleration * 5;
+                    }
                 }
-                else if (velocity < 1f)
-                {
-                    velocity += Time.deltaTime * acceleration * 5;
-                }
-                
+                                
             }
             else if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
             {
@@ -392,6 +441,7 @@ public class PlayerMovement : MonoBehaviour
                 animator.SetBool("WeaponDraw", false);
             }
 
+            
 
             if (animator.GetCurrentAnimatorStateInfo(3).IsName("default"))
             {
