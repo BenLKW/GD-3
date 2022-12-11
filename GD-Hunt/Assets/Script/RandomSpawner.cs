@@ -12,8 +12,9 @@ public class RandomSpawner : MonoBehaviour
     public int enemyCount;
     public float spawnDelay;
     public float spawnTime;
-    
 
+    public Transform mobsInWorld;
+    //GameObject[] mobsArray;
 
     void Start()
     {
@@ -25,7 +26,7 @@ public class RandomSpawner : MonoBehaviour
     void Update()
     {
         enemyNumDetector();
-
+        
     }
 
 
@@ -41,10 +42,11 @@ public class RandomSpawner : MonoBehaviour
     {
         while (enemyCount < spawnAmount)
         {
-            Instantiate(SpawnObject, new Vector3(spawnpoint.position.x+Random.Range(-25,25),spawnpoint.position.y,spawnpoint.position.z+ Random.Range(-25, 25)), Quaternion.identity);
+            Instantiate(SpawnObject, new Vector3(spawnpoint.position.x+Random.Range(-25,25),spawnpoint.position.y,spawnpoint.position.z+ Random.Range(-25, 25)), Quaternion.identity,mobsInWorld);
             enemyCount += 1;
+            
             yield return new WaitForSecondsRealtime(1f);
-
+            
         }
     }
 }
