@@ -282,11 +282,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 585ebced7c9a73d40b88cf03522d867e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: -4943060121561111391}
   player: {fileID: 0}
   playerHealth: {fileID: 0}
   damageDealer: {fileID: 0}
-  enemyHealth: {fileID: 0}
+  enemyHealth: {fileID: 8277379642462756812}
   attackDetector: {fileID: 9110790326212266445, guid: 0309afc29d9161348824a54f9c0b95cc, type: 3}
   playerMovement: {fileID: 0}
   whatIsPlayer:
@@ -323,8 +323,8 @@ MonoBehaviour:
   maxHealth: 5
   quest: {fileID: 0}
   NPCScript: {fileID: 0}
-  healthBar: {fileID: 5067053543922806957, guid: 0309afc29d9161348824a54f9c0b95cc, type: 3}
-  slider: {fileID: 4372023096841755701, guid: 0309afc29d9161348824a54f9c0b95cc, type: 3}
+  healthBar: {fileID: 0}
+  slider: {fileID: 0}
   TargetLock: {fileID: 0}
 --- !u!114 &1939083204215558401
 MonoBehaviour:
@@ -406,7 +406,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3868295874902170332}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.10123505, y: 0.604928, z: -7.105427e-17}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 0
