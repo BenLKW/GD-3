@@ -1811,7 +1811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dfbee9b9b03f4b48b30328ac5a2ba14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnObject: {fileID: 3509894916194419422, guid: 2993a1659df7d2a4ab44ed5f1f497130, type: 3}
+  SpawnObject: {fileID: 1256369872627551754, guid: 0309afc29d9161348824a54f9c0b95cc, type: 3}
   spawnpoint: {fileID: 74478381}
   xPos: 0
   zPos: 0
