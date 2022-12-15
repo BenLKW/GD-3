@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DamageDealer : MonoBehaviour
 {
-    
-    public bool canDealDamage;
+
+    Collider AxeDetactor;
     public bool hasDealDamage;
     [SerializeField] float weaponLength;
 
@@ -16,18 +16,19 @@ public class DamageDealer : MonoBehaviour
     
     private void Start()
     {
-        canDealDamage = false;
-        
+        AxeDetactor = GetComponent<Collider>();
+        AxeDetactor.enabled = false;
+
     }
 
     
     public void StartDealDamage()
     {
-        canDealDamage = true;
+        AxeDetactor.enabled = true;
     }
     public void EndDealDamage()
     {
-        canDealDamage = false;
+        AxeDetactor.enabled = false;
         hasDealDamage = false;
     }
 
@@ -35,7 +36,7 @@ public class DamageDealer : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (canDealDamage == true && hasDealDamage == false)
+        if (hasDealDamage == false)
         {
             if (other.tag == "Enemy")
             {

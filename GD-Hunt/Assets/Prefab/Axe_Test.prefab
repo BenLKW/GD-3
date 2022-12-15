@@ -346,9 +346,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ee6651541f7d30468127265795f7e4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomspawner: {fileID: 0}
-  playerMovement: {fileID: 0}
-  canDealDamage: 0
   hasDealDamage: 0
   weaponLength: 0
   damageAmount: 1
@@ -361,7 +358,7 @@ MeshCollider:
   m_GameObject: {fileID: 3523801481365939336}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30

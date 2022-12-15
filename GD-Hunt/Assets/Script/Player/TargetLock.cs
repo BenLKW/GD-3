@@ -35,7 +35,7 @@ public class TargetLock : MonoBehaviour
 
     void Start()
     {
-        maxAngle = 90f; // always 90 to target enemies in front of camera.
+        maxAngle = 45f; // always 90 to target enemies in front of camera.
        
     }
 

@@ -7,27 +7,35 @@ public class enemyAttackDetector : MonoBehaviour
     public EnemyAI enemyAI;
     
     public Health playerHealth;
+
+    public Collider AttackDetactor;
     
     public bool canDealDamage;
     public bool hasDealDamage;
     [SerializeField] float weaponLength;
     private void Start()
     {
-        canDealDamage = false;
+        AttackDetactor = GetComponent<Collider>();
+
+        //canDealDamage = false;
+        AttackDetactor.enabled = false;
 
     }
     public void StartDealDamage()
     {
-        canDealDamage = true;
+        //canDealDamage = true;
+        AttackDetactor.enabled = true;
+
     }
     public void EndDealDamage()
     {
-        canDealDamage = false;
+        //canDealDamage = false;
+        AttackDetactor.enabled = false;
         hasDealDamage = false;
     }
     public void OnTriggerEnter(Collider other)
     {
-        if (canDealDamage == true && hasDealDamage == false)
+        if (hasDealDamage == false)
         {
             if (other.tag == "Player")
             {

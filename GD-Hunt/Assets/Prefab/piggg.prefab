@@ -898,6 +898,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyAI: {fileID: 9155799610079120609}
   playerHealth: {fileID: 0}
+  AttackDetactor: {fileID: 0}
   canDealDamage: 0
   hasDealDamage: 0
   weaponLength: 0
@@ -910,11 +911,11 @@ CapsuleCollider:
   m_GameObject: {fileID: 2556275278255849831}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 14.299353
-  m_Height: 102.325356
+  m_Enabled: 0
+  m_Radius: 41.868305
+  m_Height: 132.4736
   m_Direction: 2
-  m_Center: {x: 0.74867404, y: -6.142235, z: -1.596058}
+  m_Center: {x: 0.74866724, y: 21.426645, z: 1.7608981}
 --- !u!1 &2715352647439200118
 GameObject:
   m_ObjectHideFlags: 0
