@@ -8,7 +8,7 @@ public class PlayerInteract : MonoBehaviour
 
     private void Start()
     {
-        PM = GameObject.Find("Player").GetComponent<PlayerMovement>();
+        
     }
 
     private void Update()
@@ -24,6 +24,7 @@ public class PlayerInteract : MonoBehaviour
                 }
 
                 PM.TotalThrow = 20;
+                PM.TotalAid = 5;
             }
         }
         

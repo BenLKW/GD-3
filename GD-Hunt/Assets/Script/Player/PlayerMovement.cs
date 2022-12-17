@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
     public int CountAttack;
     public WeaponSystem weaponSystem;
 
-    [Header("Throwing")]
+    [Header("Item")]
     
     public float ThrowForce;
     public float ThrowUpwardForce;
@@ -48,6 +48,10 @@ public class PlayerMovement : MonoBehaviour
     public Transform ThrowDir;
     public Transform AtkPoi;
     public GameObject ObjectToTrow;
+    public GameObject StonePic;
+    public GameObject AidPic;
+    public GameObject RopePic;
+    public int TotalAid;
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -111,6 +115,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Stone,
         Rope,
+        Aid
     }
 
     // Start is called before the first frame update
@@ -306,24 +311,35 @@ public class PlayerMovement : MonoBehaviour
                 if (Item == WhichItem.Stone)
                 {
                     Item = WhichItem.Rope;
-                    Debug.Log("Rope");
+                    StonePic.SetActive(false);
+                    RopePic.SetActive(true);
+                    
+                    
                 }
                 else if(Item == WhichItem.Rope)
                 {
-                    Item = WhichItem.Stone;
-                    Debug.Log("Stone");
-                }
+                    Item = WhichItem.Aid;
+                    RopePic.SetActive(false);
+                    AidPic.SetActive(true);
 
+
+                }
+                else if(Item == WhichItem.Aid)
+                {
+                    Item = WhichItem.Stone;
+                    AidPic.SetActive(false);
+                    StonePic.SetActive(true);
+                }
             }
 
-            if (grounded && ReadyToThrow && TotalThrow > 0 && Action != ActionState.Attack)
+            if (grounded && ReadyToThrow && Action != ActionState.Attack)
             {
-                if (Item == WhichItem.Stone && Input.GetKeyDown(ThrowKey))
+                if (Item == WhichItem.Stone && Input.GetKeyDown(ThrowKey) && TotalThrow > 0)
                 {
                     animator.SetTrigger("Throwing");
                 }
 
-                if (Item == WhichItem.Rope && Input.GetKey(ThrowKey) && Combat != CombatState.Drawweapon)
+                if (Item == WhichItem.Rope && Input.GetKey(ThrowKey) && Combat != CombatState.Drawweapon && TotalThrow > 0)
                 {
                     
                     animator.SetBool("Aiming", true);
@@ -338,6 +354,11 @@ public class PlayerMovement : MonoBehaviour
                     
                 }
 
+                if (Item == WhichItem.Aid && Input.GetKeyDown(ThrowKey) && TotalAid > 0)
+                {
+                    Health.health += 1;
+                    TotalAid -= 1;
+                }
             }
 
         }

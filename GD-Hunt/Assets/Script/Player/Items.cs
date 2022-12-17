@@ -7,6 +7,7 @@ public class Items : MonoBehaviour
 {
     public PlayerMovement PM;
     public Text RockNumbers;
+    public Text AidNumber;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,5 +18,17 @@ public class Items : MonoBehaviour
     void Update()
     {
         RockNumbers.text = PM.TotalThrow.ToString();
+        AidNumber.text = PM.TotalAid.ToString();
+
+        if(PM.Item == PlayerMovement.WhichItem.Stone || PM.Item== PlayerMovement.WhichItem.Rope)
+        {
+            RockNumbers.enabled = true;
+            AidNumber.enabled = false;
+        }
+        else if (PM.Item == PlayerMovement.WhichItem.Aid)
+        {
+            AidNumber.enabled = true;
+            RockNumbers.enabled = false;
+        }
     }
 }
