@@ -91,23 +91,7 @@ public class EnemyAI : MonoBehaviour
             }
            
         }
-        if (rightFov.canSeePlayer) 
-        {
-            
-            
-          Debug.Log("Right");
-                
-            
-
-
-        }
-        if (leftFov.canSeePlayer)
-        {
-          
-           Debug.Log("Left");
-           
-            
-        }
+       
 
 
     }
@@ -150,10 +134,20 @@ public class EnemyAI : MonoBehaviour
 
         if (!alreadyAttacked)
         {
+
+            if (!rightFov.canSeePlayer && !leftFov.canSeePlayer)
+            {
+                animator.SetTrigger("Attack");
+            }
             
-            
-            animator.SetTrigger("Attack");
-            
+            else if (rightFov.canSeePlayer)
+            {
+                animator.SetTrigger("RightAttack");
+            }
+            else if (leftFov.canSeePlayer)
+            {
+                animator.SetTrigger("LeftAttack");
+            }
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
             
