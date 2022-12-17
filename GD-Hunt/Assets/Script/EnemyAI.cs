@@ -8,7 +8,7 @@ public class EnemyAI : MonoBehaviour
     public Animator animator;
 
     private NavMeshAgent enemy;
-
+    
     public Transform player;
     public Health playerHealth;
 
@@ -16,7 +16,7 @@ public class EnemyAI : MonoBehaviour
 
     public EnemyHealth enemyHealth;
     public enemyAttackDetector attackDetector;
-
+    public FieldOfView fov;
     public PlayerMovement playerMovement;
    
 
@@ -44,7 +44,7 @@ public class EnemyAI : MonoBehaviour
         animator = GetComponent<Animator>();
         enemy = GetComponent<NavMeshAgent>();
         enemyHealth = GetComponent<EnemyHealth>();
-       
+        fov = GetComponentInChildren<FieldOfView>();
         player = null;
         
         centrePoint = GameObject.Find("/EnemySpawner/Center").GetComponent<Transform>();
@@ -63,8 +63,11 @@ public class EnemyAI : MonoBehaviour
             player = null;
             playerMovement = null;
             
-        } 
+        }
+        if (fov.canSeePlayer)
+        {
 
+        }
 
         if (playerInLookRadius && !playerInAttackRadius && !isDead)
         {
@@ -151,6 +154,8 @@ public class EnemyAI : MonoBehaviour
         alreadyAttacked = false;
         
     }
+
+    
     public void StartDealDamage()
     {
         GetComponentInChildren<enemyAttackDetector>().StartDealDamage();
@@ -160,7 +165,7 @@ public class EnemyAI : MonoBehaviour
         GetComponentInChildren<enemyAttackDetector>().EndDealDamage();
     }
 
-
+    
 
     private void OnDrawGizmosSelected()
     {
