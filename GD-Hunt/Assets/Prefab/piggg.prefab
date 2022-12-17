@@ -364,7 +364,8 @@ MonoBehaviour:
   damageDealer: {fileID: 0}
   enemyHealth: {fileID: 0}
   attackDetector: {fileID: 9110790326212266445}
-  fov: {fileID: 0}
+  rightFov: {fileID: 5187248745636390134}
+  leftFov: {fileID: 3519086452350185326}
   playerMovement: {fileID: 0}
   whatIsPlayer:
     serializedVersion: 2
@@ -1526,7 +1527,7 @@ GameObject:
   - component: {fileID: 6829261690561412777}
   - component: {fileID: 3519086452350185326}
   m_Layer: 0
-  m_Name: AiSensor 2
+  m_Name: LeftSensor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1540,7 +1541,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5606054941977292576}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1560,7 +1561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
-  angle: 82
+  angle: 110
   playerRef: {fileID: 0}
   targetMask:
     serializedVersion: 2
@@ -1851,7 +1852,7 @@ GameObject:
   - component: {fileID: 310963868792374240}
   - component: {fileID: 5187248745636390134}
   m_Layer: 0
-  m_Name: AiSensor
+  m_Name: RightSensor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1865,7 +1866,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6719055514941421659}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1885,7 +1886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 3
-  angle: 82
+  angle: 110
   playerRef: {fileID: 0}
   targetMask:
     serializedVersion: 2

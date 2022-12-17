@@ -16,7 +16,8 @@ public class EnemyAI : MonoBehaviour
 
     public EnemyHealth enemyHealth;
     public enemyAttackDetector attackDetector;
-    public FieldOfView fov;
+    public FieldOfView rightFov;
+    public FieldOfView leftFov;
     public PlayerMovement playerMovement;
    
 
@@ -37,14 +38,14 @@ public class EnemyAI : MonoBehaviour
     public bool playerInLookRadius, playerInAttackRadius,lowHealth,isDead;
 
 
-
+    
     
     private void Awake()
     {
         animator = GetComponent<Animator>();
         enemy = GetComponent<NavMeshAgent>();
         enemyHealth = GetComponent<EnemyHealth>();
-        fov = GetComponentInChildren<FieldOfView>();
+        
         player = null;
         
         centrePoint = GameObject.Find("/EnemySpawner/Center").GetComponent<Transform>();
@@ -64,10 +65,7 @@ public class EnemyAI : MonoBehaviour
             playerMovement = null;
             
         }
-        if (fov.canSeePlayer)
-        {
-
-        }
+       
 
         if (playerInLookRadius && !playerInAttackRadius && !isDead)
         {
@@ -91,8 +89,25 @@ public class EnemyAI : MonoBehaviour
                 Attack();
                 
             }
+           
         }
-       
+        if (rightFov.canSeePlayer) 
+        {
+            
+            
+          Debug.Log("Right");
+                
+            
+
+
+        }
+        if (leftFov.canSeePlayer)
+        {
+          
+           Debug.Log("Left");
+           
+            
+        }
 
 
     }
@@ -146,6 +161,33 @@ public class EnemyAI : MonoBehaviour
         if (enemyHealth.health <= 3)
         {
             timeBetweenAttacks = 1f;
+        }
+       
+    }
+    private void RightAttack()
+    {
+        if (!alreadyAttacked)
+        {
+
+
+            animator.SetTrigger("RightAttack");
+
+            alreadyAttacked = true;
+            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+
+        }
+    }
+    private void LeftAttack()
+    {
+        if (!alreadyAttacked)
+        {
+
+
+            animator.SetTrigger("LeftAttack");
+
+            alreadyAttacked = true;
+            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+
         }
     }
 
