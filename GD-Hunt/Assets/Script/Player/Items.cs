@@ -20,7 +20,7 @@ public class Items : MonoBehaviour
         RockNumbers.text = PM.TotalThrow.ToString();
         AidNumber.text = PM.TotalAid.ToString();
 
-        if(PM.Item == PlayerMovement.WhichItem.Stone || PM.Item== PlayerMovement.WhichItem.Rope)
+        if(PM.Item == PlayerMovement.WhichItem.Stone)
         {
             RockNumbers.enabled = true;
             AidNumber.enabled = false;
