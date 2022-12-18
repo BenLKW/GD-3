@@ -55,6 +55,8 @@ public class NPCScript : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F))
             {
                 Startbar.SetActive(true);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
             }
 
         }
