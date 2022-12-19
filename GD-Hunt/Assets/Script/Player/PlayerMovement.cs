@@ -310,16 +310,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (Item == WhichItem.Stone)
                 {
-                    Item = WhichItem.Rope;
-                    StonePic.SetActive(false);
-                    RopePic.SetActive(true);
-                    
-                    
-                }
-                else if(Item == WhichItem.Rope)
-                {
                     Item = WhichItem.Aid;
-                    RopePic.SetActive(false);
+                    StonePic.SetActive(false);
                     AidPic.SetActive(true);
 
 

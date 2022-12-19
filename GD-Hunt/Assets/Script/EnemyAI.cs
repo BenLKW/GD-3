@@ -16,6 +16,8 @@ public class EnemyAI : MonoBehaviour
 
     public EnemyHealth enemyHealth;
     public enemyAttackDetector attackDetector;
+    public enemyLeftAttackDetector LeftAttackDetector;
+    public enemyRightAttackDetector RightAttackDetector;
     public FieldOfView rightFov;
     public FieldOfView leftFov;
     public PlayerMovement playerMovement;
@@ -194,11 +196,37 @@ public class EnemyAI : MonoBehaviour
     
     public void StartDealDamage()
     {
-        GetComponentInChildren<enemyAttackDetector>().StartDealDamage();
+
+        if (!rightFov.canSeePlayer && !leftFov.canSeePlayer)
+        {
+            GetComponentInChildren<enemyAttackDetector>().StartDealDamage();
+        }
+
+        else if (rightFov.canSeePlayer)
+        {
+            GetComponentInChildren<enemyRightAttackDetector>().StartDealDamage();
+        }
+        else if (leftFov.canSeePlayer)
+        {
+            GetComponentInChildren<enemyLeftAttackDetector>().StartDealDamage();
+        }
+        
     }
     public void EndDealDamage()
     {
-        GetComponentInChildren<enemyAttackDetector>().EndDealDamage();
+        if (!rightFov.canSeePlayer && !leftFov.canSeePlayer)
+        {
+            GetComponentInChildren<enemyAttackDetector>().EndDealDamage();
+        }
+
+        else if (rightFov.canSeePlayer)
+        {
+            GetComponentInChildren<enemyRightAttackDetector>().EndDealDamage();
+        }
+        else if (leftFov.canSeePlayer)
+        {
+            GetComponentInChildren<enemyLeftAttackDetector>().EndDealDamage();
+        }
     }
 
     
