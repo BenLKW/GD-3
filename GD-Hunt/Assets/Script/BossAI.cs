@@ -9,9 +9,17 @@ public class BossAI : MonoBehaviour
 
     private NavMeshAgent boss;
 
+    public Transform player;
+    public PlayerMovement playerMovement;
+
+
+
     public float range;
     public Transform BossPatrollingCenter;
 
+    
+
+    public FieldOfView fov;
     public LayerMask whatIsPlayer;
 
     public float lookRadius = 10f;
@@ -35,8 +43,30 @@ public class BossAI : MonoBehaviour
         if (!playerInLookRadius)
         {
             Patroling();
+            player = null;
+            playerMovement = null;
+
+        }
+        if (playerInLookRadius )
+        {
+
+            AssignTarget();
+
+            if (player != null)
+            {
+                Chase();
+
+            }
+
         }
         
+
+    }
+    private void Chase()
+    {
+        boss.SetDestination(player.position);
+
+
     }
     private void Patroling()
     {
@@ -52,7 +82,11 @@ public class BossAI : MonoBehaviour
             }
         }
     }
-
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, lookRadius);
+    }
     bool RandomPoint(Vector3 center, float range, out Vector3 result)
     {
 
@@ -69,4 +103,34 @@ public class BossAI : MonoBehaviour
         return false;
     }
 
+    private GameObject ClosestTarget() // this is modified func from unity Docs ( Gets Closest Object with Tag ). 
+    {
+        GameObject[] Players;
+        Players = GameObject.FindGameObjectsWithTag("Player");
+        Vector3 position = transform.position;
+        GameObject closet = null;
+
+        foreach (GameObject Player in Players)
+        {
+            Vector3 diff = Player.transform.position - position;
+            float curDistance = diff.magnitude;
+            if (curDistance < lookRadius)
+            {
+                closet = Player;
+
+            }
+        }
+        return closet;
+    }
+    private void AssignTarget()
+    {
+        if (ClosestTarget() != null)
+        {
+            player = ClosestTarget().GetComponent<Transform>();
+            playerMovement = ClosestTarget().GetComponent<PlayerMovement>();
+        }
+
+
+
+    }
 }
