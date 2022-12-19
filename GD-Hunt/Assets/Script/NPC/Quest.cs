@@ -11,9 +11,13 @@ public class Quest : MonoBehaviour
     public int currentAmount;
     public int requiredAmount;
     public NPCScript questFalse;
+    public Dialogue dialogue;
 
 
-
+    public void Awake()
+    {
+        dialogue =GameObject.Find("NPC_Test").GetComponent<Dialogue>();
+    }
     public void Update()
     {
         questFalse = GameObject.Find("NPC_Test").GetComponent<NPCScript>();
@@ -29,6 +33,7 @@ public class Quest : MonoBehaviour
             questFalse.isQuesting = false;
             questFalse.Startbar.SetActive(false);
             questFalse.Endbar.SetActive(true);
+            dialogue.QuestProgress.SetActive(false);
             Invoke("Endbargone", 2f);
             currentAmount = 0;
             Debug.Log("Quest End");

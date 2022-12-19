@@ -67,27 +67,19 @@ public class NPCScript : MonoBehaviour
 
 
 
-        RotateToPlayer();
+       
         StartQuesting();
     }
 
 
-    void RotateToPlayer()
-    {
-       
-    }
-    
-
-    public void OnTriggerExit()
-    {
-       
-    }
+   
     public void GiveQuest()
     {
         if(isQuesting==false)
         {
             Debug.Log("Quest Start");
             isQuesting = true;
+            
         }
        
             
