@@ -12,18 +12,21 @@ public class BossAI : MonoBehaviour
     public Transform player;
     public PlayerMovement playerMovement;
 
-
+    public Transform target;
+    public float rotateSpeed=20f;
 
     public float range;
     public Transform BossPatrollingCenter;
 
-    
+    public bool alreadyAttacked;
+    public float timeBetweenAttacks;
 
     public FieldOfView fov;
     public LayerMask whatIsPlayer;
 
     public float lookRadius = 10f;
-    public bool playerInLookRadius;
+    public float attackRadius = 2f;
+    public bool playerInLookRadius, playerInAttackRadius;
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -39,6 +42,7 @@ public class BossAI : MonoBehaviour
     void Update()
     {
         playerInLookRadius = Physics.CheckSphere(transform.position, lookRadius, whatIsPlayer);
+        playerInAttackRadius = Physics.CheckSphere(transform.position, attackRadius, whatIsPlayer);
         anim.SetFloat("Speed", boss.velocity.magnitude);
         if (!playerInLookRadius)
         {
@@ -47,7 +51,7 @@ public class BossAI : MonoBehaviour
             playerMovement = null;
 
         }
-        if (playerInLookRadius )
+        if (playerInLookRadius && !playerInAttackRadius)
         {
 
             AssignTarget();
@@ -59,7 +63,17 @@ public class BossAI : MonoBehaviour
             }
 
         }
-        
+        if (playerInAttackRadius && playerInLookRadius&&fov.canSeePlayer)
+        {
+
+            AssignTarget();
+            if (player != null)
+            {
+                Attack();
+
+            }
+
+        }
 
     }
     private void Chase()
@@ -82,10 +96,55 @@ public class BossAI : MonoBehaviour
             }
         }
     }
+    private void Attack()
+    {
+
+
+        boss.SetDestination(player.position);
+
+        Quaternion rotTarget = Quaternion.LookRotation(target.position - this.transform.position);
+        this.transform.rotation = Quaternion.RotateTowards(this.transform.rotation,rotTarget,rotateSpeed*Time.deltaTime);
+
+
+
+
+        if (!alreadyAttacked)
+        {
+
+            anim.SetTrigger("Attack");
+            alreadyAttacked = true;
+            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+
+        }
+        
+
+    }
+    private void ResetAttack()
+    {
+        alreadyAttacked = false;
+
+    }
+
+    public void StartDealDamage()
+    {
+
+        
+      GetComponentInChildren<BossAttackDetector>().StartDealDamage();
+        
+
+    }
+    public void EndDealDamage()
+    {
+        
+       GetComponentInChildren<BossAttackDetector>().EndDealDamage();
+        
+    }
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, lookRadius);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRadius);
     }
     bool RandomPoint(Vector3 center, float range, out Vector3 result)
     {
