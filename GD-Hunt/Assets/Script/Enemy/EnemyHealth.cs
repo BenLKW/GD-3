@@ -62,8 +62,8 @@ public class EnemyHealth : MonoBehaviour
         LowHealthState();
         blinkTimer -= Time.deltaTime;
         float lerp = Mathf.Clamp01(blinkTimer / blinkDuration);
-        float Intensity = (lerp * blinkIntensity) + 1.0f;
-        skinnedMeshRenderer.material.color = Color.white * Intensity;
+        float Intensity = (lerp * blinkIntensity);
+        skinnedMeshRenderer.material.color = Color.red * Intensity;
 
     }
 
