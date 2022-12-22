@@ -78,7 +78,7 @@ public class EnemyHealth : MonoBehaviour
         {
             enemyAI.lowHealth = false;
         }
-
+        
     }
     public void TakeDamage(float amount)
     {
@@ -100,7 +100,6 @@ public class EnemyHealth : MonoBehaviour
         Destroy(GetComponent<BoxCollider>());
         TargetLock.isTargeting = false;
         animator.SetFloat("Speed", 0);
-        Destroy(gameObject);
         enemyAI.isDead = true;
         randomspawner.enemyCount -= 1;
 
@@ -112,6 +111,10 @@ public class EnemyHealth : MonoBehaviour
         
     }
        
+    public void Clear()
+    {
+        Destroy(gameObject);
 
+    }
     
 }
