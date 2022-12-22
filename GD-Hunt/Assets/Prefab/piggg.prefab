@@ -412,13 +412,15 @@ MonoBehaviour:
   animator: {fileID: 0}
   randomspawner: {fileID: 0}
   enemyAI: {fileID: 0}
-  health: 5
+  currentHealth: 0
   maxHealth: 5
   quest: {fileID: 0}
   NPCScript: {fileID: 0}
   healthBar: {fileID: 5067053543922806957}
   slider: {fileID: 4372023096841755701}
   TargetLock: {fileID: 0}
+  blinkIntensity: 10
+  blinkDuration: 2
 --- !u!54 &1640227989733820291
 Rigidbody:
   m_ObjectHideFlags: 0

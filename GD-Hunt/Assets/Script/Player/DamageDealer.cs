@@ -40,9 +40,9 @@ public class DamageDealer : MonoBehaviour
         {
             if (other.tag == "Enemy")
             {
-                
-                
-                other.GetComponent<EnemyHealth>().health = other.GetComponent<EnemyHealth>().health - damageAmount;
+
+
+                other.GetComponent<EnemyHealth>().TakeDamage(damageAmount);
                 other.GetComponent<Animator>().SetInteger("GetHitIndex", Random.Range(0, 2));
                 other.GetComponent<Animator>().SetTrigger("GetHit");
                 hasDealDamage = true;

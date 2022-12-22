@@ -154,7 +154,7 @@ public class EnemyAI : MonoBehaviour
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
             
         }
-        if (enemyHealth.health <= 3)
+        if (enemyHealth.currentHealth <= 3)
         {
             timeBetweenAttacks = 1f;
         }

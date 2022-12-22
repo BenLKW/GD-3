@@ -9,15 +9,19 @@ public class EnemyHealth : MonoBehaviour
     public RandomSpawner randomspawner;
     public EnemyAI enemyAI;
     
-    public  float health;
+    public  float currentHealth;
     public float maxHealth;
     public Quest quest;
     public NPCScript NPCScript;
+    SkinnedMeshRenderer skinnedMeshRenderer;
 
     public GameObject healthBar;
     public Slider slider;
     public TargetLock TargetLock;
 
+    public float blinkIntensity;
+    public float blinkDuration;
+    float blinkTimer;
 
     private void Start()
     {
@@ -27,9 +31,9 @@ public class EnemyHealth : MonoBehaviour
         NPCScript = GameObject.Find("NPC_Test").GetComponent<NPCScript>();
         TargetLock = GameObject.Find("Main Camera").GetComponent<TargetLock>();
         randomspawner = GameObject.Find("EnemySpawner").GetComponent<RandomSpawner>();
-
+        skinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         
-        health = maxHealth;
+        currentHealth = maxHealth;
         slider.value = CalculateHealth();
         healthBar.SetActive(false);
     }
@@ -39,21 +43,34 @@ public class EnemyHealth : MonoBehaviour
         
         slider.value = CalculateHealth();
         slider.transform.LookAt(Camera.main.transform.position);
-        //slider.transform.Rotate(0, 180, 0);
+        
         healthBar.transform.LookAt(Camera.main.transform.position);
-        //healthBar.transform.Rotate(0, 180, 0);
+        
 
-        if (health < maxHealth)
+        if (currentHealth < maxHealth)
         {
             healthBar.SetActive(true);
         }
         
         
-        if (health > maxHealth)
+        if (currentHealth > maxHealth)
         {
-            health = maxHealth;
+            currentHealth = maxHealth;
         }
-        if (health < 3)
+
+
+        LowHealthState();
+        blinkTimer -= Time.deltaTime;
+        float lerp = Mathf.Clamp01(blinkTimer / blinkDuration);
+        float Intensity = (lerp * blinkIntensity) + 1.0f;
+        skinnedMeshRenderer.material.color = Color.white * Intensity;
+
+    }
+
+    
+    private void LowHealthState()
+    {
+        if (currentHealth < 3)
         {
             enemyAI.lowHealth = true;
         }
@@ -62,31 +79,37 @@ public class EnemyHealth : MonoBehaviour
             enemyAI.lowHealth = false;
         }
 
-        if (health <= 0)
-        {
-            Destroy(GetComponent<BoxCollider>());
-            TargetLock.isTargeting = false;
-            animator.SetFloat("Speed", 0);
-            animator.SetBool("Dead", true);
-            enemyAI.isDead = true;
-            
-        }
     }
-    
+    public void TakeDamage(float amount)
+    {
+        currentHealth -= amount;
+        if (currentHealth <= 0.0f)
+        {
+            Die();
+        }
+        blinkTimer = blinkDuration;
+    }
     private float CalculateHealth()
     {
-        return health / maxHealth;
+        return currentHealth / maxHealth;
     }
 
-    public void dead()
+    public void Die()
     {
-        
+        animator.SetBool("Dead", true);
+        Destroy(GetComponent<BoxCollider>());
+        TargetLock.isTargeting = false;
+        animator.SetFloat("Speed", 0);
+        Destroy(gameObject);
+        enemyAI.isDead = true;
+        randomspawner.enemyCount -= 1;
+
         if (NPCScript.isQuesting == true)
         {
             quest.currentAmount++;
         }
-        randomspawner.enemyCount -= 1;
-        Destroy(gameObject);
+        
+        
     }
        
 
