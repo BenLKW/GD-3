@@ -9,7 +9,8 @@ public class NPCScript : MonoBehaviour
     public GameObject TextName;
     public GameObject player;
     public GameObject NPCGUI,NPCGUIText,Startbar,Endbar;
-    
+
+    public Transform PressF; 
     public float lookRadius = 10f;
 
     
@@ -30,6 +31,7 @@ public class NPCScript : MonoBehaviour
         
         isQuesting = false;
         Endbar.SetActive(false);
+        PressF.transform.position = new Vector3(this.transform.position.x,this.transform.position.y+1f,this.transform.position.z);
     }
     private void Update()
     {

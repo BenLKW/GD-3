@@ -8,8 +8,8 @@ public class EnemyAI : MonoBehaviour
     public Animator animator;
 
     private NavMeshAgent enemy;
-    
-    
+    public Material m_Material;
+    public Color color;
     public Transform player;
     public Health playerHealth;
 
@@ -48,7 +48,7 @@ public class EnemyAI : MonoBehaviour
         animator = GetComponent<Animator>();
         enemy = GetComponent<NavMeshAgent>();
         enemyHealth = GetComponent<EnemyHealth>();
-        
+        m_Material = GetComponent<MeshRenderer>().material;
         player = null;
         
         centrePoint = GameObject.Find("/EnemySpawner/Center").GetComponent<Transform>();
@@ -94,9 +94,9 @@ public class EnemyAI : MonoBehaviour
             }
            
         }
-       
 
 
+        m_Material.color = color;
     }
     private void Patroling()
     {
