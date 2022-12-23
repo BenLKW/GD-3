@@ -9,6 +9,7 @@ public class EnemyAI : MonoBehaviour
 
     private NavMeshAgent enemy;
     
+    
     public Transform player;
     public Health playerHealth;
 
@@ -145,10 +146,12 @@ public class EnemyAI : MonoBehaviour
             else if (rightFov.canSeePlayer)
             {
                 animator.SetTrigger("RightAttack");
+                
             }
             else if (leftFov.canSeePlayer)
             {
                 animator.SetTrigger("LeftAttack");
+                
             }
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);

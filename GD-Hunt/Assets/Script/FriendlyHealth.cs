@@ -7,6 +7,7 @@ public class FriendlyHealth : MonoBehaviour
 {
     //public Animator animator;
     public RandomSpawner randomspawner;
+    public PlayerMovement PM;
     //public EnemyAI enemyAI;
     
     public  float health;
@@ -27,8 +28,9 @@ public class FriendlyHealth : MonoBehaviour
         NPCScript = GameObject.Find("NPC_Test").GetComponent<NPCScript>();
         TargetLock = GameObject.Find("Main Camera").GetComponent<TargetLock>();
         randomspawner = GameObject.Find("AnimalSpawner").GetComponent<RandomSpawner>();
+        PM = GameObject.Find("/Player_Test/Player").GetComponent<PlayerMovement>();
 
-        
+
         health = maxHealth;
         slider.value = CalculateHealth();
         healthBar.SetActive(false);
@@ -70,6 +72,11 @@ public class FriendlyHealth : MonoBehaviour
             //animator.SetBool("Dead", true);
             //enemyAI.isDead = true;
 
+            if (PM.TotalAid < 5)
+            {
+                PM.TotalAid += 1;
+            }
+            
             randomspawner.enemyCount -= 1;
             Destroy(gameObject);
         }
@@ -88,6 +95,7 @@ public class FriendlyHealth : MonoBehaviour
             //quest.currentAmount++;
         }
         randomspawner.enemyCount -= 1;
+        
         Destroy(gameObject);
     }
        

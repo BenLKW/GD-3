@@ -413,7 +413,7 @@ MonoBehaviour:
   randomspawner: {fileID: 0}
   enemyAI: {fileID: 0}
   currentHealth: 0
-  maxHealth: 5
+  maxHealth: 18
   quest: {fileID: 0}
   NPCScript: {fileID: 0}
   healthBar: {fileID: 5067053543922806957}

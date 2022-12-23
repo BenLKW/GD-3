@@ -334,10 +334,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7106552641405276885}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 232.9, y: 0.18346, z: 60.44}
-  m_LocalScale: {x: 5.913405, y: 5.913405, z: 5.913405}
-  m_ConstrainProportionsScale: 0
+  m_LocalRotation: {x: 0, y: -0.5735764, z: 0, w: 0.8191521}
+  m_LocalPosition: {x: 0, y: -0.3, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1221204418602945040}
   - {fileID: 5206081204534221556}
@@ -350,7 +350,7 @@ Transform:
   - {fileID: 413270807686551527}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -70, z: 0}
 --- !u!1 &7459332862916135639
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,6 +362,8 @@ GameObject:
   - component: {fileID: 4378988946379594025}
   - component: {fileID: 6653999051169375551}
   - component: {fileID: 5013602325510579941}
+  - component: {fileID: 136881218417052248}
+  - component: {fileID: 5880087442430095053}
   m_Layer: 0
   m_Name: pCube1
   m_TagString: Untagged
@@ -434,6 +436,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &136881218417052248
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7459332862916135639}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4068373912626513877, guid: 54e508b27e8490a4980d0b0cfa72a65e, type: 3}
+--- !u!114 &5880087442430095053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7459332862916135639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ee6651541f7d30468127265795f7e4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasDealDamage: 0
+  weaponLength: 0
+  damageAmount: 1
 --- !u!1 &7870878780667108046
 GameObject:
   m_ObjectHideFlags: 0

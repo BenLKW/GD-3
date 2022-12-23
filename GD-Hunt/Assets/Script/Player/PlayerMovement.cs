@@ -181,7 +181,7 @@ public class PlayerMovement : MonoBehaviour
                 Dash();
             }
 
-            if (Input.GetKeyDown(DrawWeaponKey))
+            if (Input.GetKeyDown(DrawWeaponKey) && weaponSystem.weapon != null)
             {
                 if (Combat == CombatState.WeaponInShealth)
                 {
@@ -348,7 +348,7 @@ public class PlayerMovement : MonoBehaviour
 
                 if (Item == WhichItem.Aid && Input.GetKeyDown(ThrowKey) && TotalAid > 0)
                 {
-                    Health.health += 1;
+                    Health.health += 2;
                     TotalAid -= 1;
                 }
             }

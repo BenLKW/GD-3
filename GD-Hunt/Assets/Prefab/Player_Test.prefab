@@ -2608,8 +2608,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponHolder: {fileID: 1774801732426042123}
-  weapon: {fileID: 3890083723015568522, guid: 4adbef89c0cfdaa44b8aac7fba49d71e, type: 3}
   weaponSheath: {fileID: 7318991213200009388}
+  weapon: {fileID: 0}
   currentWeaponInHand: {fileID: 0}
   currentWeaponInSheath: {fileID: 0}
 --- !u!114 &3910386988448150679

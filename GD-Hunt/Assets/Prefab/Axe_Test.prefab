@@ -348,7 +348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasDealDamage: 0
   weaponLength: 0
-  damageAmount: 1
+  damageAmount: 3
 --- !u!64 &8074710605569265331
 MeshCollider:
   m_ObjectHideFlags: 0

@@ -138,6 +138,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2770589130796142449}
+  - component: {fileID: 2157851818578503025}
   m_Layer: 0
   m_Name: L_tusk03
   m_TagString: Untagged
@@ -161,6 +162,20 @@ Transform:
   m_Father: {fileID: 7589250523752824161}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &2157851818578503025
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 837710164637882351}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 21.359081
+  m_Height: 70.7752
+  m_Direction: 0
+  m_Center: {x: -32.546974, y: 1.8445239, z: -5.485412}
 --- !u!1 &1145534199437192375
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,6 +313,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3078401364163738103}
+  - component: {fileID: 7110980357061734194}
   m_Layer: 0
   m_Name: R_tusk03
   m_TagString: Untagged
@@ -321,6 +337,20 @@ Transform:
   m_Father: {fileID: 4250487126200381133}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &7110980357061734194
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725238290905748727}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 23.410023
+  m_Height: 62.679314
+  m_Direction: 0
+  m_Center: {x: 25.96291, y: -0.00003159432, z: 6.4851923}
 --- !u!1 &1806785375289906353
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,6 +360,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7589250523752824161}
+  - component: {fileID: 7808603741551004661}
   m_Layer: 0
   m_Name: L_tusk02
   m_TagString: Untagged
@@ -353,6 +384,20 @@ Transform:
   m_Father: {fileID: 2662989070152433349}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &7808603741551004661
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806785375289906353}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 25
+  m_Height: 90.55
+  m_Direction: 0
+  m_Center: {x: -47, y: 0, z: -9.2}
 --- !u!1 &2463753305998906360
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,7 +416,7 @@ GameObject:
   - component: {fileID: 6700556612701856443}
   m_Layer: 0
   m_Name: elephent
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -545,10 +590,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 2
-  m_Height: 7
+  m_Radius: 1.2961782
+  m_Height: 5.898926
   m_Direction: 2
-  m_Center: {x: 0, y: 2, z: -0.5173859}
+  m_Center: {x: 0.015558839, y: 2.7264097, z: -1.2714233}
 --- !u!54 &8806721577521471217
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -558,7 +603,7 @@ Rigidbody:
   m_GameObject: {fileID: 2463753305998906360}
   serializedVersion: 2
   m_Mass: 10
-  m_Drag: 0
+  m_Drag: 5
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -674,6 +719,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3940359735658260891}
+  - component: {fileID: 1081641278994340223}
   m_Layer: 0
   m_Name: L_tusk05
   m_TagString: Untagged
@@ -697,6 +743,20 @@ Transform:
   m_Father: {fileID: 2239200955652963787}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1081641278994340223
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2576507118794993687}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 17.674255
+  m_Height: 70.66095
+  m_Direction: 0
+  m_Center: {x: -32.329674, y: 0.0000018767169, z: -7.3257446}
 --- !u!1 &2657493558073345885
 GameObject:
   m_ObjectHideFlags: 0
@@ -738,6 +798,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2239200955652963787}
+  - component: {fileID: 6182488051926341071}
   m_Layer: 0
   m_Name: L_tusk04
   m_TagString: Untagged
@@ -761,6 +822,20 @@ Transform:
   m_Father: {fileID: 2770589130796142449}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &6182488051926341071
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2836661356770765428}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 20.500174
+  m_Height: 68.091835
+  m_Direction: 0
+  m_Center: {x: -30.290215, y: -0.0000010395216, z: -12.798759}
 --- !u!1 &2896214496609624261
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,6 +845,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 691194624791965859}
+  - component: {fileID: 947194526847083759}
   m_Layer: 0
   m_Name: nose02
   m_TagString: Untagged
@@ -792,7 +868,21 @@ Transform:
   - {fileID: 8749100899708530722}
   m_Father: {fileID: 3021304631779907710}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 5.593965e-15, y: -180, z: -122.95673}
+  m_LocalEulerAnglesHint: {x: 8.1557135e-15, y: 180, z: 145.96187}
+--- !u!136 &947194526847083759
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2896214496609624261}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 32.33091
+  m_Height: 133.98653
+  m_Direction: 0
+  m_Center: {x: -64.531044, y: -7.331, z: -0.0000153854}
 --- !u!1 &2925069630768175088
 GameObject:
   m_ObjectHideFlags: 0
@@ -1092,7 +1182,7 @@ Transform:
   - {fileID: 691194624791965859}
   m_Father: {fileID: 1854539534008591569}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -3.2362234e-15, y: -2.5287852e-14, z: 46.846542}
+  m_LocalEulerAnglesHint: {x: -3.2362224e-15, y: -2.5287847e-14, z: 72.303986}
 --- !u!1 &3463511970445057272
 GameObject:
   m_ObjectHideFlags: 0
@@ -1102,6 +1192,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3357763969424246645}
+  - component: {fileID: 5735154665170793700}
   m_Layer: 0
   m_Name: L_tusk07
   m_TagString: Untagged
@@ -1125,6 +1216,20 @@ Transform:
   m_Father: {fileID: 5825484196366289011}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &5735154665170793700
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3463511970445057272}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 11.172477
+  m_Height: 70.04809
+  m_Direction: 0
+  m_Center: {x: -30.598995, y: -1.0997754, z: 3.9094825}
 --- !u!1 &3578167992323298585
 GameObject:
   m_ObjectHideFlags: 0
@@ -1262,6 +1367,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4250487126200381133}
+  - component: {fileID: 1433558190355928479}
   m_Layer: 0
   m_Name: R_tusk02
   m_TagString: Untagged
@@ -1285,6 +1391,20 @@ Transform:
   m_Father: {fileID: 7923505376686346654}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1433558190355928479
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4127927023884276992}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 26.298513
+  m_Height: 89.70983
+  m_Direction: 0
+  m_Center: {x: 33.86949, y: -0.00008142283, z: 8.2076435}
 --- !u!1 &4256334599871589909
 GameObject:
   m_ObjectHideFlags: 0
@@ -1359,6 +1479,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 174444221357364817}
+  - component: {fileID: 2306316714624257732}
   m_Layer: 0
   m_Name: R_tusk06
   m_TagString: Untagged
@@ -1382,6 +1503,20 @@ Transform:
   m_Father: {fileID: 8162239338966812497}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &2306316714624257732
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4321703394842621895}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 19.674559
+  m_Height: 57.94436
+  m_Direction: 0
+  m_Center: {x: 28.034153, y: 0.0001646476, z: -0.0000066838625}
 --- !u!1 &4701918907593661644
 GameObject:
   m_ObjectHideFlags: 0
@@ -1391,6 +1526,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1514650987974090625}
+  - component: {fileID: 4374157650480445200}
   m_Layer: 0
   m_Name: nose04
   m_TagString: Untagged
@@ -1413,7 +1549,21 @@ Transform:
   - {fileID: 4445043901079946845}
   m_Father: {fileID: 8749100899708530722}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 6.469108e-16, y: 6.6698767e-15, z: 68.92043}
+  m_LocalEulerAnglesHint: {x: 6.469107e-16, y: 6.6698767e-15, z: -11.079569}
+--- !u!136 &4374157650480445200
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4701918907593661644}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 30.1
+  m_Height: 67.70308
+  m_Direction: 0
+  m_Center: {x: -28.872017, y: -0.00008272882, z: -0.000004575732}
 --- !u!1 &4922225103209861627
 GameObject:
   m_ObjectHideFlags: 0
@@ -1509,7 +1659,7 @@ Transform:
   - {fileID: 1777439777456329938}
   m_Father: {fileID: 9213144104862691426}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 6.556456e-16, y: -2.5195063e-14, z: 0.48131797}
+  m_LocalEulerAnglesHint: {x: 6.556456e-16, y: -2.5195063e-14, z: 2.9813178}
 --- !u!1 &5660557148060451943
 GameObject:
   m_ObjectHideFlags: 0
@@ -1519,6 +1669,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2910068466910450184}
+  - component: {fileID: 3505225826208907598}
   m_Layer: 0
   m_Name: R_tusk07
   m_TagString: Untagged
@@ -1542,6 +1693,20 @@ Transform:
   m_Father: {fileID: 174444221357364817}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &3505225826208907598
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5660557148060451943}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 11.199146
+  m_Height: 70.27369
+  m_Direction: 0
+  m_Center: {x: 31.218342, y: -1.5655311, z: -0.000011164545}
 --- !u!1 &5695169959082868576
 GameObject:
   m_ObjectHideFlags: 0
@@ -1639,7 +1804,7 @@ Transform:
   - {fileID: 1739269363799129025}
   m_Father: {fileID: 2988932443105528130}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: -14.620872}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: -14.6208725}
 --- !u!1 &6237472203836328738
 GameObject:
   m_ObjectHideFlags: 0
@@ -1726,6 +1891,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8749100899708530722}
+  - component: {fileID: 6676161068006887500}
   m_Layer: 0
   m_Name: nose03
   m_TagString: Untagged
@@ -1748,7 +1914,21 @@ Transform:
   - {fileID: 1514650987974090625}
   m_Father: {fileID: 691194624791965859}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -3.7213702e-15, y: 180, z: 111.778694}
+  m_LocalEulerAnglesHint: {x: 2.8222344e-15, y: 180, z: 141.75635}
+--- !u!136 &6676161068006887500
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6433553972381291109}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 26.753798
+  m_Height: 104.35171
+  m_Direction: 0
+  m_Center: {x: -50.62918, y: 1.75392, z: 0.000018106399}
 --- !u!1 &6459975725047244504
 GameObject:
   m_ObjectHideFlags: 0
@@ -1758,6 +1938,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1472576158674709782}
+  - component: {fileID: 2787849430931091986}
   m_Layer: 0
   m_Name: R_tusk04
   m_TagString: Untagged
@@ -1781,6 +1962,20 @@ Transform:
   m_Father: {fileID: 3078401364163738103}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &2787849430931091986
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6459975725047244504}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 23.248272
+  m_Height: 81.89836
+  m_Direction: 0
+  m_Center: {x: 15.9491625, y: 0.00000041788215, z: 9.401304}
 --- !u!1 &6830076326338521333
 GameObject:
   m_ObjectHideFlags: 0
@@ -1918,6 +2113,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8162239338966812497}
+  - component: {fileID: 7573430274295422202}
   m_Layer: 0
   m_Name: R_tusk05
   m_TagString: Untagged
@@ -1941,6 +2137,20 @@ Transform:
   m_Father: {fileID: 1472576158674709782}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &7573430274295422202
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7681521449307652996}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 25
+  m_Height: 66.26819
+  m_Direction: 0
+  m_Center: {x: 33.324627, y: -0.0000016991711, z: 6.515681e-14}
 --- !u!1 &8000311493155228575
 GameObject:
   m_ObjectHideFlags: 0
@@ -2074,6 +2284,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5825484196366289011}
+  - component: {fileID: 92304930308921298}
   m_Layer: 0
   m_Name: L_tusk06
   m_TagString: Untagged
@@ -2097,6 +2308,20 @@ Transform:
   m_Father: {fileID: 3940359735658260891}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &92304930308921298
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8458614233520329649}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 18.720396
+  m_Height: 70.08195
+  m_Direction: 0
+  m_Center: {x: -22.502132, y: 4.901229, z: 0.000005364926}
 --- !u!1 &8534855280500566022
 GameObject:
   m_ObjectHideFlags: 0

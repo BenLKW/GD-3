@@ -56,7 +56,7 @@ public class BossAttackDetector : MonoBehaviour
     void Dealdamage()
     {
         playerHealth = GameObject.Find("Player").GetComponent<Health>();
-        playerHealth.TakeDamage(1);
+        playerHealth.TakeDamage(5);
 
     }
 

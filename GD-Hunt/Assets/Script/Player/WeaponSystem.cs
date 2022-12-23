@@ -6,16 +6,17 @@ public class WeaponSystem : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] GameObject weaponHolder;
-    [SerializeField] GameObject weapon;
-    [SerializeField] GameObject weaponSheath;
 
+    public GameObject weaponSheath;
 
+    public GameObject weapon;
     public GameObject currentWeaponInHand;
     public GameObject currentWeaponInSheath;
 
     void Start()
     {
-        currentWeaponInSheath = Instantiate(weapon, weaponSheath.transform);
+        weapon = null;
+        //currentWeaponInSheath = Instantiate(weapon, weaponSheath.transform);
     }
 
     // Update is called once per frame
