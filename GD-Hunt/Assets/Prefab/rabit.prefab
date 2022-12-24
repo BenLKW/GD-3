@@ -1718,8 +1718,8 @@ GameObject:
   - component: {fileID: 6428529627098862281}
   - component: {fileID: 2804955817910400976}
   - component: {fileID: 1174416027819337512}
-  - component: {fileID: 6391270123612344130}
   - component: {fileID: 315315086421472302}
+  - component: {fileID: 2128699075358916405}
   m_Layer: 0
   m_Name: rabit
   m_TagString: Animal
@@ -1781,7 +1781,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animal: {fileID: 0}
   player: {fileID: 0}
-  range: 150
+  range: 70
   centrePoint: {fileID: 0}
   whatIsPlayer:
     serializedVersion: 2
@@ -1809,7 +1809,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0.2
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 3
+  m_ObstacleAvoidanceType: 4
 --- !u!54 &1174416027819337512
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1824,22 +1824,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 1
---- !u!136 &6391270123612344130
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8205201377088071805}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.38759995
-  m_Height: 0.7751999
-  m_Direction: 1
-  m_Center: {x: 0.035064697, y: 0.25, z: 0.003929138}
 --- !u!114 &315315086421472302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1861,6 +1847,19 @@ MonoBehaviour:
   healthBar: {fileID: 65909048211677572}
   slider: {fileID: 7820421217174698053}
   TargetLock: {fileID: 0}
+--- !u!65 &2128699075358916405
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8205201377088071805}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &8212763558484700534
 GameObject:
   m_ObjectHideFlags: 0
