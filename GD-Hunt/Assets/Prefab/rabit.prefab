@@ -1781,7 +1781,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animal: {fileID: 0}
   player: {fileID: 0}
-  range: 30
+  range: 150
   centrePoint: {fileID: 0}
   whatIsPlayer:
     serializedVersion: 2
@@ -1853,6 +1853,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomspawner: {fileID: 0}
+  PM: {fileID: 0}
   health: 1
   maxHealth: 1
   quest: {fileID: 0}

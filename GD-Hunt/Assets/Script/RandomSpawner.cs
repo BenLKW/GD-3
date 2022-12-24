@@ -14,12 +14,11 @@ public class RandomSpawner : MonoBehaviour
     public float spawnTime;
 
     public Transform mobsInWorld;
-    //GameObject[] mobsArray;
+    
 
     void Start()
     {
-        //InvokeRepeating("EnemySpawn", spawnTime, spawnDelay);
-        //StartCoroutine(SpawnMobs());
+        
 
     }
 

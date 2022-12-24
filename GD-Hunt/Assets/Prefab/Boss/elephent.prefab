@@ -176,6 +176,60 @@ CapsuleCollider:
   m_Height: 70.7752
   m_Direction: 0
   m_Center: {x: -32.546974, y: 1.8445239, z: -5.485412}
+--- !u!1 &913262668443316088
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7862808194660483813}
+  - component: {fileID: 863831226138432580}
+  m_Layer: 0
+  m_Name: FrontDetector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7862808194660483813
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913262668443316088}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.214, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2988932443105528130}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &863831226138432580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913262668443316088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31c6dcddfa7bb1a41b19127feaed1c87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 5
+  angle: 90
+  playerRef: {fileID: 0}
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 0
+  obstructionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  canSeePlayer: 0
 --- !u!1 &1145534199437192375
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,6 +490,7 @@ Transform:
   - {fileID: 5783431031091215482}
   - {fileID: 3665483757439339607}
   - {fileID: 4140863758331868305}
+  - {fileID: 7862808194660483813}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -481,6 +536,7 @@ MonoBehaviour:
   alreadyAttacked: 0
   timeBetweenAttacks: 1
   fov: {fileID: 6700556612701856443}
+  FrontDetector: {fileID: 863831226138432580}
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 64
@@ -671,6 +727,7 @@ GameObject:
   m_Component:
   - component: {fileID: 798765754722567459}
   - component: {fileID: 8169985645361322642}
+  - component: {fileID: 4142810266119272032}
   m_Layer: 0
   m_Name: Foot Collider
   m_TagString: Untagged
@@ -707,6 +764,28 @@ CapsuleCollider:
   m_Height: 153.94519
   m_Direction: 1
   m_Center: {x: 2.0874, y: 59.67737, z: -18.256786}
+--- !u!114 &4142810266119272032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2536602422827672802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31c6dcddfa7bb1a41b19127feaed1c87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 4
+  angle: 360
+  playerRef: {fileID: 0}
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 64
+  obstructionMask:
+    serializedVersion: 2
+    m_Bits: 512
+  canSeePlayer: 0
 --- !u!1 &2548258549001395781
 GameObject:
   m_ObjectHideFlags: 0

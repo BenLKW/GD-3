@@ -8,7 +8,7 @@ public class BossAI : MonoBehaviour
     public Animator anim;
 
     private NavMeshAgent boss;
-
+    
     public Transform player;
     public PlayerMovement playerMovement;
 
@@ -21,7 +21,7 @@ public class BossAI : MonoBehaviour
     public bool alreadyAttacked;
     public float timeBetweenAttacks;
 
-    public FieldOfView fov;
+    public FieldOfView fov,FrontDetector;
     public LayerMask whatIsPlayer;
 
     public float lookRadius = 10f;
@@ -74,7 +74,10 @@ public class BossAI : MonoBehaviour
             }
 
         }
-
+        if (FrontDetector.canSeePlayer)
+        {
+            Debug.Log("Hello World");
+        }
     }
     private void Chase()
     {

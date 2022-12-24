@@ -21,7 +21,7 @@ public class AnimalAI : MonoBehaviour
 
         animal = GetComponent<NavMeshAgent>();
         player = GameObject.Find("/Player_Test/Player").GetComponent<Transform>();
-        centrePoint = GameObject.Find("/AnimalSpawner/Center").GetComponent<Transform>();
+        centrePoint = GameObject.Find("Center").GetComponent<Transform>();
     }
 
 
