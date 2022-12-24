@@ -31,7 +31,7 @@ public class Restart : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-    public void Quit()
+    public void ReturnMenu()
     {
         SceneManager.LoadScene(0);
     }

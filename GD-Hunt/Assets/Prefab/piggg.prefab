@@ -419,6 +419,7 @@ MonoBehaviour:
   maxHealth: 18
   quest: {fileID: 0}
   NPCScript: {fileID: 0}
+  skinnedMeshRenderer: {fileID: 0}
   healthBar: {fileID: 5067053543922806957}
   slider: {fileID: 4372023096841755701}
   TargetLock: {fileID: 0}

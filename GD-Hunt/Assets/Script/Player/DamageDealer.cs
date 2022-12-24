@@ -10,7 +10,7 @@ public class DamageDealer : MonoBehaviour
     [SerializeField] float weaponLength;
 
     
-    public int damageAmount=1;
+    public int damageAmount;
 
     
     
@@ -58,7 +58,9 @@ public class DamageDealer : MonoBehaviour
 
             if (other.tag == "Boss")
             {
+                
                 other.GetComponent<BossHealth>().TakeDamage(damageAmount);
+                hasDealDamage = true;
 
             }
         }

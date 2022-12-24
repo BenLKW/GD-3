@@ -50,7 +50,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5219330280702613992
 RectTransform:
   m_ObjectHideFlags: 0
@@ -69,8 +69,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 36, y: -187}
-  m_SizeDelta: {x: 2000, y: 600}
+  m_AnchoredPosition: {x: 15, y: -268}
+  m_SizeDelta: {x: 1500, y: 398.4255}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6232235599802483665
 CanvasRenderer:
@@ -93,14 +93,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.47058824}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: ca8ebcadc33a2ad46942759403570ce2, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -148,7 +148,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3671637072106176176
 RectTransform:
   m_ObjectHideFlags: 0
@@ -167,8 +167,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -629.68, y: 390.1183}
-  m_SizeDelta: {x: 866.473, y: 332.1934}
+  m_AnchoredPosition: {x: -760.5914, y: 325.55566}
+  m_SizeDelta: {x: 477.4407, y: 250.3055}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6631567338723057431
 CanvasRenderer:
@@ -191,14 +191,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.47058824}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: ca8ebcadc33a2ad46942759403570ce2, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -257,8 +257,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1300, y: 500}
+  m_AnchoredPosition: {x: -5, y: -24.3963}
+  m_SizeDelta: {x: 594.3186, y: 336.8058}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8572703746481878213
 CanvasRenderer:
@@ -615,7 +615,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6592728448830684157}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -624,8 +624,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000015259, y: 0}
-  m_SizeDelta: {x: 507.5981, y: 70.659}
+  m_AnchoredPosition: {x: 0.6009, y: 1}
+  m_SizeDelta: {x: 351.7477, y: 122.4105}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4321918612118154053
 CanvasRenderer:
@@ -718,7 +718,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 3.5202157, z: 0, w: 1.1654549}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1006,7 +1006,7 @@ MonoBehaviour:
   NPCGUIText: {fileID: 5902935623367497773}
   Startbar: {fileID: 944954973795460280}
   Endbar: {fileID: 8974469314359720770}
-  QuestProgress: {fileID: 1257011994325783761}
+  PressF: {fileID: 0}
   lookRadius: 5
   Name: 
   sentences: []
@@ -1180,8 +1180,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 833, y: 21.970404}
-  m_SizeDelta: {x: 388, y: 477}
+  m_AnchoredPosition: {x: 833, y: 20.2503}
+  m_SizeDelta: {x: 388, y: 131.0039}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2429816884349786379
 CanvasRenderer:
@@ -1204,14 +1204,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.47058824}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: ca8ebcadc33a2ad46942759403570ce2, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0

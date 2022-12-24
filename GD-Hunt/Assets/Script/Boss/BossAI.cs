@@ -13,7 +13,7 @@ public class BossAI : MonoBehaviour
     public PlayerMovement playerMovement;
 
     public Transform target;
-    public float rotateSpeed=20f;
+    public float rotateSpeed;
 
     public float range;
     public Transform BossPatrollingCenter;

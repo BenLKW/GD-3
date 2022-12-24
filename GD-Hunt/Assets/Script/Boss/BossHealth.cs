@@ -19,7 +19,7 @@ public class BossHealth : MonoBehaviour
     void Start()
     {
 
-        bossAI = GetComponent<BossAI>();
+        //bossAI = GetComponent<BossAI>();
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
         Bar.SetActive(false);

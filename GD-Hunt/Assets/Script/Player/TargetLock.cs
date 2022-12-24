@@ -77,8 +77,13 @@ public class TargetLock : MonoBehaviour
         if (ClosestTarget())
         {
             currentTarget = ClosestTarget().transform;
-            GameObject healthbar = currentTarget.transform.GetChild(4).gameObject;
-            healthbar.SetActive(true);
+            if (currentTarget.tag== "Enemy" || currentTarget.tag== "Animal") 
+            {
+                GameObject healthbar = currentTarget.transform.GetChild(4).gameObject;
+                healthbar.SetActive(true);
+            }
+            
+            
             isTargeting = true;
             
         }
@@ -106,7 +111,7 @@ public class TargetLock : MonoBehaviour
     {
         
         GameObject[] gos;
-        gos = FindGameObjectsWithTags(new string[] { "Enemy", "Animal" });
+        gos = FindGameObjectsWithTags(new string[] { "Enemy", "Animal", "Boss" });
         GameObject closest = null;
         float distance = maxDistance;
         float currAngle = maxAngle;

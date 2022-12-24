@@ -13,7 +13,7 @@ public class EnemyHealth : MonoBehaviour
     public float maxHealth;
     public Quest quest;
     public NPCScript NPCScript;
-    SkinnedMeshRenderer skinnedMeshRenderer;
+     public SkinnedMeshRenderer skinnedMeshRenderer;
 
     public GameObject healthBar;
     public Slider slider;
