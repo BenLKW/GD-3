@@ -14,7 +14,7 @@ public class WeaponShowcase : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PressF.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
+        PressF.transform.position = new Vector3(this.transform.position.x, this.transform.position.y+1, this.transform.position.z);
         //pickUp = GetComponent<PickUpWeapon>();
     }
 

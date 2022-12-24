@@ -372,7 +372,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4519232644796343856}
-  - component: {fileID: 4716668511205803725}
   m_Layer: 0
   m_Name: Axe_Test
   m_TagString: Untagged
@@ -401,27 +400,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &4716668511205803725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3890083723015568522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f783a19960c5dbc458682f9ac80540c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PressF: {fileID: 0}
-  pickUp: {fileID: 0}
-  NPCGUI: {fileID: 0}
-  NPCGUIText: {fileID: 0}
-  lookRadius: 10
-  playerInLookingRadius: 0
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!1 &4204440089257768081
 GameObject:
   m_ObjectHideFlags: 0
