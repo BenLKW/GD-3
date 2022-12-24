@@ -477,7 +477,7 @@ MonoBehaviour:
   player: {fileID: 0}
   playerMovement: {fileID: 0}
   target: {fileID: 0}
-  rotateSpeed: 70
+  rotateSpeed: 60
   range: 50
   BossPatrollingCenter: {fileID: 1814801696980173276, guid: 5b6450dd6f8f3b947884487e2cc54f43, type: 3}
   alreadyAttacked: 0
@@ -490,6 +490,7 @@ MonoBehaviour:
   attackRadius: 5
   playerInLookRadius: 0
   playerInAttackRadius: 0
+  isDead: 0
 --- !u!114 &2055341748559741400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -503,6 +504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 3933317266029228459}
+  bossAI: {fileID: 0}
   currentHealth: 0
   maxHealth: 20
   healthBar: {fileID: 0}
@@ -518,7 +520,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 3
-  m_Speed: 7
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 99
   m_AngularSpeed: 120
