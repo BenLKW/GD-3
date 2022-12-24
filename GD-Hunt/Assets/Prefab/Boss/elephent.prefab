@@ -467,7 +467,6 @@ GameObject:
   - component: {fileID: 7962935017190508856}
   - component: {fileID: 8806721577521471217}
   - component: {fileID: 6700556612701856443}
-  - component: {fileID: 4576130052205990568}
   m_Layer: 0
   m_Name: elephent
   m_TagString: Untagged
@@ -675,48 +674,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   canSeePlayer: 0
---- !u!23 &4576130052205990568
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2463753305998906360}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &2536602422827672802
 GameObject:
   m_ObjectHideFlags: 0
@@ -1107,11 +1064,11 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 6271573414225017425, guid: 2de67237e8472c34e99707fe0eb9843f, type: 3}
-  - {fileID: 5955844840416208063, guid: 2de67237e8472c34e99707fe0eb9843f, type: 3}
-  - {fileID: 8748892135801146194, guid: 2de67237e8472c34e99707fe0eb9843f, type: 3}
-  - {fileID: 6034957751646507721, guid: 2de67237e8472c34e99707fe0eb9843f, type: 3}
-  - {fileID: 8368722655750445499, guid: 2de67237e8472c34e99707fe0eb9843f, type: 3}
+  - {fileID: 2100000, guid: b777fd29c7ec5ef42a21455e9ef9c400, type: 2}
+  - {fileID: 2100000, guid: 95bb35f3de2c06c4ead6475ad4888a04, type: 2}
+  - {fileID: 2100000, guid: 943027618a1316f41ae969b242b76d66, type: 2}
+  - {fileID: 2100000, guid: e1b879e1b19943a4ca3f3f57c308e5c5, type: 2}
+  - {fileID: 2100000, guid: e1eedc42ee84f9f4ebd95acb5f9df933, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2183,6 +2140,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   Bar: {fileID: 0}
   fov: {fileID: 6700556612701856443}
+  skinnedMeshRenderer: {fileID: 3973754871053655493}
 --- !u!1 &7479430523861824507
 GameObject:
   m_ObjectHideFlags: 0

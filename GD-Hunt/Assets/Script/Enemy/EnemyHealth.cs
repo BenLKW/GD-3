@@ -14,15 +14,12 @@ public class EnemyHealth : MonoBehaviour
     public Quest quest;
     public NPCScript NPCScript;
      public SkinnedMeshRenderer skinnedMeshRenderer;
-
+    Color originalColor;
     public GameObject healthBar;
     public Slider slider;
     public TargetLock TargetLock;
 
-    public float blinkIntensity;
-    public float blinkDuration;
-    float blinkTimer;
-    public float value;
+    
 
 
     private void Start()
@@ -38,6 +35,7 @@ public class EnemyHealth : MonoBehaviour
         currentHealth = maxHealth;
         slider.value = CalculateHealth();
         healthBar.SetActive(false);
+        originalColor = skinnedMeshRenderer.material.color;
     }
 
     private void Update()
@@ -62,14 +60,21 @@ public class EnemyHealth : MonoBehaviour
 
 
         LowHealthState();
-        blinkTimer -= Time.deltaTime;
-        float lerp = Mathf.Clamp01(blinkTimer / blinkDuration);
-        float Intensity = (lerp * blinkIntensity)+value;
-        skinnedMeshRenderer.material.color = Color.red * Intensity;
+        
 
     }
 
-    
+    public IEnumerator FlashRed()
+    {
+
+        skinnedMeshRenderer.material.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        ResetColor();
+    }
+    void ResetColor()
+    {
+        skinnedMeshRenderer.material.color = originalColor;
+    }
     private void LowHealthState()
     {
         if (currentHealth < 3)
@@ -89,8 +94,10 @@ public class EnemyHealth : MonoBehaviour
         {
             Die();
         }
-        blinkTimer = blinkDuration;
+        StartCoroutine(FlashRed());
+      
     }
+   
     private float CalculateHealth()
     {
         return currentHealth / maxHealth;

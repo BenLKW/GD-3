@@ -12,8 +12,9 @@ public class BossHealth : MonoBehaviour
     public HealthBar healthBar;
     public GameObject Bar;
     public FieldOfView fov;
-    
-    
+
+    public SkinnedMeshRenderer skinnedMeshRenderer;
+    Color originalColor;
 
 
     void Start()
@@ -23,6 +24,7 @@ public class BossHealth : MonoBehaviour
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
         Bar.SetActive(false);
+        
     }
 
     // Update is called once per frame
@@ -56,7 +58,19 @@ public class BossHealth : MonoBehaviour
         {
             Die();
         }
-       
+        FlashRed();
+    }
+
+    public IEnumerator FlashRed()
+    {
+
+        skinnedMeshRenderer.material.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        ResetColor();
+    }
+    void ResetColor()
+    {
+        skinnedMeshRenderer.material.color= originalColor;
     }
     public void Die()
     {
