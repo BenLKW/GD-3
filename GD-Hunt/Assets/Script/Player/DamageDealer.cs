@@ -55,6 +55,12 @@ public class DamageDealer : MonoBehaviour
                 other.GetComponent<FriendlyHealth>().health = other.GetComponent<FriendlyHealth>().health - damageAmount;
                 hasDealDamage = true;
             }
+
+            if (other.tag == "Boss")
+            {
+                other.GetComponent<BossHealth>().TakeDamage(damageAmount);
+
+            }
         }
 
         
