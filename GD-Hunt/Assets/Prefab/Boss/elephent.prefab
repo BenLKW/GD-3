@@ -505,7 +505,8 @@ MonoBehaviour:
   currentHealth: 0
   maxHealth: 20
   healthBar: {fileID: 0}
-  slider: {fileID: 0}
+  Bar: {fileID: 0}
+  fov: {fileID: 6700556612701856443}
 --- !u!195 &4096438601117994989
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -9,20 +9,29 @@ public class BossHealth : MonoBehaviour
     public int currentHealth;
     public int maxHealth;
     public HealthBar healthBar;
-    
+    public GameObject Bar;
+    public FieldOfView fov;
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
-        //slider.value = CalculateHealth();
+        
         healthBar.SetMaxHealth(maxHealth);
-        //healthBar.SetActive(false);
+        Bar.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (fov.canSeePlayer)
+        {
+            Bar.SetActive(true);
+
+        }
+        else
+        {
+            Bar.SetActive(false);
+        }
        
 
         if (currentHealth > maxHealth)
