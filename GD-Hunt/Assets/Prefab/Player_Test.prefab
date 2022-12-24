@@ -1443,8 +1443,8 @@ MonoBehaviour:
   ThrowUpwardForce: 5
   TotalThrow: 20
   ThrowCoolDown: 1
-  ThrowDir: {fileID: 0}
-  AtkPoi: {fileID: 0}
+  ThrowDir: {fileID: 2846381256714413979}
+  AtkPoi: {fileID: 4873037172591460024}
   ObjectToTrow: {fileID: 9012555380609131139, guid: 14bb9273ff872304ba7acfa470259560, type: 3}
   StonePic: {fileID: 6469069325203125632}
   AidPic: {fileID: 6610329645257849994}
@@ -2979,5 +2979,10 @@ PrefabInstance:
 --- !u!4 &2846381256714413979 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7444347691899360835, guid: 13ebd87bc2e1df34bb5405cf1ae0c91f, type: 3}
+  m_PrefabInstance: {fileID: 4670165076142191064}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4873037172591460024 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 247490282746384224, guid: 13ebd87bc2e1df34bb5405cf1ae0c91f, type: 3}
   m_PrefabInstance: {fileID: 4670165076142191064}
   m_PrefabAsset: {fileID: 0}
