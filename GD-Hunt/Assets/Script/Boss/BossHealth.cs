@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class BossHealth : MonoBehaviour
 {
     public Animator anim;
+    public BossAI bossAI;
     public int currentHealth;
     public int maxHealth;
     public HealthBar healthBar;
@@ -18,7 +19,7 @@ public class BossHealth : MonoBehaviour
     void Start()
     {
 
-        
+        bossAI = GetComponent<BossAI>();
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
         Bar.SetActive(false);
@@ -27,7 +28,7 @@ public class BossHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (fov.canSeePlayer)
+        if (fov.canSeePlayer&bossAI.isDead==false)
         {
             Bar.SetActive(true);
 
@@ -60,10 +61,11 @@ public class BossHealth : MonoBehaviour
     public void Die()
     {
         anim.SetBool("Dead", true);
-        Destroy(GetComponent<BoxCollider>());
-        
+        //Destroy(GetComponent<BoxCollider>());
+        bossAI.isDead = true;
         anim.SetFloat("Speed", 0);
+        
     }
-
-    
+   
+   
 }

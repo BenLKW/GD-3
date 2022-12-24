@@ -26,7 +26,7 @@ public class BossAI : MonoBehaviour
 
     public float lookRadius = 10f;
     public float attackRadius = 2f;
-    public bool playerInLookRadius, playerInAttackRadius;
+    public bool playerInLookRadius, playerInAttackRadius,isDead;
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -44,14 +44,14 @@ public class BossAI : MonoBehaviour
         playerInLookRadius = Physics.CheckSphere(transform.position, lookRadius, whatIsPlayer);
         playerInAttackRadius = Physics.CheckSphere(transform.position, attackRadius, whatIsPlayer);
         anim.SetFloat("Speed", boss.velocity.magnitude);
-        if (!playerInLookRadius)
+        if (!playerInLookRadius&!isDead)
         {
             Patroling();
             player = null;
             playerMovement = null;
 
         }
-        if (playerInLookRadius && !playerInAttackRadius)
+        if (playerInLookRadius && !playerInAttackRadius&!isDead)
         {
 
             AssignTarget();
@@ -63,7 +63,7 @@ public class BossAI : MonoBehaviour
             }
 
         }
-        if (playerInAttackRadius && playerInLookRadius&&fov.canSeePlayer)
+        if (playerInAttackRadius && playerInLookRadius&&fov.canSeePlayer&!isDead)
         {
 
             AssignTarget();

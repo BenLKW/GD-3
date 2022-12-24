@@ -508,7 +508,6 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   Bar: {fileID: 0}
   fov: {fileID: 6700556612701856443}
-  flashTime: 0.15
 --- !u!195 &4096438601117994989
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -611,10 +610,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.2961782
-  m_Height: 5.898926
+  m_Radius: 2
+  m_Height: 6
   m_Direction: 2
-  m_Center: {x: 0.015558839, y: 2.7264097, z: -1.2714233}
+  m_Center: {x: 0.015558839, y: 2.5, z: -1.2714233}
 --- !u!54 &8806721577521471217
 Rigidbody:
   m_ObjectHideFlags: 0
