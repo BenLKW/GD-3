@@ -11,11 +11,15 @@ public class BossHealth : MonoBehaviour
     public HealthBar healthBar;
     public GameObject Bar;
     public FieldOfView fov;
-    // Start is called before the first frame update
+    
+    
+
+
     void Start()
     {
-        currentHealth = maxHealth;
+
         
+        currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
         Bar.SetActive(false);
     }
@@ -38,17 +42,20 @@ public class BossHealth : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
+
+        
     }
     
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
         healthBar.SetHealth(currentHealth);
+        
         if (currentHealth <= 0.0f)
         {
             Die();
         }
-        //blinkTimer = blinkDuration;
+       
     }
     public void Die()
     {
@@ -57,4 +64,6 @@ public class BossHealth : MonoBehaviour
         
         anim.SetFloat("Speed", 0);
     }
+
+    
 }
