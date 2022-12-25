@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 
@@ -10,17 +11,18 @@ public class Quest : MonoBehaviour
 {
     public int currentAmount;
     public int requiredAmount;
-    public NPCScript questFalse;
-    public Dialogue dialogue;
+    public NPCScript npcScript;
+    public GameObject quessProgress;
+
 
 
     public void Awake()
     {
-        dialogue =GameObject.Find("NPC_Test").GetComponent<Dialogue>();
+        
     }
     public void Update()
     {
-        questFalse = GameObject.Find("NPC_Test").GetComponent<NPCScript>();
+        npcScript = GameObject.Find("NPC_Test").GetComponent<NPCScript>();
         QuestCompleted();
        
     }
@@ -30,10 +32,11 @@ public class Quest : MonoBehaviour
     {
         if (currentAmount >= requiredAmount)
         {
-            questFalse.isQuesting = false;
-            questFalse.Startbar.SetActive(false);
-            questFalse.Endbar.SetActive(true);
-            dialogue.QuestProgress.SetActive(false);
+            npcScript.isQuesting = false;
+            npcScript.Startbar.SetActive(false);
+            quessProgress.SetActive(false);
+            npcScript.Endbar.SetActive(true);
+            
             Invoke("Endbargone", 2f);
             currentAmount = 0;
             Debug.Log("Quest End");
@@ -42,6 +45,6 @@ public class Quest : MonoBehaviour
 
     void Endbargone()
     {
-        questFalse.Endbar.SetActive(false);
+        npcScript.Endbar.SetActive(false);
     }
 }

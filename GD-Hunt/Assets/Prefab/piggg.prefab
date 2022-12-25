@@ -423,9 +423,6 @@ MonoBehaviour:
   healthBar: {fileID: 5067053543922806957}
   slider: {fileID: 4372023096841755701}
   TargetLock: {fileID: 0}
-  blinkIntensity: 3
-  blinkDuration: 0.25
-  value: 0
 --- !u!54 &1640227989733820291
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -622,7 +619,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: ea1ba9485daae3c4a90965ff7b99fa65, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

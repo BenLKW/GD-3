@@ -7,10 +7,18 @@ public class BossHealth : MonoBehaviour
 {
     public Animator anim;
     public BossAI bossAI;
+
+    //NPC and Quest
+    public Quest quest;
+    public NPCScript NPCScript;
+
+    //Health
     public int currentHealth;
     public int maxHealth;
     public HealthBar healthBar;
     public GameObject Bar;
+
+    //Snesor
     public FieldOfView fov;
 
     public SkinnedMeshRenderer skinnedMeshRenderer;
@@ -24,7 +32,8 @@ public class BossHealth : MonoBehaviour
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
         Bar.SetActive(false);
-        
+        quest = GameObject.Find("Quest").GetComponent<Quest>();
+        NPCScript = GameObject.Find("NPC_Test").GetComponent<NPCScript>();
     }
 
     // Update is called once per frame
@@ -78,7 +87,10 @@ public class BossHealth : MonoBehaviour
         //Destroy(GetComponent<BoxCollider>());
         bossAI.isDead = true;
         anim.SetFloat("Speed", 0);
-        
+        if (NPCScript.isQuesting == true)
+        {
+            quest.currentAmount++;
+        }
     }
    
    

@@ -468,7 +468,7 @@ GameObject:
   - component: {fileID: 8806721577521471217}
   - component: {fileID: 6700556612701856443}
   m_Layer: 0
-  m_Name: elephent
+  m_Name: elephant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2135,6 +2135,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 3933317266029228459}
   bossAI: {fileID: 4224760706723750504}
+  quest: {fileID: 0}
+  NPCScript: {fileID: 0}
   currentHealth: 0
   maxHealth: 20
   healthBar: {fileID: 0}

@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: f758a08e7b38bef408a7d217cb0494aa
+guid: 86db140232d9eea43a5b524eabb07f4a
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: Villager_Idle
+    second: Villager_IDLE
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -36,7 +36,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Villager_Idle
+      name: Villager_IDLE
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0

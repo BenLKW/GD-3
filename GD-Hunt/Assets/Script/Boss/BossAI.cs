@@ -8,7 +8,7 @@ public class BossAI : MonoBehaviour
     public Animator anim;
 
     private NavMeshAgent boss;
-    
+    private BossHealth bossHealth;
     public Transform player;
     public PlayerMovement playerMovement;
 

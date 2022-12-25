@@ -112,10 +112,7 @@ public class EnemyHealth : MonoBehaviour
         enemyAI.isDead = true;
         randomspawner.enemyCount -= 1;
 
-        if (NPCScript.isQuesting == true)
-        {
-            quest.currentAmount++;
-        }
+       
         
         
     }
