@@ -534,6 +534,7 @@ MonoBehaviour:
   BossPatrollingCenter: {fileID: 1814801696980173276, guid: 5b6450dd6f8f3b947884487e2cc54f43, type: 3}
   alreadyAttacked: 0
   timeBetweenAttacks: 1
+  timeBetweenAttacks1: 0
   fov: {fileID: 6700556612701856443}
   FrontDetector: {fileID: 863831226138432580}
   whatIsPlayer:
@@ -2138,7 +2139,7 @@ MonoBehaviour:
   quest: {fileID: 0}
   NPCScript: {fileID: 0}
   currentHealth: 0
-  maxHealth: 20
+  maxHealth: 30
   healthBar: {fileID: 0}
   Bar: {fileID: 0}
   fov: {fileID: 6700556612701856443}

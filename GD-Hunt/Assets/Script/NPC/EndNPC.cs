@@ -36,7 +36,7 @@ public class EndNPC : MonoBehaviour
 
         if (bossAI.isDead==true)
         {
-            endNPC.transform.position = new Vector3(elephant.transform.position.x+20, 0, elephant.transform.position.z + 20);
+            endNPC.transform.position = new Vector3(268.8f,0,390);
             PressF.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 1f, this.transform.position.z);
             //TextName.SetActive(true);
         }

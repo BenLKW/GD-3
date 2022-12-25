@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float deceleration = 0.5f;
     int VelocityHash;
     public TargetLock TargetLock;
+    public AudioSource GetHit, Dead, Walk;
 
 
     [Header("Movement")]
@@ -33,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     public float dashDuraction;
     public float dashCd;
     private float dashCdTimer;
+    public Collider AttackedDetector;
 
     [Header("Attask")]
     public int CountAttack;
@@ -534,6 +536,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 HasPlayedAnim = true;
                 animator.SetTrigger("Dead");
+                Dead.Play();
             }
         }
 
@@ -549,6 +552,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetTrigger("IsDashing");
         Vector3 forceApply = moveDirection.normalized * dashForce;
         delayedForceToApply = forceApply;
+        AttackedDetector.enabled = false;
         Invoke(nameof(DelayedDashForce), 0.025f);
 
         Invoke(nameof(ResetDash), dashDuraction);
@@ -561,7 +565,7 @@ public class PlayerMovement : MonoBehaviour
     void ResetDash()
     {
         dashing = false;
-
+        AttackedDetector.enabled = true;
     }
 
 
@@ -593,5 +597,15 @@ public class PlayerMovement : MonoBehaviour
     private void ResetThrow()
     {
         ReadyToThrow = true;
+    }
+
+    public void GetHitAudio()
+    {
+        GetHit.Play();
+    }
+
+    public void WalkStep()
+    {
+        Walk.Play();
     }
 }

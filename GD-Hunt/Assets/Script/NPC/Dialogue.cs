@@ -10,10 +10,12 @@ public class Dialogue : MonoBehaviour
     public float textSpeed;
     public GameObject QuestProgress;
     private int index;
+    
 
     // Start is called before the first frame update
     void Start()
     {
+        
         textComponent.text = string.Empty;
         StartDialogue();
     }

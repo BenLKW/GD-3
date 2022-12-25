@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DamageDealer : MonoBehaviour
 {
-
+    public AudioSource Hit;
     Collider AxeDetactor;
     public bool hasDealDamage;
     [SerializeField] float weaponLength;
@@ -46,7 +46,7 @@ public class DamageDealer : MonoBehaviour
                 other.GetComponent<Animator>().SetInteger("GetHitIndex", Random.Range(0, 2));
                 other.GetComponent<Animator>().SetTrigger("GetHit");
                 hasDealDamage = true;
-
+                Hit.Play();
 
             }
             
@@ -54,6 +54,7 @@ public class DamageDealer : MonoBehaviour
             {
                 other.GetComponent<FriendlyHealth>().health = other.GetComponent<FriendlyHealth>().health - damageAmount;
                 hasDealDamage = true;
+                Hit.Play();
             }
 
             if (other.tag == "Boss")
@@ -61,7 +62,7 @@ public class DamageDealer : MonoBehaviour
                 
                 other.GetComponent<BossHealth>().TakeDamage(damageAmount);
                 hasDealDamage = true;
-
+                Hit.Play();
             }
         }
 

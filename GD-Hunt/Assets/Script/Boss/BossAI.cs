@@ -20,6 +20,7 @@ public class BossAI : MonoBehaviour
 
     public bool alreadyAttacked;
     public float timeBetweenAttacks;
+    public float timeBetweenAttacks1;
 
     public FieldOfView fov,FrontDetector;
     public LayerMask whatIsPlayer;
@@ -74,10 +75,7 @@ public class BossAI : MonoBehaviour
             }
 
         }
-        if (FrontDetector.canSeePlayer)
-        {
-            Debug.Log("Hello World");
-        }
+        
     }
     private void Chase()
     {
@@ -113,10 +111,18 @@ public class BossAI : MonoBehaviour
 
         if (!alreadyAttacked)
         {
-
-            anim.SetTrigger("Attack");
-            alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            if (FrontDetector.canSeePlayer)
+            {
+                anim.SetTrigger("Attack");
+                alreadyAttacked = true;
+                Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            }
+            else if (!FrontDetector.canSeePlayer)
+            {
+                anim.SetTrigger("Attack2");
+                alreadyAttacked = true;
+                Invoke(nameof(ResetAttack), timeBetweenAttacks1);
+            }
 
         }
         
@@ -131,15 +137,29 @@ public class BossAI : MonoBehaviour
     public void StartDealDamage()
     {
 
+        if (FrontDetector.canSeePlayer)
+        {
+            GetComponentInChildren<BossAttackDetector>().StartDealDamage();
+        }
+        else if (!FrontDetector.canSeePlayer)
+        {
+            GetComponentInChildren<BossAttackDetector1>().StartDealDamage();
+        }
         
-      GetComponentInChildren<BossAttackDetector>().StartDealDamage();
         
 
     }
     public void EndDealDamage()
     {
+        if (FrontDetector.canSeePlayer)
+        {
+            GetComponentInChildren<BossAttackDetector>().EndDealDamage();
+        }
+        else if (!FrontDetector.canSeePlayer)
+        {
+            GetComponentInChildren<BossAttackDetector1>().EndDealDamage();
+        }
         
-       GetComponentInChildren<BossAttackDetector>().EndDealDamage();
         
     }
     private void OnDrawGizmosSelected()
