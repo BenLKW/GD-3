@@ -4329,6 +4329,26 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 520902958028082408, guid: 2d90c99e328eedc4eb4894b859120554, type: 3}
+      propertyPath: m_Height
+      value: 584.64764
+      objectReference: {fileID: 0}
+    - target: {fileID: 520902958028082408, guid: 2d90c99e328eedc4eb4894b859120554, type: 3}
+      propertyPath: m_Radius
+      value: 171.31407
+      objectReference: {fileID: 0}
+    - target: {fileID: 520902958028082408, guid: 2d90c99e328eedc4eb4894b859120554, type: 3}
+      propertyPath: m_Center.x
+      value: -33.227226
+      objectReference: {fileID: 0}
+    - target: {fileID: 520902958028082408, guid: 2d90c99e328eedc4eb4894b859120554, type: 3}
+      propertyPath: m_Center.y
+      value: -108.93691
+      objectReference: {fileID: 0}
+    - target: {fileID: 520902958028082408, guid: 2d90c99e328eedc4eb4894b859120554, type: 3}
+      propertyPath: m_Center.z
+      value: 1.4146262e-14
+      objectReference: {fileID: 0}
     - target: {fileID: 691194624791965859, guid: 2d90c99e328eedc4eb4894b859120554, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.00000012865209
@@ -6856,10 +6876,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.2990613
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0.0084278565, y: 0, z: -0.02360197}
 --- !u!4 &1945152249 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4545898056911163603, guid: 084c4f282c709e54ba07291f977ceae3, type: 3}
